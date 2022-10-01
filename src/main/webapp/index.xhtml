@@ -28,26 +28,70 @@
                         <h:inputText id="autoText" onblur="hidePopup()" 
                         onfocus="getQuery(this.value)" onkeyup="getQuery(this.value)" 
                         value="#{SelectedTitleRecord.selectedTitle}" />
-                        <h:commandButton value="OK"/>
+                        <h:commandButton value="OK" action="#{searchBean.send}"/>
                         
                         
-                        </h:form>
-<!--                   <h:form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search" />
-                    <h:commandButton type="submit" action="#{login.validateUsernamePassword()}"/><i class="fa fa-search"></i>
-                  </h:form>-->
+                    </h:form>
                 </div>
               </div>
-        <header class="masthead" style="background-image: url('./resources/images/search.jpg')">
-            <div class="container">
-                <div class="masthead-subheading text-warning">Bienvenue dans notre site</div>
-                <div class="masthead-heading text-uppercase">Chercher la richesse des pays</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="">Savoir plus</a>
-            </div>
-        </header>
-        <!--h:graphicImage value="resources/images/error.png" -->
+            <header class="masthead" style="background-image: url('./resources/images/search.jpg')">
+                <div class="container">
+                    <div class="masthead-subheading text-warning">Bienvenue dans notre site</div>
+                    <div class="masthead-heading text-uppercase">Chercher la richesse des pays</div>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="">Savoir plus</a>
+                </div>
+            </header>
         <section class="page-section">
-            <table>
+            <h:dataTable value="#{bean.sites}" var="site">
+                <h:column><h:inputText value="#{site.name}" /></h:column>
+                <h:column><h:inputText value="#{site.description}" /></h:column>
+            </h:dataTable>
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap"></img>
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap"></img>
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap"></img>
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap"></img>
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+<!--            <table>
                 <tr>
                       <td>
                    <h:outputText styleClass="heading" value="Title 
@@ -66,7 +110,7 @@
                         <h:outputText value="#{SelectedTitleRecord.description}" />
                         </td>
                 </tr>
-            </table>
+            </table>-->
         </section>
         <section class="page-section" id="about">
             <div class="container">

@@ -4,10 +4,29 @@
  */
 package bean;
 
+import java.io.Serializable;
+import javax.inject.Named;
+
 /**
  *
  * @author BOUGARYTAMEGA
  */
-public class Search {
-    
+@Named("searchBean")
+public class Search implements Serializable{
+private static final long serialVersionUID = 2729758432756108274L;
+    public String getWord() {
+        return word;
+    }
+
+    public Search(String word) {
+        this.word = word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+   private String word;
+  public void send(){
+      
+  }
 }
