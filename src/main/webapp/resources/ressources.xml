@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<continents>
+    <continent name="Afrique">
+        <countries> 
+            <country>
+                <name></name>
+                <ressources type="touristique">
+                    <ressource category="attractions">
+                        
+                    </ressource>
+                    <ressource category="visitesGuidees">
+                        
+                    </ressource>
+                    <ressource category="excursions">
+                        
+                    </ressource>
+                    <ressource category="restauration">
+                        
+                    </ressource>
+                    <ressource category="concerts">
+                        
+                    </ressource>
+                    <ressource category="transport">
+                        
+                    </ressource>
+                    <ressource category="medicales">
+                        
+                    </ressource>
+                    <ressource category="bibliotheques">
+                        
+                    </ressource>
+                </ressources>
+            </country> 
+        </countries>
+    <continent/>
+</continents>
