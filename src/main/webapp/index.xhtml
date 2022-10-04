@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta charset="utf-8" />
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -42,75 +43,23 @@
                 </div>
             </header>
         <section class="page-section">
-            <h:dataTable value="#{bean.sites}" var="site">
-                <h:column><h:inputText value="#{site.name}" /></h:column>
-                <h:column><h:inputText value="#{site.description}" /></h:column>
-            </h:dataTable>
+           
             <div class="container">
                 <div class="row">
-                    <div class="col-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap"></img>
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <c:forEach var="item" items="#{bean.getSites()}" >
+                        <div class="col-3">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="..." alt="Card image cap"></img>
+                                <div class="card-body">
+                                    <h5 class="card-title">#{item.name}</h5>
+                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap"></img>
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap"></img>
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap"></img>
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
-                
-<!--            <table>
-                <tr>
-                      <td>
-                   <h:outputText styleClass="heading" value="Title 
-                   Details" rendered="#{SelectedTitleRecord.selected}" />
-                   </td>
-                   </tr>
-                <tr>
-                    <td><b>
-                    <h:outputLink value="#{SelectedTitleRecord.link}">
-                    <h:outputText value="#{SelectedTitleRecord.titlename}" />
-                    </h:outputLink></b>
-                    </td>
-                </tr>
-                <tr>
-                     <td>
-                        <h:outputText value="#{SelectedTitleRecord.description}" />
-                        </td>
-                </tr>
-            </table>-->
         </section>
         <section class="page-section" id="about">
             <div class="container">
