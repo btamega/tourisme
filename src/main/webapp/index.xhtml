@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="utf-8" />
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -46,14 +47,14 @@
            
             <div class="container">
                 <div class="row">
-                    <c:forEach var="item" items="#{bean.getSites()}" >
+                    <c:forEach var="item" items="#{ressourceBean.affiche()}" >
                         <div class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="..." alt="Card image cap"></img>
+                                <img class="card-img-top" src="#{item.images[0].paths}/caption.jpg" alt="Card image cap"></img>
                                 <div class="card-body">
                                     <h5 class="card-title">#{item.name}</h5>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <p class="card-text">#{item.description}</p>
+                                  <a href="#" class="btn btn-primary">Découvrir</a>
                                 </div>
                             </div>
                         </div>

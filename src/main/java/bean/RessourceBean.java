@@ -9,32 +9,21 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
+import javax.faces.bean.ManagedBean;
 import org.bson.Document;
-import tamega.attractions.Attractions;
-import tamega.attractions.Images;
-import tamega.attractions.Site;
+import com.mycompany.tourisme.Images;
+import com.mycompany.tourisme.Site;
 
 /**
  *
  * @author BOUGARYTAMEGA
  */
-@Named
-@RequestScoped
-public class Bean {
-   
-
-    public List<Site> getSites() { 
+@ManagedBean
+public class RessourceBean {
+    public List<Site> affiche(){
+        System.out.println("Test");
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017/");
         MongoDatabase database = mongoClient.getDatabase("tourisme");
         MongoCollection<Document> collection = database.getCollection("ressources");
@@ -63,6 +52,10 @@ public class Bean {
                     System.out.println(document1.get("name"));
                 }
         }
+        System.out.println(sitesList.size());
         return sitesList;
+    }
+    public void createRess(){
+        
     }
 }

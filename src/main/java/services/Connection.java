@@ -11,8 +11,8 @@ import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
-import tamega.attractions.Images;
-import tamega.attractions.Site;
+import com.mycompany.tourisme.Images;
+import com.mycompany.tourisme.Site;
 /**
  *
  * @author BOUGARYTAMEGA
