@@ -1,0 +1,52 @@
+[{
+    "bibliotheque":[
+        {
+          "name": "Librairie Chatr",
+          "localisation": "19-21, Avenue Mohamed V, Guéliz, Marrakech, Maroc",
+          "siteweb": "https://www.librairiechatr.com/",
+          "telephone": "+212 5 24 44 79 97",
+          "email": "librairie@groupechatr.com",
+          "ouverture": "Ouvert du lundi au samedi de 8h30 à 13h et de 15h à 20h.",
+          "description": "Ouverte depuis 1965, c'est l'une des plus anciennes librairies de la ville. Si vous avez des envies de lecture, vous y trouverez des livres de poche, des classiques, des polars et les derniers romans ou best-sellers en date. C'est également là que vous pourrez acquérir tout ce que la littérature a sorti de meilleur en matière de romans et autres ouvrages sur le Maroc. Le rayon consacré au pays est très bien pourvu et on a l'embarras du choix. Pourquoi ne pas profiter de l'occasion pour découvrir des auteurs marocains ? Binebine, Laroui, Choukri, ils sont tous là !"
+        },
+        {
+          "name": "MENZIL EL FAN",
+          "localisation": "Résidence Tayeb (à côté du restaurant El Fassia), 55, boulevard Zerktouni, Guéliz Marrakech",
+          "siteweb": "",
+          "telephone": "+212 5 24 44 67 92",
+          "email": "",
+          "ouverture": "",
+          "description": "Cette librairie spécialisée dans les livres d'art se fait discrète, au fond de l'allée qui mène au restaurant El Fassia, mais pleine de trésors pour qui aime l'art et la lecture. L'accueil est doux et chaleureux. A Menzil el Fan (littéralement Pour l'art des Hommes) on trouve pléthore de beaux livres, tous dédiés aux arts, comme son nom l'indique. Mais aussi un fonds fourni sur la ville de Marrakech, quelques cartes culturelles de certaines régions marocaines, ainsi que des reproductions de bonne facture d'artistes contemporains marocains."
+        },
+        {
+          "name": "BOUQUINISTES DE BAB DOUKKALA",
+          "localisation": "Le long des remparts à Bab Doukkala Marrakech ",
+          "siteweb": "",
+          "telephone": "",
+          "email": "",
+          "ouverture": "",
+          "description": "Comme Paris a ses bouquinistes le long de la Seine, Marrakech a les siens le long des remparts près de la gare routière de Bab Doukkala. Touchés par un incendie en juin 2020, sept kiosques ont pu rouvrir grâce à un formidable élan de solidarité à travers tout le pays. On se plaît à déambuler de l'une à l'autre, en quête d'un ouvrage spécial, celui qu'on cherche depuis longtemps, d'une édition épuisée, qu'il soit neuf ou d'occasion et qu'on s'offrira pour un prix dérisoire."
+
+        },
+        {
+          "name": "MUSÉE BERBÈRE-BOOK STORE",
+          "localisation": "Avenue Yacoub El Mansour Marrakech ",
+          "siteweb": "",
+          "telephone": "",
+          "email": "",
+          "ouverture": "Du 1er octobre au 30 avril : de 8h à 17h30, du 1er mai au 30 septembre : de 8h à 18h. Mois du ramadan : de 9h à 17h. Jardin : 70 DH. Musée : 30 DH.",
+          "description": "Les amateurs d'histoire et de culture berbère fileront directement au « book store » où l'on peut trouver de jolis livres, affiches et posters s'inspirant des collages d'Yves Saint Laurent. "
+
+        },
+        {
+          "name": "CAFÉ DU LIVRE",
+          "localisation": "44, rue Tariq Ibn Ziad, Guéliz Marrakech",
+          "siteweb": "",
+          "telephone": "+212 5 24 44 69 21",
+          "email": "",
+          "ouverture": "Ouvert tous les jours de 11h à minuit, fermé le dimanche.",
+          "description": "Librairie ou café ? Les deux mon capitaine ! Dès l'entrée, on note de nombreux ouvrages en anglais, en français ou en allemand, sur les étagères ou les tables. Ils sont neufs ou d'occasion, le choix est large et le rayon Maroc (romans, photos, poésie, contes, etc.) s'avère lui assez conséquent. Et comme son nom l'indique, cette enseigne est aussi un café. Vous avez donc la possibilité de vous lover dans un fauteuil avec un chocolat chaud, un jus ou même un cheeseburger sans oublier votre livre… Le lundi soir est consacré à des quizz en anglais, why not ?"
+
+        }
+      ]
+}]

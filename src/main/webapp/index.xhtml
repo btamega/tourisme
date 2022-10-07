@@ -62,6 +62,35 @@
                 </div>
             </div>
         </section>
+        
+        <h2>Bibliotheque</h2>
+        <section class="page-section">
+           
+            <div class="container">
+                <div class="row">
+                    <c:forEach var="item" items="#{ressourceBean.getBibliotheques()}" >
+                        <div class="col-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">#{item.name}</h5>
+                                    <h6 class="card-title">#{item.telephone}</h6>
+                                    <h6 class="card-title">#{item.email}</h6>
+                                    <h6 class="card-title">#{item.siteweb}</h6>
+                                    <h6 class="card-title">#{item.localisation}</h6>
+
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        
         <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">

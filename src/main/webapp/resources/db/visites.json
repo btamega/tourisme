@@ -1,0 +1,97 @@
+[{
+    "visites": [
+        {
+          "titre": "",
+          "guide": {
+            "name": "",
+            "contact": ""
+          },
+          "images": {
+            "path": "resources/images/attractions/visitesGuidees/merzouga"
+          },
+          "description": "The 3 days desert tour from marrakech to merzouga dunes & camel trek, including : Merzouga desert tour departure from Marrakech 3 days will allow you to explore the southern Sahara and its wonderful Kasbahs and to live unforgettable moments with the Berbers, as well as the visit of the old kasbah to Ait ben Haddou and Toudra gorge, sleep in a desert camp under Berber tent. TOUR HIGHLIGHTS : Cross the High Atlas Mountains with its pass of Tizi Ntichka Visit the legendary world heritage site of Kasbah Ait Ben Haddou Visit Todra gorges and Tinghir oasis Ride a camel in Erg Chebbi to watch the colour changing sunset & sunrise Spend the night at a Berbr desert camp sandbordin",
+          "cost": "1000 Dhs",
+          "duree": "3 jours",
+          "circuit": {
+            "depart": "Marrakech",
+            "arrivee": "Merzouga Dunes",
+            "duree": ""
+          },
+          "avis": {
+            "commentaire": [
+              {
+                "message": "Excellente journée, le guide est tres respectueux et a l'ecoute, bus propre et climatisé explication sur les villes tres clair et pousser en francais et en anglais. Experience a refaire !! merci ilyes",
+                "date": "Sep 19 2022",
+                "user": "aouladl"
+              },
+              {
+                "message": "Superbe journée au départ de Marrakech, la compagnie s’arrange pour venir vous chercher au plus près de votre hôtel/Riad Nous avons vu les fameux arganiers et visité une coopérative de fabrication d’huile Argan. La journée a Essouira fut superbe et notre chauffeur Ayoub tout au long du trajet extrêmement gentil !! Je recommande vivement c’était une superbe expérience !",
+                "date": "Sep 13 2022",
+                "user": "Juliette B"
+              },
+              {
+                "message": "Pour commencer très bon rapport qualité-prix il vient de vous récupérer à votre hôtel si vous êtes sur Marrakech tout s'est bien passé la coopérative était nickel et le temps libre sur Essaouira top du top nous avons mangé dans un restaurant en tout cas pour ma part qui s'appelait Maroc salut très bon. Accueil et la prise en charge de Hassan & Salah au top il sont très gentils,souriant il nous explique bien les choses une chose et sur je ferais appel à cette agence pour l'excursion. Inès.",
+                "date": "Sep 11 2022",
+                "user": "inesi975"
+              }
+            ]
+          }
+        },
+        {
+          "titre": "Excursion d'une journée à la découverte du massif de l'Atlas, des trois vallées et des chutes d'eau à dos de chameau au départ de Marrakech",
+          "guide": {
+            "name": "Amzil Marrakech Tickets",
+            "contact": ""
+          },
+          "images": {
+            "path": "resources/images/attractions/visitesGuidees/atlas"
+          },
+          "description": "Si vous explorez le massif de l'Atlas marocain sans guide, vous pourriez manquer une occasion de découvrir la culture berbère et des points de vue panoramiques. Cependant, la plupart des excursions en groupe suivent des itinéraires fixes qui ne laissent pas de place à la spontanéité pendant la journée. Cette excursion privée est une véritable affaire : un guide local organise la logistique et l'interaction avec les villageois berbères, et vous avez la possibilité de personnaliser votre itinéraire. Un déjeuner local, une promenade facultative à dos de chameau et une visite chez une famille berbère sont tous inclus.",
+          "cost": "350 Dhs",
+          "duree": "7H",
+          "circuit": {
+            "depart": "Marrakech",
+            "arrivee": "Atlas Mountain Park National De Toubkal",
+            "duree": "7H"
+          },
+          "avis": {
+            "commentaire": [
+              {
+                "message": "En fait ce n’est pas quatre vallées mais trois, pas très grave. La cascade n’est pas très jolie en elle-même (en tout cas fin septembre, dernière pluie date de mars). Cela permet surtout de s’approcher de la population locale des montagnes (on est env à 1500m), de traverser un petit village, de voir les enfants jouer dans les ruelles, les fillettes assises dans la rue qui font leurs devoirs ou encore de croiser des bergers/bergères d’un autre âge, avec leur troupeau, à ne pas les prendre en photo… La rando (prévoir bonnes baskets) permet aussi de contempler les pommiers aux énormes pommes rouges et les noyers. Sinon visite de la coopérative instructive avec pt dej traditionnel de thé, pain spécial, pâte d’argan et miel. Après la rando déjeuner sympa et copieux pour 60drh (6€) avec petite salade de tomates, tajine poulet légumes et melon jaune, pain local et une btl d’eau. Le guide Aziz vient du village et est très ouvert à la discussion et aux questions. Puis sur le retour balade rigolote en dromadaire en tenue locale, pour de belles photos souvenir…",
+                "date": "Sep 28 2022",
+                "user": "gastronomes06"
+              },
+              {
+                "message": "Balade en dromadaire sympathique (durée environ 25 min) mais dîner de qualité moyenne qui n’est pas « gastronomique » comme cela a pu être précisé. Nous avons eu le droit à une entrée (petite assiette de riz au thon et salade de tomates), une tajine au poulet et une assiette de fruit pour deux (soit une banane chacun et une grappe de raisin)… Au delà du fait que le l’endroit pour dîner n’était pas exceptionnel, le service était inégal et il n’avait aucune musique pendant le repas (si ce n’est une petite ambiance à la fin : serveurs qui jouent de la musique et chantent). Nous avons cependant passés une bonne soirée grâce à la gentillesse du personnel même si nous nous attendions à un peu mieux.",
+                "date": "Sep 17 2022",
+                "user": "Pauline S"
+              }
+            ]
+          }
+        },
+        {
+          "guide": {
+            "name": "",
+            "contact": ""
+          },
+          "description": "The 3 days desert tour from marrakech to merzouga dunes & camel trek, including : Merzouga desert tour departure from Marrakech 3 days will allow you to explore the southern Sahara and its wonderful Kasbahs and to live unforgettable moments with the Berbers, as well as the visit of the old kasbah to Ait ben Haddou and Toudra gorge, sleep in a desert camp under Berber tent. TOUR HIGHLIGHTS : Cross the High Atlas Mountains with its pass of Tizi Ntichka Visit the legendary world heritage site of Kasbah Ait Ben Haddou Visit Todra gorges and Tinghir oasis Ride a camel in Erg Chebbi to watch the colour changing sunset & sunrise Spend the night at a Berbr desert camp sandbordin",
+          "cost": "1000 Dhs",
+          "duree": "3 jours",
+          "circuit": {
+            "depart": "Marrakech",
+            "arrivee": "Merzouga Dunes",
+            "horaires": {
+              "heureDepart": "",
+              "heureArrivee": ""
+            }
+          },
+          "avis": {
+            "commentaire": {
+              "message": "Excellente journée, le guide est tres respectueux et a l'ecoute, bus propre et climatisé explication sur les villes tres clair et pousser en francais et en anglais. Experience a refaire !! merci ilyes",
+              "date": "Sep 19 2022",
+              "user": "aouladl"
+            }
+          }
+        }
+      ]
+}]

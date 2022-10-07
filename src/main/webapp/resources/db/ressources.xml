@@ -208,10 +208,75 @@
                         
                     </ressource>
                     <ressource category="medicales">
+                        <pharmacies>
+                            <pharmacie>
+                                <name>Pharmacie PALACIO</name>
+                                <localisation>Résidence Palacio, 183 rue Med Baqual à 150m du Cinéma Colisée à côté Café Amandine, Restaurant Trattoria et Bab Hôtel</localisation>
+                                <quartier>GRAND GUELIZ</quartier>
+                                <pharmaciens>
+                                    <pharmacien>
+                                        <name>Mr. AKAABOUNE</name>
+                                    </pharmacien>
+                                </pharmaciens>
+                                <telephone>0524-42-24-52</telephone>
+                            </pharmacie>
+                            
+                            <pharmacie>
+                                <name>Pharmacie EL MANSOUR EDDAHBI</name>
+                                <localisation>147, Jnane El Afia Bab H’mer près du Collège El Mansour Eddahbi</localisation>
+                                <quartier>MEDINA</quartier>
+                                <pharmaciens>
+                                    <pharmacien>
+                                        <name>Mme. HANANI</name>
+                                    </pharmacien>
+                                </pharmaciens>
+                                <telephone>0524-38-72-72</telephone>
+                            </pharmacie>
+                            
+                            <pharmacie>
+                                <name>Pharmacie LALLA AOUDA SAADIA</name>
+                                <localisation>58, Sidi Soussane Trik sabtiyne en face du lycée Lalla Ouda Saâdia</localisation>
+                                <quartier>MEDINA</quartier>
+                                <pharmaciens>
+                                    <pharmacien>
+                                        <name>Mme. HAZIM</name>
+                                    </pharmacien>
+                                </pharmaciens>
+                                <telephone>0524-37-86-80</telephone>
+                            </pharmacie>
+                            
+                        </pharmacies>
+                        
+                        <hopitaux>
+                            <hopital>
+                                <name>C.h.u. Mohammed VI (Centre Hospitalier Universitaire Mohammed VI)</name>
+                                <localisation>53, Assif MARRAKECH</localisation>
+                                <telephone>05 24 30 07 00</telephone>
+                            </hopital>
+                            
+                            <hopital>
+                                <name>Hopital El Antaki</name>
+                                <localisation>Rue de Bab El Khémis MARRAKECH</localisation>
+                                <telephone>05 24 38 06 82</telephone>
+                            </hopital>
+                            
+                            <hopital>
+                                <name>Hôpital Ibn Tofail (Centre Hospitalier Universitaire Mohammed VI)</name>
+                                <localisation>rue Mohamed El Beqal MARRAKECH</localisation>
+                                <telephone>05 24 43 93 95</telephone>
+                            </hopital>
+                            
+                        </hopitaux>
                         
                     </ressource>
                     <ressource category="bibliotheques">
-                        
+                        <bibliotheque>
+                            <name>Librairie Chatr</name>
+                            <localisation>19-21, Avenue Mohamed V, Guéliz, Marrakech, Maroc</localisation>
+                            <siteweb>https://www.librairiechatr.com/</siteweb>
+                            <telephone>+212 (0) 524 44 79 97</telephone>
+                            <email>librairie@groupechatr.com</email>
+                        </bibliotheque>
                     </ressource>
                 </ressources>
             </country> 
