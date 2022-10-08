@@ -8,6 +8,7 @@
         <meta charset="utf-8" />
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./resources/images/favicon.ico" />
         <meta name="theme-color" content="#000000" />
         
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -17,134 +18,234 @@
         
         <title>Tourisme</title>
         <h:outputStylesheet name="css/style.css"/>
-        <h:outputStylesheet name="css/menu.css"/>
     </h:head>
     <h:body id="page-top">
-        <div class="topnav">
-                <a class="active" href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#team">Team</a>
-                <div class="search-container">
-                    <h:form>
-                        <h:outputText value="Tapez votre recherche: " />
-                        <h:inputText id="autoText" onblur="hidePopup()" 
-                        onfocus="getQuery(this.value)" onkeyup="getQuery(this.value)" 
-                        value="#{SelectedTitleRecord.selectedTitle}" />
-                        <h:commandButton value="OK" action="#{searchBean.send}"/>
-                        
-                        
-                    </h:form>
-                </div>
-              </div>
-            <header class="masthead" style="background-image: url('./resources/images/search.jpg')">
-                <div class="container">
-                    <div class="masthead-subheading text-warning">Bienvenue dans notre site</div>
-                    <div class="masthead-heading text-uppercase">Chercher la richesse des pays</div>
-                    <a class="btn btn-primary btn-xl text-uppercase" href="">Savoir plus</a>
-                </div>
-            </header>
-        <section class="page-section">
-           
+        
+        <!-- MENU -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <div class="row">
-                    <c:forEach var="item" items="#{ressourceBean.affiche()}" >
-                        <div class="col-3">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="#{item.images[0].paths}/caption.jpg" alt="Card image cap"></img>
-                                <div class="card-body">
-                                    <h5 class="card-title">#{item.name}</h5>
-                                    <p class="card-text">#{item.description}</p>
-                                  <a href="#" class="btn btn-primary">Découvrir</a>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                <a class="navbar-brand" ><img src="./resources/images/logo.png" alt="logo"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </nav>
         
-        <h2>Bibliotheque</h2>
-        <section class="page-section">
-           
+        <!-- HEADER -->
+        <header class="masthead" style="background-image: url('./resources/images/header.jpg')">
             <div class="container">
-                <div class="row">
-                    <c:forEach var="item" items="#{ressourceBean.getBibliotheques()}" >
-                        <div class="col-3">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">#{item.name}</h5>
-                                    <h6 class="card-title">#{item.telephone}</h6>
-                                    <h6 class="card-title">#{item.email}</h6>
-                                    <h6 class="card-title">#{item.siteweb}</h6>
-                                    <h6 class="card-title">#{item.localisation}</h6>
-
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
+                <div class="masthead-subheading">Bienvunue dans</div>
+                <div class="masthead-heading text-uppercase">City Guide</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#about">Qui sommes-nous</a>
             </div>
-        </section>
+        </header>
         
-        
-        
-        
-        
-        
-        <section class="page-section" id="about">
+        <!-- ABOUT -->
+        <section class="page-section bg-light" id="about">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Pays</h2>
-                    <h3 class="section-subheading text-muted">Tous les pays</h3>
+                    <h2 class="section-heading text-uppercase">Qui sommes-nous</h2>
+                    <h3 class="section-subheading text-muted">
+                        Pour choisir votre destination de vacances, retrouvez notre guide des villes à visiter.
+                        Ville par ville, on vous indiquent où dormir, où manger et quoi visiter pour passer de bonnes vacances découvertes. 
+                    </h3>
                 </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle" src="./resources/images/maroc.jfif" width="100%" height="100%" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Maroc</h4>
-                            </div>
-                                    <div class="timeline-body"><p class="text-muted">
-                                
-                                        
-                                    </p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle" src="./resources/images/algerie.jfif" width="100%" height="100%" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Algérie</h4>
-                            </div>
-                                    <div class="timeline-body"><p class="text-muted">
-                                
-                                        
-                                    </p></div>
-                        </div>
-                    </li>
-                    
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                Voir
-                                <br></br>
-                                Plus
-                                <br></br>
-                                ...
-                            </h4>
-                        </div>
-                    </li>
-                </ul>
+               
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><h2 class="large text-muted">Nos services</h2></div>
+                </div>
             </div>
-        </section>
-        <section class="page-section" id="team">
-            
-        </section>
+            <div class="row1-container">
+                    <div class="box box-down cyan">
+                      <h2>Consultation</h2>
+                      <p>Retrouvez les bonnes adresses et les bons plans à visiter</p>
+                      <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt=""/>
+                    </div>
 
+                    <div class="box red">
+                      <h2>Autre Service</h2>
+                      <p>description</p>
+                      <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt=""/>
+                    </div>
+
+                    <div class="box box-down blue">
+                      <h2>Reservation</h2>
+                      <p>Réserver votre prochain séjour</p>
+                      <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt=""/>
+                    </div>
+                  </div>
+                  <div class="row2-container">
+                    <div class="box orange">
+                      <h2>Autre Service</h2>
+                      <p>Description</p>
+                      <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt=""/>
+                    </div>
+                  </div>
+        </section>
+        
+        <!-- CATEGORIES -->
+        <h:form>
+            <div class="container page-section">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Catégories</h2>
+                </div>
+                <div class="row">
+                     <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                            <h:commandLink action = "#{navigationController.goTo('attractions')}">
+                                <img src="./resources/images/attraction.jpg" width="100%"/>
+                             </h:commandLink>
+                            
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Attractions</h3>
+                    </div>
+                </div>
+
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('hotels')}">
+                                <img src="./resources/images/hotel.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Hôtels</h3>
+                    </div>
+                </div>
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('restaurants')}">
+                                <img src="./resources/images/restaurant.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Restaurants</h3>
+                    </div>
+                </div>
+
+
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('visitesGuidees')}">
+                                <img src="./resources/images/visite.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Visites guidées</h3>
+                    </div>
+                </div>
+
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('excursions')}">
+                                <img src="./resources/images/excursion.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Excursions</h3>
+                    </div>
+                </div>
+
+
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('transports')}">
+                                <img src="./resources/images/transport.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Transports</h3>
+                    </div>
+                </div>
+
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('biblios')}">
+                                <img src="./resources/images/biblio.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Bibliothèques</h3>
+                    </div>
+                </div>
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('hopitaux')}">
+                                <img src="./resources/images/hopital.jpg" width="100%"/>
+                             </h:commandLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Hôpitaux</h3>
+                    </div>
+                </div>
+
+                <div class="a-box m-3">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                             <h:commandLink action = "#{navigationController.goTo('restaurants')}">
+                                <img src="./resources/images/restaurant.jpg" width="100%"/>
+                             </h:commandLink>
+                          <img src="./resources/images/pharmacy.jpg" width="100%"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3>Pharmacies</h3>
+                    </div>
+                </div>
+                </div>
+               
+            </div>
+            
+        </h:form>
+        <!-- FOOTER -->
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; IRISI 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; CityGuide 2022</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
@@ -153,6 +254,8 @@
                 </div>
             </div>
         </footer>
+        
+        <script src="./resources/js/script.js" type="text/javascript" />
     </h:body>
 </html>
 

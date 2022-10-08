@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package bean;
+package Controller;
 
-import Bibliotheque.Bibliotheque;
+import Connection.MongoDBConnection;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import entities.Bibliotheque;
+import entities.Images;
+import entities.Site;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import org.bson.Document;
-import com.mycompany.tourisme.Images;
-import com.mycompany.tourisme.Site;
 
 /**
  *
@@ -24,12 +25,8 @@ import com.mycompany.tourisme.Site;
 @ManagedBean
 public class RessourceBean {
     public List<Site> affiche(){
-        System.out.println("Test");
-        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017/");
-        MongoDatabase database = mongoClient.getDatabase("tourisme");
-        MongoCollection<Document> collection = database.getCollection("ressources");
         
-        FindIterable<Document> docs = collection.find();
+        FindIterable<Document> docs = MongoDBConnection.getCollection("ressources");
         List<Site> sitesList = new ArrayList<>();
         
         for( Document doc :docs){
@@ -84,7 +81,7 @@ public class RessourceBean {
         return pharmacies;
     }
     
-*/
+
     public List<Bibliotheque> getBibliotheques(){
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017/");
         MongoDatabase database = mongoClient.getDatabase("tourisme");
@@ -118,8 +115,24 @@ public class RessourceBean {
         return bibliotheques;
     }
     
-    
+    */
     public void createRess(){
         
+    }
+    
+    public List<String> categories(){
+        List<String> categoryList = new ArrayList<>();
+        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017/");
+        MongoDatabase database = mongoClient.getDatabase("tourisme");
+        for (String name : database.listCollectionNames()) {
+            MongoCollection<Document> collection = database.getCollection(name);
+            Document docs = collection.find().first();
+            String category = docs.get("category").toString();
+            if(category!=null){
+                categoryList.add(category);
+                System.out.println("cat = "+category);
+            }
+        }
+        return categoryList;
     }
 }

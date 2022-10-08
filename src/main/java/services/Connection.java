@@ -8,11 +8,11 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import entities.Images;
+import entities.Site;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
-import com.mycompany.tourisme.Images;
-import com.mycompany.tourisme.Site;
 /**
  *
  * @author BOUGARYTAMEGA

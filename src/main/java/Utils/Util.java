@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package attractions;
+package Utils;
 
 /**
  *
- * @author BOUGARYTAMEGA
+ * @author KANNOUFA
  */
-public class Affluence {
-   private Saison saison;
-    public Saison getSaison() { return saison; }
-    public void setSaison(Saison value) { this.saison = value; }
+public class Util {
+    public static final String DB_NAME = "tourisme";
+    public static final String CONNECTION_STRING = "mongodb://localhost:27017/";
+
 }
