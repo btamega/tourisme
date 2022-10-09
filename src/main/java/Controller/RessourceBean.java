@@ -106,6 +106,8 @@ public class RessourceBean {
                     bibliotheque.setTelephone((String) document1.get("telephone"));
                     bibliotheque.setEmail((String) document1.get("email"));
                     bibliotheques.add(bibliotheque);
+    
+                    biblio = BibliothequeMapped(document1);
 
                     System.out.println(" -------> name = "+(String) document1.get("name"));
                 }

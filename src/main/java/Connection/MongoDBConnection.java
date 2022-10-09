@@ -17,12 +17,18 @@ import org.bson.Document;
  * @author KANNOUFA
  */
 public class MongoDBConnection {
+    
+    public static MongoDatabase getDatabase(){
+        MongoClient mongoClient = MongoClients.create(Util.CONNECTION_STRING);
+        MongoDatabase database = mongoClient.getDatabase(Util.DB_NAME);
+        
+        return database;
+    }
 
     
     public static FindIterable getCollection(String collectionName){
         
-        MongoClient mongoClient = MongoClients.create(Util.CONNECTION_STRING);
-        MongoDatabase database = mongoClient.getDatabase(Util.DB_NAME);
+        MongoDatabase database = getDatabase();
         
         MongoCollection<Document> collection = database.getCollection(collectionName);
         

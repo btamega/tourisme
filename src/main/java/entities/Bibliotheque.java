@@ -19,4 +19,6 @@ public class Bibliotheque {
     private String siteweb;
     private String telephone;
     private String email;
+    private String ouverture;
+    private String description;
 }

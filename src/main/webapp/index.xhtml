@@ -16,7 +16,7 @@
             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
-        <title>Tourisme</title>
+        <title>Acceuil - CityGuide</title>
         <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body id="page-top">
@@ -31,11 +31,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
                     </ul>
                 </div>
             </div>
@@ -99,148 +97,28 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Catégories</h2>
                 </div>
+                
                 <div class="row">
-                     <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                            <h:commandLink action = "#{navigationController.goTo('attractions')}">
-                                <img src="./resources/images/attraction.jpg" width="100%"/>
-                             </h:commandLink>
-                            
+                    <c:forEach var="item" items="#{categorieController.getCategories()}" >
+                        <div class="a-box m-2">
+                            <div class="img-container">
+                              <div class="img-inner">
+                                <div class="inner-skew">
+                                    <h:commandLink action = "#{navigationController.goTo(item.name)}">
+                                        <img src="#{item.image}" width="100%"/>
+                                     </h:commandLink>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="text-container">
+                              <h3>#{item.name}</h3>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Attractions</h3>
-                    </div>
-                </div>
-
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('hotels')}">
-                                <img src="./resources/images/hotel.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Hôtels</h3>
-                    </div>
-                </div>
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('restaurants')}">
-                                <img src="./resources/images/restaurant.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Restaurants</h3>
-                    </div>
-                </div>
-
-
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('visitesGuidees')}">
-                                <img src="./resources/images/visite.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Visites guidées</h3>
-                    </div>
-                </div>
-
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('excursions')}">
-                                <img src="./resources/images/excursion.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Excursions</h3>
-                    </div>
-                </div>
-
-
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('transports')}">
-                                <img src="./resources/images/transport.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Transports</h3>
-                    </div>
-                </div>
-
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('biblios')}">
-                                <img src="./resources/images/biblio.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Bibliothèques</h3>
-                    </div>
-                </div>
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('hopitaux')}">
-                                <img src="./resources/images/hopital.jpg" width="100%"/>
-                             </h:commandLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Hôpitaux</h3>
-                    </div>
-                </div>
-
-                <div class="a-box m-3">
-                    <div class="img-container">
-                      <div class="img-inner">
-                        <div class="inner-skew">
-                             <h:commandLink action = "#{navigationController.goTo('restaurants')}">
-                                <img src="./resources/images/restaurant.jpg" width="100%"/>
-                             </h:commandLink>
-                          <img src="./resources/images/pharmacy.jpg" width="100%"/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-container">
-                      <h3>Pharmacies</h3>
-                    </div>
-                </div>
-                </div>
-               
+                    </c:forEach>
+                </div>  
             </div>
-            
         </h:form>
+        
         <!-- FOOTER -->
         <footer class="footer py-4">
             <div class="container">

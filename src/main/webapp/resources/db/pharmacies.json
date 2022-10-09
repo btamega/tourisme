@@ -1,125 +1,130 @@
-[{
-    "pharmacie":[
-        {
-          "name": "Pharmacie PALACIO",
-          "localisation": "Résidence Palacio, 183 rue Med Baqual à 150m du Cinéma Colisée à côté Café Amandine, Restaurant Trattoria et Bab Hôtel",
-          "quartier": "GRAND GUELIZ",
-          "telephone": "0524-42-24-52",
-          "pharmaciens":[
-            {
-              "name": "Mr. AKAABOUNE"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie EL MANSOUR EDDAHBI",
-          "localisation": "147, Jnane El Afia Bab H’mer près du Collège El Mansour Eddahbi",
-          "quartier": "MEDINA",
-          "telephone": "0524-38-72-72",
-          "pharmaciens":[
-            {
-              "name": "Mme. HANANI"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie LALLA AOUDA SAADIA",
-          "localisation": "58, Sidi Soussane Trik sabtiyne en face du lycée Lalla Ouda Saâdia",
-          "quartier": "MEDINA",
-          "telephone": "0524-37-86-80",
-          "pharmaciens":[
-            {
-              "name": "Mme. HAZIM"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie AL WED",
-          "localisation": "5, Im. B2 Résidence Assafa, Bd. Al Mouqawama",
-          "quartier": "GRAND GUELIZ",
-          "telephone": "0524-43-24-33",
-          "pharmaciens":[
-            {
-              "name": "Mme. BELCAID"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie KAÂDOUD",
-          "localisation": "53, Av. My Abdellah (Ex Bd. Safi) Im. Ben Raïss, en face résid. F. Zohra sur la rte menant à la Fac de Médecine",
-          "quartier": "GRAND GUELIZ",
-          "telephone": "0524-44-85-55",
-          "pharmaciens":[
-            {
-              "name": "Mme. CHRAIBI"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie MOUKAWAMA",
-          "localisation": "Av. Moukawama nouveaux Imm. des Militaires entre Hôpital militaire Avicenne et Coopérative Laitière",
-          "quartier": "GRAND GUELIZ",
-          "telephone": "0524-43-23-18",
-          "pharmaciens":[
-            {
-              "name": "Mme. NACIRI"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie MANSOURA",
-          "localisation": "25, Av. Khalid Ben Walid Imm. Rachadi 150 m de l’Hôtel le Marrakech, vers les Sapeurs Pompiers",
-          "quartier": "GRAND GUELIZ",
-          "telephone": "0524-43-46-46",
-          "pharmaciens":[
-            {
-              "name": "Mr. EL MANSOURI"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie DAOUDIAT",
-          "localisation": "Av. Allal El Fassi (entre Hôtel Majorelle et Boulangerie Alfa 2000)",
-          "quartier": "DAOUDIAT",
-          "telephone": "0524-30-74-35",
-          "pharmaciens":[
-            {
-              "name": "Mr. BIGHOUMDAN"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie SCIENCES",
-          "localisation": "10/11, Bd. de Safi en face de la Faculté des Sciences",
-          "quartier": "DAOUDIAT",
-          "telephone": "0524-30-55-49",
-          "pharmaciens":[
-            {
-              "name": "Mme. EL GUERMAI"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie UNITE QUATRE",
-          "localisation": "450, au centre de l’Unité Quatre, devant l’école Aicha Oum al Mouminin et à côté de Mosquée l’Unité IV",
-          "quartier": "DAOUDIAT",
-          "telephone": "0524-30-20-30",
-          "pharmaciens":[
-            {
-              "name": "Mr. ZENJARI"
-            }
-          ]
-        },
-        {
-          "name": "Pharmacie MOGADOR",
-          "localisation": "Derrière service des mines (Allal El Fassi) en face Ecole Iraki Issil",
-          "quartier": "DAOUDIAT",
-          "telephone": "0524-31-17-19",
-          "pharmaciens":[
-            {
-              "name": "Mr. BENYAHIA"
-            }
-          ]
-        }
-      ]
-}]
+{
+	"ressource": {
+		"category": "pharmacies",
+    "image":"resources/images/pharmacy.jpg",
+		"pharmacies":[
+      {
+        "name": "Pharmacie PALACIO",
+        "localisation": "Résidence Palacio, 183 rue Med Baqual à 150m du Cinéma Colisée à côté Café Amandine, Restaurant Trattoria et Bab Hôtel",
+        "quartier": "GRAND GUELIZ",
+        "telephone": "0524-42-24-52",
+        "pharmaciens":[
+          {
+            "name": "Mr. AKAABOUNE"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie EL MANSOUR EDDAHBI",
+        "localisation": "147, Jnane El Afia Bab H’mer près du Collège El Mansour Eddahbi",
+        "quartier": "MEDINA",
+        "telephone": "0524-38-72-72",
+        "pharmaciens":[
+          {
+            "name": "Mme. HANANI"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie LALLA AOUDA SAADIA",
+        "localisation": "58, Sidi Soussane Trik sabtiyne en face du lycée Lalla Ouda Saâdia",
+        "quartier": "MEDINA",
+        "telephone": "0524-37-86-80",
+        "pharmaciens":[
+          {
+            "name": "Mme. HAZIM"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie AL WED",
+        "localisation": "5, Im. B2 Résidence Assafa, Bd. Al Mouqawama",
+        "quartier": "GRAND GUELIZ",
+        "telephone": "0524-43-24-33",
+        "pharmaciens":[
+          {
+            "name": "Mme. BELCAID"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie KAÂDOUD",
+        "localisation": "53, Av. My Abdellah (Ex Bd. Safi) Im. Ben Raïss, en face résid. F. Zohra sur la rte menant à la Fac de Médecine",
+        "quartier": "GRAND GUELIZ",
+        "telephone": "0524-44-85-55",
+        "pharmaciens":[
+          {
+            "name": "Mme. CHRAIBI"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie MOUKAWAMA",
+        "localisation": "Av. Moukawama nouveaux Imm. des Militaires entre Hôpital militaire Avicenne et Coopérative Laitière",
+        "quartier": "GRAND GUELIZ",
+        "telephone": "0524-43-23-18",
+        "pharmaciens":[
+          {
+            "name": "Mme. NACIRI"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie MANSOURA",
+        "localisation": "25, Av. Khalid Ben Walid Imm. Rachadi 150 m de l’Hôtel le Marrakech, vers les Sapeurs Pompiers",
+        "quartier": "GRAND GUELIZ",
+        "telephone": "0524-43-46-46",
+        "pharmaciens":[
+          {
+            "name": "Mr. EL MANSOURI"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie DAOUDIAT",
+        "localisation": "Av. Allal El Fassi (entre Hôtel Majorelle et Boulangerie Alfa 2000)",
+        "quartier": "DAOUDIAT",
+        "telephone": "0524-30-74-35",
+        "pharmaciens":[
+          {
+            "name": "Mr. BIGHOUMDAN"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie SCIENCES",
+        "localisation": "10/11, Bd. de Safi en face de la Faculté des Sciences",
+        "quartier": "DAOUDIAT",
+        "telephone": "0524-30-55-49",
+        "pharmaciens":[
+          {
+            "name": "Mme. EL GUERMAI"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie UNITE QUATRE",
+        "localisation": "450, au centre de l’Unité Quatre, devant l’école Aicha Oum al Mouminin et à côté de Mosquée l’Unité IV",
+        "quartier": "DAOUDIAT",
+        "telephone": "0524-30-20-30",
+        "pharmaciens":[
+          {
+            "name": "Mr. ZENJARI"
+          }
+        ]
+      },
+      {
+        "name": "Pharmacie MOGADOR",
+        "localisation": "Derrière service des mines (Allal El Fassi) en face Ecole Iraki Issil",
+        "quartier": "DAOUDIAT",
+        "telephone": "0524-31-17-19",
+        "pharmaciens":[
+          {
+            "name": "Mr. BENYAHIA"
+          }
+        ]
+      }
+    ],
+		"_category": "pharmacies"
+	}
+}

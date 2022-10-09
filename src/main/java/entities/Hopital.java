@@ -4,7 +4,6 @@
  */
 package entities;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +13,11 @@ import lombok.NoArgsConstructor;
  * @author KANNOUFA
  */
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Pharmacie {
+public class Hopital {
     private String name;
     private String localisation;
-    private String quartier;
+    private String siteweb;
     private String telephone;
-    private List<Pharmacien> pharmaciens;
+    private String type;
+    private String image;  
 }
