@@ -46,6 +46,20 @@
                 <div class="masthead-heading text-uppercase">Bibliothèques</div>
             </div>
         </header>
+        
+        <c:forEach var="item" items="#{categorieController.getBibliotheques()}" >
+                        <div class="a-box m-2">
+                            <div class="img-container">
+                              <div class="img-inner">
+                                <div class="inner-skew">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="text-container">
+                              <h3>#{item.name}</h3>
+                            </div>
+                        </div>
+                    </c:forEach>
   
         <!-- FOOTER -->
         <footer class="footer py-4">

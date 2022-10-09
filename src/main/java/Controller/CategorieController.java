@@ -7,14 +7,12 @@ package Controller;
 import Connection.MongoDBConnection;
 import Mapping.ObjectMapping;
 import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import entities.Bibliotheque;
 import entities.Categorie;
-import entities.Images;
+import entities.Hopital;
 import entities.Pharmacie;
-import entities.Site;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -42,16 +40,42 @@ public class CategorieController {
     
     
     public List<Pharmacie> getPharmacies(){
-        FindIterable<Document> docs = MongoDBConnection.getCollection("pharmacie");
-        
+        FindIterable<Document> docs = MongoDBConnection.getCollection("pharmacies");
         List<Pharmacie> pharmacies = new ArrayList<>();
-        System.out.println("------------------- PHARMACIES -----------------------");
-        for( Document document :docs){
-            Pharmacie pharmacie = ObjectMapping.pharmacieMapped(document);
-            System.out.println(pharmacie.toString());
-            pharmacies.add(pharmacie);
+        for(Document document: docs){
+            List<Document> pharmacieD = (List<Document>)document.get("pharmacies");
+            for(Document doc: pharmacieD){
+                Pharmacie pharmacie = ObjectMapping.pharmacieMapped(doc);
+                pharmacies.add(pharmacie);
+            }  
         }
         return pharmacies;
+    }
+    
+    public List<Hopital> getHopitaux(){
+        FindIterable<Document> docs = MongoDBConnection.getCollection("hopitaux");
+        List<Hopital> hopitaux = new ArrayList<>();
+        for(Document document: docs){
+            List<Document> hopitalD = (List<Document>)document.get("hopitaux");
+            for(Document doc: hopitalD){
+                Hopital hopital = ObjectMapping.hopitalMapped(doc);
+                hopitaux.add(hopital);
+            }  
+        }
+        return hopitaux;
+    }
+    
+    public List<Bibliotheque> getBibliotheques(){
+        FindIterable<Document> docs = MongoDBConnection.getCollection("bibliotheques");
+        List<Bibliotheque> bibliotheques = new ArrayList<>();
+        for(Document document: docs){
+            List<Document> bibliothequeD = (List<Document>)document.get("bibliotheques");
+            for(Document doc: bibliothequeD){
+                Bibliotheque bibliotheque = ObjectMapping.bibliothequeMapped(doc);
+                bibliotheques.add(bibliotheque);
+            }  
+        }
+        return bibliotheques;
     }
     
 }

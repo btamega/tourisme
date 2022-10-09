@@ -19,7 +19,7 @@ import org.bson.Document;
  */
 public class ObjectMapping {
     
-    public Bibliotheque bibliothequeMapped(Document document){
+    public static Bibliotheque bibliothequeMapped(Document document){
         Bibliotheque bibliotheque = new Bibliotheque();
         bibliotheque.setName((String) document.get("name"));
         bibliotheque.setLocalisation((String) document.get("localisation"));
@@ -39,14 +39,24 @@ public class ObjectMapping {
         pharmacie.setQuartier((String) document.get("quartier"));
         pharmacie.setTelephone((String) document.get("telephone"));
         List<Pharmacien> pharmaciens = new ArrayList();
-        Document pharmaciensL = (Document) document.get("pharmaciens");
-        pharmaciens.add(new Pharmacien((String) pharmaciensL.get("name")));
+        List<Document> pharmaciensL = (List<Document>) document.get("pharmaciens");
+        for(Document docPharmacien : pharmaciensL){
+            Pharmacien pharmacien = pharmacienMapped(docPharmacien);
+            pharmaciens.add(pharmacien);
+        }
+        
         pharmacie.setPharmaciens(pharmaciens);
          
         return pharmacie;
     }
     
-    public Hopital hopitalMapped(Document document){
+    public static Pharmacien pharmacienMapped(Document document){
+        Pharmacien pharmacien = new Pharmacien();
+        pharmacien.setName((String) document.get("name"));
+        return pharmacien;
+    }
+    
+    public static Hopital hopitalMapped(Document document){
         Hopital hopital = new Hopital();
         hopital.setName((String) document.get("name"));
         hopital.setLocalisation((String) document.get("localisation"));

@@ -56,7 +56,23 @@
         </div>
         </section>
         <h1>pharmacies</h1>
-        
+        <c:forEach var="item" items="#{categorieController.getPharmacies()}" >
+                        <div class="a-box m-2">
+                            <div class="img-container">
+                              <div class="img-inner">
+                                <div class="inner-skew">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="text-container">
+                              <h3>#{item.name}</h3>
+                              <c:forEach var="pharmacien" items="#{item.pharmaciens}" >
+                                  <h5>#{pharmacien.name}</h5>
+                              </c:forEach>
+                              
+                            </div>
+                        </div>
+                    </c:forEach>
         
   
         <!-- FOOTER -->
