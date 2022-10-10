@@ -4,6 +4,7 @@
     "image":"resources/images/biblio.jpg",
 		"bibliotheques":[
       {
+        "_id": 1,
         "name": "Librairie Chatr",
         "localisation": "19-21, Avenue Mohamed V, Guéliz, Marrakech, Maroc",
         "siteweb": "https://www.librairiechatr.com/",
@@ -13,6 +14,7 @@
         "description": "Ouverte depuis 1965, c'est l'une des plus anciennes librairies de la ville. Si vous avez des envies de lecture, vous y trouverez des livres de poche, des classiques, des polars et les derniers romans ou best-sellers en date. C'est également là que vous pourrez acquérir tout ce que la littérature a sorti de meilleur en matière de romans et autres ouvrages sur le Maroc. Le rayon consacré au pays est très bien pourvu et on a l'embarras du choix. Pourquoi ne pas profiter de l'occasion pour découvrir des auteurs marocains ? Binebine, Laroui, Choukri, ils sont tous là !"
       },
       {
+        "_id": 2,
         "name": "MENZIL EL FAN",
         "localisation": "Résidence Tayeb (à côté du restaurant El Fassia), 55, boulevard Zerktouni, Guéliz Marrakech",
         "siteweb": "",
@@ -22,6 +24,7 @@
         "description": "Cette librairie spécialisée dans les livres d'art se fait discrète, au fond de l'allée qui mène au restaurant El Fassia, mais pleine de trésors pour qui aime l'art et la lecture. L'accueil est doux et chaleureux. A Menzil el Fan (littéralement Pour l'art des Hommes) on trouve pléthore de beaux livres, tous dédiés aux arts, comme son nom l'indique. Mais aussi un fonds fourni sur la ville de Marrakech, quelques cartes culturelles de certaines régions marocaines, ainsi que des reproductions de bonne facture d'artistes contemporains marocains."
       },
       {
+        "_id": 3,
         "name": "BOUQUINISTES DE BAB DOUKKALA",
         "localisation": "Le long des remparts à Bab Doukkala Marrakech ",
         "siteweb": "",
@@ -32,6 +35,7 @@
 
       },
       {
+        "_id": 4,
         "name": "MUSÉE BERBÈRE-BOOK STORE",
         "localisation": "Avenue Yacoub El Mansour Marrakech ",
         "siteweb": "",
@@ -42,6 +46,7 @@
 
       },
       {
+        "_id": 5,
         "name": "CAFÉ DU LIVRE",
         "localisation": "44, rue Tariq Ibn Ziad, Guéliz Marrakech",
         "siteweb": "",

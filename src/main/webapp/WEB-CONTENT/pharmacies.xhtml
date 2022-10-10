@@ -48,33 +48,33 @@
         </header>
         
         <!-- PHARMACIES -->
-        <section>
-            <div class="box box-down cyan">
-            <h2>Consultation</h2>
-            <p>Retrouvez les bonnes adresses et les bons plans à visiter</p>
-            <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt=""/>
-        </div>
-        </section>
-        <h1>pharmacies</h1>
-        <c:forEach var="item" items="#{categorieController.getPharmacies()}" >
-                        <div class="a-box m-2">
-                            <div class="img-container">
-                              <div class="img-inner">
-                                <div class="inner-skew">
+        <section class="container-lg">
+            <div class="row">
+                <c:forEach var="item" items="#{categorieController.getPharmacies()}" >
+                    <div class="card-h">
+                        <div class="card-h-body">
+                            <span class="tag tag-green">#{item.quartier}</span>
+                            <h5>#{item.name}</h5>
+                            <div class="m-2">
+                                <i class="fa fa-map text-danger"></i>
+                                <span class="ml-2">#{item.localisation}</span>
+                            </div>
+                            <div class="m-2">
+                                <i class="fa fa-phone text-info"></i>
+                                <span class="ml-2">#{item.telephone}</span>
+                            </div>
+                            <c:forEach var="pharmacien" items="#{item.pharmaciens}" >
+                                <div class="m-2">
+                                    <i class="fa fa-user text-warning"></i>
+                                    <span class="ml-2">#{pharmacien.name}</span>
                                 </div>
-                              </div>
-                            </div>
-                            <div class="text-container">
-                              <h3>#{item.name}</h3>
-                              <c:forEach var="pharmacien" items="#{item.pharmaciens}" >
-                                  <h5>#{pharmacien.name}</h5>
-                              </c:forEach>
-                              
-                            </div>
+                            </c:forEach>
                         </div>
-                    </c:forEach>
+                      </div>
+                </c:forEach>
+            </div>
+        </section>
         
-  
         <!-- FOOTER -->
         <footer class="footer py-4">
             <div class="container">

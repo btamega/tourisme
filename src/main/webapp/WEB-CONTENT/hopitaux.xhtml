@@ -47,19 +47,35 @@
             </div>
         </header>
         
-        <c:forEach var="item" items="#{categorieController.getHopitaux()}" >
-                        <div class="a-box m-2">
-                            <div class="img-container">
-                              <div class="img-inner">
-                                <div class="inner-skew">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="text-container">
-                              <h3>#{item.name}</h3>
-                            </div>
+        <!-- HOPITAUX -->
+        <section class="container-lg">
+            <div class="row">
+                <c:forEach var="item" items="#{categorieController.getHopitaux()}" >
+                    <div class="card-h">
+                        <div class="card-h-header">
+                            <img src="#{item.image}" alt="rover" />
                         </div>
-                    </c:forEach>
+                        <div class="card-h-body">
+                            <span class="tag tag-teal">#{item.type}</span>
+                            <h5>#{item.name}</h5>
+                            <div class="m-2">
+                                <i class="fa fa-map text-danger"></i>
+                                <span class="ml-2">#{item.localisation}</span>
+                            </div>
+                            <div class="m-2">
+                                <i class="fa fa-phone text-info"></i>
+                                <span class="ml-2">#{item.telephone}</span>
+                            </div>
+                            <a class="m-2 btn btn-warning rounded" href="#{item.siteweb}">
+                                <i class="fa fa-globe text-white"></i>
+                                Site web
+                            </a>
+                        </div>
+                      </div>
+                </c:forEach>
+            </div>
+        </section>
+       
   
         <!-- FOOTER -->
         <footer class="footer py-4">

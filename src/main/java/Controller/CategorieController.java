@@ -9,19 +9,24 @@ import Mapping.ObjectMapping;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.elemMatch;
+import static com.mongodb.client.model.Filters.eq;
 import entities.Bibliotheque;
 import entities.Categorie;
 import entities.Hopital;
 import entities.Pharmacie;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import lombok.Data;
 import org.bson.Document;
 
 /**
  *
  * @author dell
  */
+@Data
 @ManagedBean
 public class CategorieController {
     
@@ -75,7 +80,37 @@ public class CategorieController {
                 bibliotheques.add(bibliotheque);
             }  
         }
+        System.out.println("-----------> biblios");
         return bibliotheques;
     }
     
+    public Bibliotheque getFirst(){
+        Bibliotheque bibliotheque = new Bibliotheque();
+        FindIterable<Document> docs = MongoDBConnection.getCollection("bibliotheques");
+        
+        return bibliotheque;
+    }
+    
+        public Bibliotheque findById(int index){
+        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
+        
+        Document document = biblioCollection.find().projection(elemMatch("bibliotheques",new Document("_id", index))).first();
+
+        Bibliotheque biblio = ObjectMapping.bibliothequeMapped(document);
+        
+        return biblio;
+    }
+    
+    public Bibliotheque findByName(String name){
+        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
+        
+        Document document = biblioCollection.find().projection(elemMatch("bibliotheques",new Document("name", name))).first();
+        
+        Bibliotheque bibliotheque = ObjectMapping.bibliothequeMapped(document);
+        
+        return bibliotheque;
+    }
+
 }

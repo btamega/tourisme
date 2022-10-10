@@ -4,60 +4,67 @@
     "image":"resources/images/hopital.jpg",
 		"hopitaux":[
       {
-        "name": "C.h.u. Mohammed VI (Centre Hospitalier Universitaire Mohammed VI)",
+        "_id": 1,
+        "name": "C.h.u. Mohammed VI",
         "localisation":"53, Assif MARRAKECH",
         "siteweb": "https://www.chumarrakech.ma/",
         "telephone":"05 24 30 07 00",
         "type":"Public",
-        "image":"resources/images/hopitaux/chu"
+        "image":"resources/images/hopitaux/chu.jpg"
       },
       {
+        "_id": 2,
         "name": "Hopital El Antaki",
         "localisation":"Rue de Bab El Khémis MARRAKECH",
         "siteweb": "",
         "telephone":"05 24 38 06 82",
         "type":"Public",
-        "image":"resources/images/hopitaux/antaki"
+        "image":"resources/images/hopitaux/antaki.jpg"
       },
       {
-        "name": "Hopital Ibn Nafis (Centre Hospitalier Universitaire Mohammed VI)",
+        "_id": 3,
+        "name": "Hopital Ibn Nafis",
         "localisation":"Quartier AguedalMARRAKECH",
         "siteweb": "http://www.hin.ma/",
         "telephone":"+212 5 24 29 04 53",
         "type":"Public",
-        "image":"resources/images/hopitaux/ibn-nafis"
+        "image":"resources/images/hopitaux/ibn-nafis.jpg"
       },
       {
-        "name": "Hôpital Ibn Tofail (Centre Hospitalier Universitaire Mohammed VI)",
+        "_id": 4,
+        "name": "Hôpital Ibn Tofail",
         "localisation":"rue Mohamed El Beqal MARRAKECH",
         "siteweb": "",
         "telephone":"05 24 43 93 95",
         "type":"Public",
-        "image":"resources/images/hopitaux/ibn-tofail"
+        "image":"resources/images/hopitaux/ibn-tofail.jpg"
       },
       {
+        "_id": 5,
         "name": "Clinique Internationale de Marrakech",
         "localisation":"Rte de l'aéroport، Avenue Guemassa, Marrakech 40000, Morocco",
         "siteweb": "http://www.clinique-internationale-marrakech.com/",
         "telephone":"(+212) 5 24 36 95 95",
         "type":"Privé",
-        "image":"resources/images/hopitaux/internationale"
+        "image":"resources/images/hopitaux/international.jpg"
       },
       {
+        "_id": 6,
         "name": "Clinique Du Soleil",
         "localisation":"38 Lot Albek Rue Erraouda Marrakech, Morocco",
         "siteweb": "https://www.cliniquesoleilmarrakech.com/",
         "telephone":"+212 524 421 767",
         "type":"Privé",
-        "image":"resources/images/hopitaux/soleil"
+        "image":"resources/images/hopitaux/soleil.png"
       },
       {
+        "_id": 7,
         "name": "Clinique Errahma",
         "localisation":"EL MASMOUDI LOTISSEMENT ZINEB 2, MARRAKECH 40120",
         "siteweb": "https://cliniqueerrahma.com/",
         "telephone":"+212 524 343 461",
         "type":"Privé",
-        "image":"resources/images/hopitaux/errahma"
+        "image":"resources/images/hopitaux/errahma.jpg"
       }
     ],
 		"_category": "hopitaux"

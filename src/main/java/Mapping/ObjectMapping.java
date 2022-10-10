@@ -61,6 +61,7 @@ public class ObjectMapping {
         hopital.setName((String) document.get("name"));
         hopital.setLocalisation((String) document.get("localisation"));
         hopital.setSiteweb((String) document.get("siteweb"));
+        hopital.setTelephone((String) document.get("telephone"));
         hopital.setType((String) document.get("type"));
         hopital.setImage((String) document.get("image"));
         

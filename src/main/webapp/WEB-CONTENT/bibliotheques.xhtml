@@ -47,20 +47,57 @@
             </div>
         </header>
         
+<div class="row">
+    <div class="col-xl-9 mx-2">
         <c:forEach var="item" items="#{categorieController.getBibliotheques()}" >
-                        <div class="a-box m-2">
-                            <div class="img-container">
-                              <div class="img-inner">
-                                <div class="inner-skew">
+                            <div class="a-box m-2">
+                                <div class="img-container">
+                                  <div class="img-inner">
+                                    <div class="inner-skew">
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
+                                <div class="text-container">
+                                  <h3>#{item.name}</h3>
+                                </div>
                             </div>
-                            <div class="text-container">
-                              <h3>#{item.name}</h3>
-                            </div>
-                        </div>
-                    </c:forEach>
-  
+        </c:forEach>
+    </div>
+    
+    <div class="col-xl-2 mx-2">
+        <h2>#{categorieController.getBibliotheques()[0].name}</h2>
+        
+    </div>
+  </div>       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- BIBLIOTHEQUES -->
+        
+        
         <!-- FOOTER -->
         <footer class="footer py-4">
             <div class="container">
@@ -74,6 +111,7 @@
                 </div>
             </div>
         </footer>
+        
         
         <script src="./resources/js/script.js" type="text/javascript" />
     </h:body>
