@@ -47,55 +47,51 @@
             </div>
         </header>
         
-<div class="row">
-    <div class="col-xl-9 mx-2">
-        <c:forEach var="item" items="#{categorieController.getBibliotheques()}" >
-                            <div class="a-box m-2">
-                                <div class="img-container">
-                                  <div class="img-inner">
-                                    <div class="inner-skew">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="text-container">
-                                  <h3>#{item.name}</h3>
-                                </div>
-                            </div>
-        </c:forEach>
-    </div>
-    
-    <div class="col-xl-2 mx-2">
-        <h2>#{categorieController.getBibliotheques()[0].name}</h2>
-        
-    </div>
-  </div>       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         <!-- BIBLIOTHEQUES -->
+        <div class="row">
+            <div class="col-xl-8 p-md-1">
+                <div class="row">
+                    <c:forEach var="item" items="#{categorieController.getBibliotheques()}" >
+                        <div class="box box-down cyan">
+                            <h5>#{item.name}</h5>
+                            <span class="m-2">
+                              <i class="fa fa-map text-danger"></i>
+                              <span class="ml-2">#{item.localisation}</span>
+                            </span>
+                            <a href="#"><img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt=""/></a>
+                          </div>
+                    </c:forEach>
+                </div>
+            </div>
+
+            <div class="col-xl-4">
+                <div class="col-md-12 box box-down orange">
+                    <h2>#{categorieController.getBibliotheques()[0].name}</h2>
+                    <p>#{categorieController.getBibliotheques()[0].description}</p>
+                    <div class="m-2">
+                        <i class="fa fa-clock text-warning"></i>
+                        <span class="ml-2">#{categorieController.getBibliotheques()[0].ouverture}</span>
+                    </div>
+                    <div class="m-2">
+                      <i class="fa fa-map text-warning"></i>
+                      <span class="ml-2">#{categorieController.getBibliotheques()[0].localisation}</span>
+                    </div>
+                    <div class="m-2">
+                        <i class="fa fa-phone text-warning"></i>
+                        <span class="ml-2">#{categorieController.getBibliotheques()[0].telephone}</span>
+                    </div>
+                    <div class="m-2">
+                        <i class="fa fa-envelope text-warning"></i>
+                        <span class="ml-2">#{categorieController.getBibliotheques()[0].email}</span>
+                    </div>
+                    <a class="m-2 btn btn-warning rounded" href="#{categorieController.getBibliotheques()[0].siteweb}" target="_blank">
+                        <i class="fa fa-globe text-white"></i>
+                        Site web
+                    </a>
+                </div>
+            </div>
+        </div>  
         
         
         <!-- FOOTER -->

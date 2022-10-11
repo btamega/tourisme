@@ -1,0 +1,90 @@
+{
+	"ressource": {
+		"category": "restaurants",
+    "image":"resources/images/restaurant.jpg",
+		"transports":[
+      {
+        "_id": 1,
+        "name": "VIAVIA",
+        "localisation": "3, Rue Fandak Marrakech",
+        "telephone": "",
+        "ouverture": "de 12h00 à 23h00",
+        "description": "",
+        "siteweb": "https://viaviamarrakech.com/",
+        "comments": [
+            {
+                "username": "",
+                "message": "",
+                "date": ""
+            }
+        ]
+      },
+      {
+        "_id": 2,
+        "name": "",
+        "localisation": "",
+        "telephone": "",
+        "ouverture": "",
+        "description": "",
+        "siteweb": "",
+        "comments": [
+            {
+                "username": "",
+                "message": "",
+                "date": ""
+            }
+        ]
+      },
+      {
+        "_id": 3,
+        "name": "",
+        "localisation": "",
+        "telephone": "",
+        "ouverture": "",
+        "description": "",
+        "siteweb": "",
+        "comments": [
+            {
+                "username": "",
+                "message": "",
+                "date": ""
+            }
+        ]
+      },
+      {
+        "_id": 4,
+        "name": "",
+        "localisation": "",
+        "telephone": "",
+        "ouverture": "",
+        "description": "",
+        "siteweb": "",
+        "comments": [
+            {
+                "username": "",
+                "message": "",
+                "date": ""
+            }
+        ]
+      },
+      {
+        "_id": 5,
+        "name": "",
+        "localisation": "",
+        "telephone": "",
+        "ouverture": "",
+        "description": "",
+        "siteweb": "",
+        "comments": [
+            {
+                "username": "",
+                "message": "",
+                "date": ""
+            }
+        ]
+      }
+        
+    ],
+		"_category": "restaurants"
+	}
+}
