@@ -15,6 +15,7 @@ import entities.Bibliotheque;
 import entities.Categorie;
 import entities.Hopital;
 import entities.Pharmacie;
+import entities.Restaurant;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,19 @@ public class CategorieController {
         return hopitaux;
     }
     
+    public List<Restaurant> getRestaurants(){
+        FindIterable<Document> docs = MongoDBConnection.getCollection("restaurants");
+        List<Restaurant> restaurants = new ArrayList<>();
+        for(Document document: docs){
+            List<Document> restaurantD = (List<Document>)document.get("restaurants");
+            for(Document doc: restaurantD){
+                Restaurant restaurant = ObjectMapping.restaurantMapped(doc);
+                restaurants.add(restaurant);
+            }  
+        }
+        return restaurants;
+    }
+    
     public List<Bibliotheque> getBibliotheques(){
         FindIterable<Document> docs = MongoDBConnection.getCollection("bibliotheques");
         List<Bibliotheque> bibliotheques = new ArrayList<>();
@@ -111,6 +125,19 @@ public class CategorieController {
         Bibliotheque bibliotheque = ObjectMapping.bibliothequeMapped(document);
         
         return bibliotheque;
+    }
+    
+    
+    public Restaurant findRestaurantByName(String name){
+        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoCollection<Document> restauCollection = database.getCollection("restaurants");
+        
+        Document document = restauCollection.find().projection(elemMatch("restaurants",new Document("name", name))).first();
+        System.out.println("-----> findRestaurantByName : " + document);
+        
+        Restaurant restaurant = ObjectMapping.restaurantMapped(document);
+        
+        return restaurant;
     }
 
 }

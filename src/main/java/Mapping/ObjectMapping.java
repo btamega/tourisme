@@ -6,10 +6,13 @@ package Mapping;
 
 import entities.Bibliotheque;
 import entities.Categorie;
+import entities.Comment;
 import entities.Hopital;
 import entities.Pharmacie;
 import entities.Pharmacien;
+import entities.Restaurant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.bson.Document;
 
@@ -75,6 +78,27 @@ public class ObjectMapping {
         categorie.setSize(10);    ////////// à modifier
         
         return categorie;
+    }
+    
+    public static Restaurant restaurantMapped(Document document){
+        Restaurant restaurant = new Restaurant();
+        restaurant.setName((String) document.get("name"));
+        restaurant.setImage((String) document.get("image"));
+        restaurant.setLocalisation((String) document.get("localisation"));
+        restaurant.setTelephone((String) document.get("telephone"));
+        restaurant.setOuverture((String) document.get("ouverture"));
+        restaurant.setDescription((String) document.get("description"));
+        restaurant.setSiteweb((String) document.get("siteweb"));
+                
+        return restaurant;
+    }
+    
+    public static Comment commentMapped(Document document){
+        Comment comment = new Comment();
+        comment.setUsernamme((String) document.get("username"));
+        comment.setMessage((String) document.get("message"));
+        
+        return comment;
     }
     
 }

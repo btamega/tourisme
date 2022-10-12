@@ -16,7 +16,7 @@
             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
-        <title>Restaurants - CityGuide</title>
+        <title>#{categorieController.findRestaurantByName('Poka').name} - CityGuide</title>
         <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body id="page-top">
@@ -40,37 +40,53 @@
         </nav>
         
         <!-- HEADER -->
-        <header class="masthead" style="background-image: url('./resources/images/restaurant.jpg')">
+        <header class="masthead" style="background-image: url('./resources/images/restaurants/poka.jfif')">
             <div class="container">
                 <div class="masthead-subheading">City Guide</div>
-                <div class="masthead-heading text-uppercase">Restaurants</div>
+                <div class="masthead-heading text-uppercase">#{categorieController.findRestaurantByName('Poka').name}</div>
             </div>
         </header>
         
-         <!-- RESTAURANTS -->
-        <section class="container-lg">
-            <div class="row">
-                <c:forEach var="item" items="#{categorieController.getRestaurants()}" >
-                    <div class="card-h">
-                        <div class="card-h-header">
-                            <h:commandLink action = "#{navigationController.goToRestautant()}">
-                                <img src="#{item.image}" width="100%"/>
-                            </h:commandLink>
-                        </div>
-                        <div class="card-h-body">
-                            <span class="tag tag-teal"><i class="fa fa-phone text-info text-white"></i> #{item.telephone}</span>
-                            <h5>#{item.name}</h5>
-                            <div class="m-2">
-                                <i class="fa fa-map text-danger"></i>
-                                <span class="ml-2">#{item.localisation}</span>
+        <!-- RESTAURANT Details -->
+        
+        <!-- RESERVATION -->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Réservation</h2>
+                    <h3 class="section-subheading text-muted">Pour vos réservations, veuillez remplir le formulaire ci-dessous</h3>
+                </div>
+                <form id="contactForm">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
-                            <h:commandLink action = "#{navigationController.goToRestautant()}" class="m-2 btn btn-outline-warning rounded-pill">
-                                <i class="fa fa-plus"></i>
-                                Détails
-                            </h:commandLink>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
                         </div>
-                      </div>
-                </c:forEach>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Réserver</button></div>
+                </form>
             </div>
         </section>
   

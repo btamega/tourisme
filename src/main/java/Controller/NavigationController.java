@@ -20,4 +20,8 @@ public class NavigationController implements Serializable {
         return "WEB-CONTENT/"+pageName;
     }
     
+    public String goToRestautant(){
+        return "WEB-CONTENT/restaurant";
+    }
+    
 }
