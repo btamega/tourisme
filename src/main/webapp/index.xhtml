@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <meta charset="utf-8" />
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -118,6 +119,10 @@
                 </div>  
             </div>
         </h:form>
+        <h:form> 
+        <h3>name = #{bibliothequeListener.bibliotheque.name}</h3>
+        <h:commandButton value="biblio suivante" actionListener="#{bibliothequeListener.biblothequeDetails}" />
+        </h:form> 
         
         <!-- FOOTER -->
         <footer class="footer py-4">

@@ -8,6 +8,7 @@ import entities.Bibliotheque;
 import entities.Categorie;
 import entities.Comment;
 import entities.Hopital;
+import entities.Hotel;
 import entities.Pharmacie;
 import entities.Pharmacien;
 import entities.Restaurant;
@@ -99,6 +100,18 @@ public class ObjectMapping {
         comment.setMessage((String) document.get("message"));
         
         return comment;
+    }
+    
+    public static Hotel hotelMapped(Document document){
+        Hotel hotel = new Hotel();
+        hotel.setName((String) document.get("name"));
+        hotel.setLocalisation((String) document.get("localisation"));
+        hotel.setDescription((String) document.get("description"));
+        hotel.setTelephone((String) document.get("telephone"));
+        hotel.setTarif((String) document.get("tarif"));
+        hotel.setImage((String) document.get("image"));
+        
+        return hotel;
     }
     
 }

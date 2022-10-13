@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+           
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+       <f:metadata>
+           <f:viewParam name="parameter" value="#{ressourceBean.parameter}" />
+            
+        </f:metadata>
+    <h:head>
+        <title>Supprimer une ressource</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <div class="container">
+            <h2>Liste des ressources disponibles</h2>
+            <h:dataTable value = "#{ressourceBean.categories()}" var = "ressource">
+
+                <h:column>    				
+                   <f:facet name = "header">Ressources</f:facet>    				
+                   #{ressource}
+                </h:column>
+
+                <h:column>
+                   <f:facet name = "header">Actions</f:facet>
+                   <h:form>
+                       <h:commandButton action="#{ressourceBean.delete()}" value="Supprimer">
+                           <f:param name="parameter" value="#{ressource}" />
+                       </h:commandButton>
+                   </h:form>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </body>
+</html>

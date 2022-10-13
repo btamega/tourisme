@@ -14,6 +14,7 @@ import static com.mongodb.client.model.Filters.eq;
 import entities.Bibliotheque;
 import entities.Categorie;
 import entities.Hopital;
+import entities.Hotel;
 import entities.Pharmacie;
 import entities.Restaurant;
 import java.awt.event.ActionEvent;
@@ -56,6 +57,20 @@ public class CategorieController {
             }  
         }
         return pharmacies;
+    }
+    
+        
+    public List<Hotel> getHotels(){
+        FindIterable<Document> docs = MongoDBConnection.getCollection("hotels");
+        List<Hotel> hotels = new ArrayList<>();
+        for(Document document: docs){
+            List<Document> hotelD = (List<Document>)document.get("hotels");
+            for(Document doc: hotelD){
+                Hotel hotel = ObjectMapping.hotelMapped(doc);
+                hotels.add(hotel);
+            }  
+        }
+        return hotels;
     }
     
     public List<Hopital> getHopitaux(){
@@ -105,7 +120,7 @@ public class CategorieController {
         return bibliotheque;
     }
     
-        public Bibliotheque findById(int index){
+    public Bibliotheque findById(int index){
         MongoDatabase database = MongoDBConnection.getDatabase();
         MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
         

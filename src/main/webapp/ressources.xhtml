@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Liste des ressources disponibles</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./resources/images/favicon.ico" />
+        <meta name="theme-color" content="#000000" />
+        
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+            
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+         <h:outputStylesheet name="css/style.css"/>
+    </h:head>
+    <body id="page-top">
+        <div class="container">
+            <div class="row">
+            <div class="col-2">
+                
+            </div>
+            <div class="col-8">
+                <h:form>
+                    <div class="container page-section">
+                        <div class="text-center">
+                            <h2 class="section-heading text-uppercase">Catégories</h2>
+                        </div>
+                            <c:forEach var="item" items="#{categorieController.getCategories()}" >
+                                <div class="a-box m-2">
+                                    <div class="img-container">
+                                      <div class="img-inner">
+                                        <div class="inner-skew">
+                                            <h:commandLink action = "#{navigationController.goTo(item.name)}">
+                                                <img src="#{item.image}" width="100%"/>
+                                            </h:commandLink>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="text-container">
+                                      <h3>#{item.name}</h3>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>  
+
+                </h:form>
+            </div>
+            <div class="col-2">
+                
+            </div>
+             </div>
+        </div>
+    </body>
+</html>
