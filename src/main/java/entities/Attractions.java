@@ -73,6 +73,7 @@ public class Attractions implements IAttractions,AutoCloseable{
 
     @Override
     public List<Attractions> getAttractions() throws RemoteException {
+<<<<<<< HEAD
         List<Attractions> attractions;
         try(Session session = driver.session()){
             Result result=session.run("MATCH (n:Attractions) RETURN n.name,n.type,n.description,n.localisation");
@@ -81,6 +82,13 @@ public class Attractions implements IAttractions,AutoCloseable{
         return attractions;
         }
         
+=======
+        List<Attractions> attractions=new ArrayList<>();
+        try(Session session = driver.session()){
+            session.run("");
+        }
+        return attractions;
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
     }
 
     @Override
@@ -112,7 +120,11 @@ public class Attractions implements IAttractions,AutoCloseable{
     @Override
     public List<Attractions> findAll(){
         try(Session session = driver.session()){
+<<<<<<< HEAD
             Result result = session.run("MATCH (n:Attractions) RETURN n.name,n.type,n.description,n.localisation");
+=======
+            Result result = session.run("MATCH (a:Attractions) RETURN a ORDER BY a.name");
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
             List<Attractions> attractions = ObjectMapping.attractionMapped(result);
             return attractions;
         }

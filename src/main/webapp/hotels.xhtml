@@ -57,7 +57,11 @@
        <h:form>
         <section class="container-lg">
             <div class="row">
+<<<<<<< HEAD
                 <c:forEach var="item" items="#{categorieController.getHotels()}" >
+=======
+                <c:forEach var="item" items="#{beanEJB.getHotels()}" >
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
                     <div class="card-h">
                         <div class="card-h-header">
                             <h:commandLink action = "#{navigationController.goToHotel(item.name)}">

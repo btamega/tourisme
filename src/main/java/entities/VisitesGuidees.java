@@ -9,8 +9,11 @@ import java.rmi.RemoteException;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+<<<<<<< HEAD
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.Session;
+=======
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
 
 /**
  *
@@ -25,7 +28,11 @@ public class VisitesGuidees implements IVisitesGuidees{
     private List<String> image;
     private Double cost;
     private String duree;
+<<<<<<< HEAD
 private static final Driver driver=Connection.Connection.ConnectToNeo4j();
+=======
+
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
     public VisitesGuidees() {
         super();
     }
@@ -93,9 +100,13 @@ private static final Driver driver=Connection.Connection.ConnectToNeo4j();
 
     @Override
     public void createRessourceVisites() throws RemoteException {
+<<<<<<< HEAD
         try(Session session = driver.session()){
             session.run("CREATE (n:VisitesGuidees {description: 'Andy', title: 'Developer'})");
         }
+=======
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
     }
 
     @Override

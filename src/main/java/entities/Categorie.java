@@ -40,7 +40,11 @@ public class Categorie implements Itourisme,AutoCloseable{
     @Override
     public List<Categorie> getCategories() throws RemoteException {
         try(Session session = driver.session()){
+<<<<<<< HEAD
             Result result = session.run("MATCH (a:Category) RETURN a.name,a.couverture ORDER BY a.name");
+=======
+            Result result = session.run("MATCH (a:Category) RETURN a.name,a.imaege ORDER BY a.name");
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
             List<Categorie> attractions = ObjectMapping.getCategories(result);
             return attractions;
         }

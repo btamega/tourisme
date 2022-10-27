@@ -130,10 +130,19 @@ public class ObjectMapping {
         List<Record> records = result.list();
        List<Attractions> attraction = new ArrayList<>();
         for (Record record : records) {
+<<<<<<< HEAD
                 attraction.add(new Attractions(record.get("n.type").asString(), record.get("n.name").asString(), record.get("n.description").asString(), record.get("n.localisation").asString()));
             
         }
         return attraction;
     }
+=======
+                attraction.add(new Attractions(record.get("type").asString(), record.get("name").asString(), record.get("description").asString(), record.get("localisation").asString()));
+            }
+        return attraction;
+    }
+    
+  
+>>>>>>> 5774de1cd47e706ef21ebad5734b5f7a9eed989a
     
 }
