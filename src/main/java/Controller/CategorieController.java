@@ -4,9 +4,11 @@
  */
 package Controller;
 
-import Connection.MongoDBConnection;
+import Connection.Connection;
 import Mapping.ObjectMapping;
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.elemMatch;
@@ -18,11 +20,15 @@ import entities.Hotel;
 import entities.Pharmacie;
 import entities.Restaurant;
 import java.awt.event.ActionEvent;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import lombok.Data;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -32,9 +38,20 @@ import org.bson.Document;
 @ManagedBean
 public class CategorieController {
     
+    private String firstName;
+
+    private String lastName;
+
+    private Date dateOfBirth;
     
+    private String hotel;
+    private String email;
+    private int period;
+    private Date checkin;
+    private Date checkout;
+    private int numpeople;
     public List<Categorie> getCategories(){
-        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoDatabase database = Connection.getDatabase();
         List<Categorie> categories = new ArrayList<>();
         for (String name : database.listCollectionNames()) {
             MongoCollection<Document> collection = database.getCollection(name);
@@ -47,7 +64,7 @@ public class CategorieController {
     
     
     public List<Pharmacie> getPharmacies(){
-        FindIterable<Document> docs = MongoDBConnection.getCollection("pharmacies");
+        FindIterable<Document> docs = Connection.getCollection("pharmacies");
         List<Pharmacie> pharmacies = new ArrayList<>();
         for(Document document: docs){
             List<Document> pharmacieD = (List<Document>)document.get("pharmacies");
@@ -61,7 +78,7 @@ public class CategorieController {
     
         
     public List<Hotel> getHotels(){
-        FindIterable<Document> docs = MongoDBConnection.getCollection("hotels");
+        FindIterable<Document> docs = Connection.getCollection("hotels");
         List<Hotel> hotels = new ArrayList<>();
         for(Document document: docs){
             List<Document> hotelD = (List<Document>)document.get("hotels");
@@ -72,9 +89,40 @@ public class CategorieController {
         }
         return hotels;
     }
+    public void processForm() {
+        System.out.println("insertion reussie");
+        FacesContext ctx = FacesContext.getCurrentInstance();
+        
+        try {
+            
+            MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017/");
+        MongoDatabase database= mongoClient.getDatabase("tourisme");
+        MongoCollection<Document> gradesCollection = database.getCollection("reservation");
+        
+        
+        
+        Document ressource = new Document("_id", new ObjectId());
+ressource.append("name",firstName);
+ressource.append("lastname", lastName);
+ressource.append("hotel", hotel);
+ressource.append("email", email);
+ressource.append("period", period);
+ressource.append("nbrPersonne", numpeople);
+            System.out.println(ressource);
+gradesCollection.insertOne(ressource);
+
+            ctx.addMessage(null, new FacesMessage("réservation enregistrée"));
+
+        } catch (Exception ex) {
+
+            ctx.addMessage(null, new FacesMessage(ex.getMessage()));
+
+        }
+
+    }
     
     public List<Hopital> getHopitaux(){
-        FindIterable<Document> docs = MongoDBConnection.getCollection("hopitaux");
+        FindIterable<Document> docs = Connection.getCollection("hopitaux");
         List<Hopital> hopitaux = new ArrayList<>();
         for(Document document: docs){
             List<Document> hopitalD = (List<Document>)document.get("hopitaux");
@@ -87,7 +135,7 @@ public class CategorieController {
     }
     
     public List<Restaurant> getRestaurants(){
-        FindIterable<Document> docs = MongoDBConnection.getCollection("restaurants");
+        FindIterable<Document> docs = Connection.getCollection("restaurants");
         List<Restaurant> restaurants = new ArrayList<>();
         for(Document document: docs){
             List<Document> restaurantD = (List<Document>)document.get("restaurants");
@@ -100,7 +148,7 @@ public class CategorieController {
     }
     
     public List<Bibliotheque> getBibliotheques(){
-        FindIterable<Document> docs = MongoDBConnection.getCollection("bibliotheques");
+        FindIterable<Document> docs = Connection.getCollection("bibliotheques");
         List<Bibliotheque> bibliotheques = new ArrayList<>();
         for(Document document: docs){
             List<Document> bibliothequeD = (List<Document>)document.get("bibliotheques");
@@ -115,13 +163,13 @@ public class CategorieController {
     
     public Bibliotheque getFirst(){
         Bibliotheque bibliotheque = new Bibliotheque();
-        FindIterable<Document> docs = MongoDBConnection.getCollection("bibliotheques");
+        FindIterable<Document> docs = Connection.getCollection("bibliotheques");
         
         return bibliotheque;
     }
     
     public Bibliotheque findById(int index){
-        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoDatabase database = Connection.getDatabase();
         MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
         
         Document document = biblioCollection.find().projection(elemMatch("bibliotheques",new Document("_id", index))).first();
@@ -132,7 +180,7 @@ public class CategorieController {
     }
     
     public Bibliotheque findByName(String name){
-        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoDatabase database = Connection.getDatabase();
         MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
         
         Document document = biblioCollection.find().projection(elemMatch("bibliotheques",new Document("name", name))).first();
@@ -144,7 +192,7 @@ public class CategorieController {
     
     
     public Restaurant findRestaurantByName(String name){
-        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoDatabase database = Connection.getDatabase();
         MongoCollection<Document> restauCollection = database.getCollection("restaurants");
         
         Document document = restauCollection.find().projection(elemMatch("restaurants",new Document("name", name))).first();

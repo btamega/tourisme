@@ -32,9 +32,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        
+                        <h:form>
+                            <li class="nav-item">
+                                <h:commandLink action="#{ressourceBean.gotoAdmin()}" class="nav-link" value="Admin"></h:commandLink>
+                                </li>
+                        </h:form>
                         <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#{ressourceBean.gotoLogin()}">Se connecter</a></li>
                     </ul>
                 </div>
             </div>
@@ -91,7 +97,6 @@
                     </div>
                   </div>
         </section>
-        
         <!-- CATEGORIES -->
         <h:form>
             <div class="container page-section">
@@ -100,13 +105,13 @@
                 </div>
                 
                 <div class="row">
-                    <c:forEach var="item" items="#{categorieController.getCategories()}" >
+                    <c:forEach var="item" items="#{beanEJB.displayCategorie()}" >
                         <div class="a-box m-2">
                             <div class="img-container">
                               <div class="img-inner">
                                 <div class="inner-skew">
                                     <h:commandLink action = "#{navigationController.goTo(item.name)}">
-                                        <img src="#{item.image}" width="100%"/>
+                                        <img src="#{item.couverture}" width="100%"/>
                                     </h:commandLink>
                                 </div>
                               </div>
@@ -119,10 +124,6 @@
                 </div>  
             </div>
         </h:form>
-        <h:form> 
-        <h3>name = #{bibliothequeListener.bibliotheque.name}</h3>
-        <h:commandButton value="biblio suivante" actionListener="#{bibliothequeListener.biblothequeDetails}" />
-        </h:form> 
         
         <!-- FOOTER -->
         <footer class="footer py-4">

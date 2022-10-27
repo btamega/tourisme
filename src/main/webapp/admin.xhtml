@@ -33,13 +33,13 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                                 <li class="nav-item">
+                                    <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Dashbord"></h:commandLink>
+                                </li>
+                                <li class="nav-item">
                                     <h:commandLink action="#{ressourceBean.createPage()}" class="nav-link" value="Ajout"></h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink action="#{ressourceBean.getRessources()}" class="nav-link" value="Liste des ressources"></h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink action="#{ressourceBean.deletePage()}" class="nav-link" value="Suppression"></h:commandLink>
                                 </li>
                         </ul>
                     </div>
@@ -66,13 +66,13 @@
                         <div class="text-center">
                             <h2 class="section-heading text-uppercase">Liste de catégories</h2>
                         </div>
-                            <c:forEach var="item" items="#{categorieController.getCategories()}" >
+                        <c:forEach var="item" items="#{beanEJB.displayCategorie()}" >
                                 <div class="a-box m-2">
                                     <div class="img-container">
                                       <div class="img-inner">
                                         <div class="inner-skew">
                                             <h:commandLink action = "#{navigationController.goTo(item.name)}">
-                                                <img src="#{item.image}" width="100%"/>
+                                                <img src="#{item.couverture}" width="100%"/>
                                             </h:commandLink>
                                         </div>
                                       </div>

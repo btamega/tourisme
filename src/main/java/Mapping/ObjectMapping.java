@@ -4,6 +4,7 @@
  */
 package Mapping;
 
+import entities.Attractions;
 import entities.Bibliotheque;
 import entities.Categorie;
 import entities.Comment;
@@ -16,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.bson.Document;
+import org.neo4j.driver.Record;
+import org.neo4j.driver.Result;
+import org.neo4j.driver.Session;
 
 /**
  *
@@ -74,9 +78,8 @@ public class ObjectMapping {
     
     public static Categorie categorielMapped(Document document){
         Categorie categorie = new Categorie();
-        categorie.setName((String) document.get("category"));
-        categorie.setImage((String) document.get("image"));
-        categorie.setSize(10);    ////////// à modifier
+        categorie.setName((String) document.get("name"));
+        categorie.setCouverture((String) document.get("couverture"));    ////////// à modifier
         
         return categorie;
     }
@@ -112,6 +115,25 @@ public class ObjectMapping {
         hotel.setImage((String) document.get("image"));
         
         return hotel;
+    }
+    public static List<Categorie> getCategories(Result result){
+        List<Categorie> categorie = new ArrayList<>();
+        List<Record> records = result.list();
+             for (Record record : records) {
+                categorie.add(new Categorie(record.get("a.name").asString(), record.get("a.couverture").asString()));
+                System.out.println(record.get("a.name").asString());
+            }
+             
+        return categorie;
+    }
+    public static List<Attractions> attractionMapped(Result result){
+        List<Record> records = result.list();
+       List<Attractions> attraction = new ArrayList<>();
+        for (Record record : records) {
+                attraction.add(new Attractions(record.get("n.type").asString(), record.get("n.name").asString(), record.get("n.description").asString(), record.get("n.localisation").asString()));
+            
+        }
+        return attraction;
     }
     
 }

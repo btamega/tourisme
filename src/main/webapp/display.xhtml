@@ -16,7 +16,7 @@
             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
-        <title>Excursions - CityGuide</title>
+        <title>#{categorieController.categories[0].name}</title>
         <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body id="page-top">
@@ -31,9 +31,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                                <li class="nav-item">
-                                    <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Admin"></h:commandLink>
-                                </li>
                         <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
@@ -43,13 +40,60 @@
         </nav>
         
         <!-- HEADER -->
-        <header class="masthead" style="background-image: url('./resources/images/excursion.jpg')">
+        <header class="masthead" style="background-image: url('./resources/images/biblio.jpg')">
             <div class="container">
                 <div class="masthead-subheading">City Guide</div>
-                <div class="masthead-heading text-uppercase">Excursions</div>
+                <div class="masthead-heading text-uppercase">Bibliothèques</div>
             </div>
         </header>
-  
+        
+
+        <!-- BIBLIOTHEQUES -->
+        <div class="row">
+            <div class="col-xl-8 p-md-1">
+                <div class="row">
+                    <c:forEach var="item" items="#{categorieController.getBibliotheques()}" >
+                        <div class="box box-down cyan">
+                            <h5>#{item.name}</h5>
+                            <span class="m-2">
+                              <i class="fa fa-map text-danger"></i>
+                              <span class="ml-2">#{item.localisation}</span>
+                            </span>
+                            <a href="#"><img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt=""/></a>
+                          </div>
+                    </c:forEach>
+                </div>
+            </div>
+
+            <div class="col-xl-4">
+                <div class="col-md-12 box box-down orange">
+                    <h2>#{categorieController.getBibliotheques()[0].name}</h2>
+                    <p>#{categorieController.getBibliotheques()[0].description}</p>
+                    <div class="m-2">
+                        <i class="fa fa-clock text-warning"></i>
+                        <span class="ml-2">#{categorieController.getBibliotheques()[0].ouverture}</span>
+                    </div>
+                    <div class="m-2">
+                      <i class="fa fa-map text-warning"></i>
+                      <span class="ml-2">#{categorieController.getBibliotheques()[0].localisation}</span>
+                    </div>
+                    <div class="m-2">
+                        <i class="fa fa-phone text-warning"></i>
+                        <span class="ml-2">#{categorieController.getBibliotheques()[0].telephone}</span>
+                    </div>
+                    <div class="m-2">
+                        <i class="fa fa-envelope text-warning"></i>
+                        <span class="ml-2">#{categorieController.getBibliotheques()[0].email}</span>
+                    </div>
+                    <a class="m-2 btn btn-warning rounded" href="#{categorieController.getBibliotheques()[0].siteweb}" target="_blank">
+                        <i class="fa fa-globe text-white"></i>
+                        Site web
+                    </a>
+                </div>
+            </div>
+        </div>  
+        
+        
         <!-- FOOTER -->
         <footer class="footer py-4">
             <div class="container">
@@ -63,6 +107,7 @@
                 </div>
             </div>
         </footer>
+        
         
         <script src="./resources/js/script.js" type="text/javascript" />
     </h:body>

@@ -38,13 +38,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                                 <li class="nav-item">
+                                    <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Dashbord"></h:commandLink>
+                                </li>
+                                <li class="nav-item">
                                     <h:commandLink action="#{ressourceBean.createPage()}" class="nav-link text-warning" value="Ajout"></h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink action="#{ressourceBean.getRessources()}" class="nav-link text-warning" value="Liste des ressources"></h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink action="#{ressourceBean.deletePage()}" class="nav-link text-warning" value="Suppression"></h:commandLink>
                                 </li>
                         </ul>
                     </div>

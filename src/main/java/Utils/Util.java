@@ -11,5 +11,7 @@ package Utils;
 public class Util {
     public static final String DB_NAME = "tourisme";
     public static final String CONNECTION_STRING = "mongodb://localhost:27017/";
-
+    public static final  String URI = "bolt://localhost:7687";
+    public static final  String USER = "neo4j";
+    public static final  String PASSWORD = "1234";
 }

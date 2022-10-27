@@ -4,7 +4,7 @@
  */
 package listeners;
 
-import Connection.MongoDBConnection;
+import Connection.Connection;
 import Mapping.ObjectMapping;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -39,7 +39,7 @@ public class BibliothequeListener implements Serializable{
    }
    
     public Bibliotheque findById(int index){
-        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoDatabase database = Connection.getDatabase();
         MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
         
         Document document = biblioCollection.find().projection(elemMatch("bibliotheques",new Document("_id", index))).first();
@@ -50,7 +50,7 @@ public class BibliothequeListener implements Serializable{
     }
    
    public Bibliotheque findByName(String name){
-        MongoDatabase database = MongoDBConnection.getDatabase();
+        MongoDatabase database = Connection.getDatabase();
         MongoCollection<Document> biblioCollection = database.getCollection("bibliotheques");
         
         Document document = biblioCollection.find().projection(elemMatch("bibliotheques",new Document("name", name))).first();

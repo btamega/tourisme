@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta charset="utf-8" />
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -16,7 +15,7 @@
             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
-        <title>Excursions - CityGuide</title>
+        <title>Attractions - CityGuide</title>
         <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body id="page-top">
@@ -31,9 +30,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                                <li class="nav-item">
+                        <h:form>
+                            <li class="nav-item">
                                     <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Admin"></h:commandLink>
                                 </li>
+                        </h:form>
                         <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
@@ -43,12 +44,30 @@
         </nav>
         
         <!-- HEADER -->
-        <header class="masthead" style="background-image: url('./resources/images/excursion.jpg')">
+        <header class="masthead" style="background-image: url('./resources/images/attraction.webp')">
             <div class="container">
                 <div class="masthead-subheading">City Guide</div>
-                <div class="masthead-heading text-uppercase">Excursions</div>
+                <div class="masthead-heading text-uppercase">Attractions</div>
             </div>
         </header>
+        <!-- ATTRACTIONS -->
+        <div class="row">
+            <div class="col-xl-8 p-md-1">
+                <div class="row">
+                    <c:forEach var="item" items="#{beanEJB.affiche()}" >
+                        <div class="box box-down cyan">
+                            <h5>#{item.name}</h5>
+                            <span class="m-2">
+                              <i class="fa fa-map text-danger"></i>
+                              <span class="ml-2">#{item.localisation}</span>
+                            </span>
+                            <a href="#"><img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt=""/></a>
+                            <p>#{item.description}</p>
+                          </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>  
   
         <!-- FOOTER -->
         <footer class="footer py-4">

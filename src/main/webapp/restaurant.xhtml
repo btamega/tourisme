@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta charset="utf-8" />
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -16,7 +17,7 @@
             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
-        <title>#{categorieController.findRestaurantByName('Poka').name} - CityGuide</title>
+        <title>#{navigationController.restaurant.name} - CityGuide</title>
         <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body id="page-top">
@@ -31,27 +32,41 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                                <li class="nav-item">
-                                    <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Admin"></h:commandLink>
+                        
+                        <h:form>
+                            <li class="nav-item">
+                                    <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link text-warning" value="Admin"></h:commandLink>
                                 </li>
-                        <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
+                        </h:form>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#bestDestination">Meilleurs destinations</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#signup">Rejoinez-nous</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#signin">Se connecter</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         
-        <!-- HEADER -->
-        <header class="masthead" style="background-image: url('./resources/images/restaurants/poka.jfif')">
-            <div class="container">
-                <div class="masthead-subheading">City Guide</div>
-                <div class="masthead-heading text-uppercase">#{navigationController.bibliotheque.name}</div>
-            </div>
-        </header>
-        
         <!-- RESTAURANT Details -->
+        <section class="page-section bg-light" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase mt-4">#{navigationController.restaurant.name}</h2>
+                    <h3 class="section-subheading text-muted">
+                        #{navigationController.restaurant.description}
+                    </h3>
+                </div>
+               
+            </div>
+            
+        </section>
         
+        <h:form prependId="false" enctype="multipart/form-data">
+            <ui:fragment rendered="#{not empty facesContext.messageList}">
+
+                 <h:messages  />
+
+            </ui:fragment>
+
         <!-- RESERVATION -->
         <section class="page-section" id="contact">
             <div class="container">
@@ -59,39 +74,48 @@
                     <h2 class="section-heading text-uppercase">Réservation</h2>
                     <h3 class="section-subheading text-muted">Pour vos réservations, veuillez remplir le formulaire ci-dessous</h3>
                 </div>
-                <form id="contactForm">
+                <!--<form id="contactForm">-->
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <label class="text-warning">First name</label>
+                                <h:inputText  value="#{categorieController.firstName}" id="firstnamee" class="form-control"/>
                             </div>
                             <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                 <label class="text-warning">Last name</label>
+                                <h:inputText value="#{categorieController.lastName}" id="lastname"  class="form-control"/>
                             </div>
                             <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                 <label class="text-warning">Hotel name</label>
+                                <h:inputText value="#{categorieController.hotel}" id="hotel" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            <div class="form-group mb-md-0">
+                                 <label class="text-warning">Email</label>
+                                <h:inputText value="#{categorieController.email}" id="email" class="form-control" />
+                            </div>
+                             <div class="form-group mb-md-0">
+                                  <label class="text-warning">Period</label>
+                                <h:inputText value="#{categorieController.period}" id="period" class="form-control" />
+                            </div> <div class="form-group mb-md-0">
+                                 <label class="text-warning">Number of people</label>
+                                <h:inputText value="#{categorieController.numpeople}" id="numpeople" class="form-control" />
                             </div>
                         </div>
                     </div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Réserver</button></div>
-                </form>
+                    
+                    <div class="text-center">
+                        <h:commandButton action="#{categorieController.processForm()}" value="Réserver"  class="btn btn-primary btn-xl text-uppercase">
+                        <f:ajax execute="@form" render="@form" />
+                    </h:commandButton>
+                    </div>
+                <!--</h:form>-->
             </div>
         </section>
+        
+        </h:form>
   
         <!-- FOOTER -->
         <footer class="footer py-4">

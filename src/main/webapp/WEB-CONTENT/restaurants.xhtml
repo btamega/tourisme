@@ -31,6 +31,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                                <li class="nav-item">
+                                    <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Admin"></h:commandLink>
+                                </li>
                         <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
@@ -48,12 +51,13 @@
         </header>
         
         <!-- RESTAURANTS -->
+        <h:form>
         <section class="container-lg">
             <div class="row">
                 <c:forEach var="item" items="#{categorieController.getRestaurants()}" >
                     <div class="card-h">
                         <div class="card-h-header">
-                            <h:commandLink action = "#{navigationController.goToRestautant()}">
+                            <h:commandLink action = "#{navigationController.goToRestautant(item.name)}">
                                 <img src="#{item.image}" width="100%"/>
                             </h:commandLink>
                         </div>
@@ -64,7 +68,7 @@
                                 <i class="fa fa-map text-danger"></i>
                                 <span class="ml-2">#{item.localisation}</span>
                             </div>
-                            <h:commandLink action = "#{navigationController.goToRestautant()}" class="m-2 btn btn-outline-warning rounded-pill">
+                            <h:commandLink action = "#{navigationController.goToRestautant(item.name)}" class="m-2 btn btn-outline-warning rounded-pill">
                                 <i class="fa fa-plus"></i>
                                 Détails
                             </h:commandLink>
@@ -73,6 +77,7 @@
                 </c:forEach>
             </div>
         </section>
+        </h:form>
   
         <!-- FOOTER -->
         <footer class="footer py-4">

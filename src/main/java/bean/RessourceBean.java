@@ -55,6 +55,12 @@ public class RessourceBean implements Serializable{
     public String createPage(){
         return "create";
     }
+    public String gotoAdmin(){
+        return "admin";
+    }
+     public String gotoLogin(){
+        return "login";
+    }
      public String deletePage(){
         return "deleteRessource";
     }
@@ -168,4 +174,5 @@ public class RessourceBean implements Serializable{
         System.out.println("Suppression de la collection "+parameter);
         collection.drop();
     }
+    
 }

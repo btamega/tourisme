@@ -16,7 +16,7 @@
             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
-        <title>Excursions - CityGuide</title>
+        <title>Restaurants - CityGuide</title>
         <h:outputStylesheet name="css/style.css"/>
     </h:head>
     <h:body id="page-top">
@@ -31,9 +31,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                                <li class="nav-item">
+                        
+                        <h:form>
+                            <li class="nav-item">
                                     <h:commandLink action="#{navigationController.goTo('admin')}" class="nav-link" value="Admin"></h:commandLink>
                                 </li>
+                        </h:form>
                         <li class="nav-item"><a class="nav-link" href="#bestDestination">Meilleurs destinations</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Rejoinez-nous</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signin">Se connecter</a></li>
@@ -43,12 +46,41 @@
         </nav>
         
         <!-- HEADER -->
-        <header class="masthead" style="background-image: url('./resources/images/excursion.jpg')">
+        <header class="masthead" style="background-image: url('./resources/images/restaurant.jpg')">
             <div class="container">
                 <div class="masthead-subheading">City Guide</div>
-                <div class="masthead-heading text-uppercase">Excursions</div>
+                <div class="masthead-heading text-uppercase">Restaurants</div>
             </div>
         </header>
+        
+        <!-- RESTAURANTS -->
+        <h:form>
+        <section class="container-lg">
+            <div class="row">
+                <c:forEach var="item" items="#{categorieController.getRestaurants()}" >
+                    <div class="card-h">
+                        <div class="card-h-header">
+                            <h:commandLink action = "#{navigationController.goToRestautant(item.name)}">
+                                <img src="#{item.image}" width="100%"/>
+                            </h:commandLink>
+                        </div>
+                        <div class="card-h-body">
+                            <span class="tag tag-teal"><i class="fa fa-phone text-info text-white"></i> #{item.telephone}</span>
+                            <h5>#{item.name}</h5>
+                            <div class="m-2">
+                                <i class="fa fa-map text-danger"></i>
+                                <span class="ml-2">#{item.localisation}</span>
+                            </div>
+                            <h:commandLink action = "#{navigationController.goToRestautant(item.name)}" class="m-2 btn btn-outline-warning rounded-pill">
+                                <i class="fa fa-plus"></i>
+                                Détails
+                            </h:commandLink>
+                        </div>
+                      </div>
+                </c:forEach>
+            </div>
+        </section>
+        </h:form>
   
         <!-- FOOTER -->
         <footer class="footer py-4">
