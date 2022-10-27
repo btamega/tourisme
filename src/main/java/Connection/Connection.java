@@ -11,12 +11,15 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.neo4j.driver.AuthTokens;
+import org.neo4j.driver.Driver;
+import org.neo4j.driver.GraphDatabase;
 
 /**
  *
  * @author KANNOUFA
  */
-public class MongoDBConnection {
+public class Connection {
     
     public static MongoDatabase getDatabase(){
         MongoClient mongoClient = MongoClients.create(Util.CONNECTION_STRING);
@@ -35,6 +38,11 @@ public class MongoDBConnection {
         FindIterable<Document> docs = collection.find();
         
         return docs;
+    }
+    
+    public static Driver ConnectToNeo4j(){
+         Driver driver=GraphDatabase.driver(Util.URI, AuthTokens.basic(Util.USER, Util.PASSWORD));
+         return driver;
     }
     
 }
