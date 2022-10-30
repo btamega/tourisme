@@ -1,0 +1,102 @@
+{
+	"ressource": {
+		"category": "attractions",
+    "image":"resources/images/attractions.webp",
+		"site": [
+      {
+        "name": "Jardin Majorelle",
+        "images": {
+          "path": "resources/images/attractions/majorel"
+        },
+        "description": "Créés par le français Jacques Majorelle dans les années 30 et rachetés par Yves Saint Laurent cinquante ans plus tard, les somptueux Jardins Majorelle était une source d’inspiration pour le couturier. Après une balade dans les jardins, il y a aussi le musée Berbère a parcourir.",
+        "localisation": "Rue Yves St Laurent, Marrakech 40090",
+        "affluence": {
+          "saison": {
+            "periode": "tous les jours",
+            "nombreVisiteur": {
+              "homme": "",
+              "femme": ""
+            }
+          }
+        }
+      },
+      {
+        "name": "Mosquée Hassan II",
+        "images": {
+          "path": "resources/images/attractions/tourHassan2"
+        },
+        "description": "Avec sa pierre taillée à la main et son beau marbre, la mosquée Hassan II est l’un des sites incontournables de Casablanca. Des visites guidées sont possibles en dehors des heures de prière, et montrent les coins de la mosquée tels que la salle de prière et le hammam.",
+        "localisation": "Bd de la Corniche, Casablanca 20000",
+        "affluence": {
+          "saison": {
+            "periode": "Ramadan",
+            "nombreVisiteur": {
+              "homme": 22000,
+              "femme": 21000
+            }
+          }
+        },
+        "hauteur": "210 m"
+      },
+      {
+        "name": "Plages d'Agadir",
+        "images": {
+          "path": "resources/images/attractions/plageAgadir"
+        },
+        "description": "Avec ses sables dorés et petits cafés charmants, la plage d’Agadir attire de nombreux visiteurs. Prenez un thé à la menthe et allongez-vous au soleil, faites une balade à chameau, ou bien, prenez une croisière a bateau tout le long de la côte.",
+        "localisation": "Agadir",
+        "affluence": {
+          "saison": {
+            "periode": "Eté",
+            "nombreVisiteur": ""
+          }
+        }
+      },
+      {
+        "name": "Médina de Fès",
+        "images": {
+          "path": "resources/images/attractions/medinaFes"
+        },
+        "description": "La médina la plus grande du monde, ce quartier immense et bien animé mérite au moins une journée pour visiter. Vous y trouverez des mosquées, fontaines, des tanneries et des souks. Réservez un guide pour ne pas vous perdre dans ses petites ruelles qui créent un véritable labyrinthe.",
+        "localisation": "Fès",
+        "affluence": {
+          "saison": {
+            "periode": "08:00 à 00:00"
+          }
+        }
+      },
+      {
+        "name": "Crocoparc",
+        "images": {
+          "path": "resources/images/attractions/crocoParc"
+        },
+        "description": "Crocoparc est un parc d’attractions avec plus de 300 crocodiles, ainsi que des lézards, tortues géantes, et autres reptiles. Entrez par la mâchoire énorme d’un crocodile et passez une journée en pleine verdure. Les billets d'avance vous permettra de gagner du temps, tandis que certaines visites guidées incluent le transport.",
+        "localisation": "RN 8 PK 16 80046 Drarga - Agadir، Drarga 80046",
+        "affluence": {
+          "saison": {
+            "periode": "Eté",
+            "horaires": "10:00 à 19:00",
+            "nombreVisiteur": ""
+          }
+        },
+        "billet": "90 Dhs",
+        "animaux": {
+          "especes": [
+            {
+              "name": "crocodiles",
+              "nombre": 325
+            },
+            {
+              "name": [
+                "serpent",
+                "tortue"
+              ]
+            }
+          ]
+        },
+        "superficie": "4 hectares"
+      }
+    ],
+		"_category": "attractions"
+	}
+}

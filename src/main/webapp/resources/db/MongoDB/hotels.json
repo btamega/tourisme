@@ -1,0 +1,46 @@
+{
+	"ressource": {
+		"category": "hotels",
+        "image":"resources/images/hotel.jpg",
+        "hotels":[
+        {
+            "_id": 1,
+            "name": "PALAIS NAMASKAR",
+            "image": "resources/images/hotels/namaskar.jpg",
+            "localisation": "Route de Bab Atlas Marrakech",
+            "telephone": "+212 5 24 29 98 00",
+            "description": "Inauguré en 2012, c'est un des plus beaux hôtels du Maroc et probablement le plus bel hôtel de Marrakech. Il a reçu de nombreuses récompenses en ce sens et a été désigné « Meilleur Hôtel d'Afrique » par le prix Villégiature en octobre 2014.",
+            "tarif": "A partir de 490 € pour deux personnes."
+        },
+        {
+            "_id": 2,
+            "name": "RIAD LE RIHANI",
+            "image": "resources/images/hotels/rihani.jpg",
+            "localisation": "52, Derb El Arsa, Quartier Kenaria Marrakech",
+            "telephone": "+212 5 24 38 37 66",
+            "description": "L'établissement se caractérise par un patio avec un très grand bassin où l'on peut même nager ! Les chambres et suites sont toutes décorées de manière unique. Vous pouvez bénéficier d'un transfert depuis l'aéroport avec un thé de bienvenue, corbeille de fruits et de pâtisseries marocaines dans la chambre, bouquet et pétales de roses, bain parfumé et bougies pour commencer un séjour romantique.",
+            "tarif": "A partir de 90 € la nuit"
+        },
+        {
+            "_id": 3,
+            "name": "LES JARDINS DE LA KOUTOUBIA",
+            "image": "resources/images/hotels/koutoubia.jpg",
+            "localisation": "26, rue de la Koutoubia Marrakech",
+            "telephone": "+212 5 24 38 88 00",
+            "description": "L'hôtel Les Jardins de la Koutoubia, vous offre ses fastes et ses lumières, aux pieds du célèbre minaret. Les chambres, équipées d'une ligne directe, de la télévision par satellite, entre autres, sont modernes et cossues.",
+            "tarif": "Chambre à partir de 185 €, suite à partir de 260 €. "
+        },
+        {
+            "_id": 4,
+            "name": "LA MAMOUNIA",
+            "image": "resources/images/hotels/mamounia.jpg",
+            "localisation": "Avenue Bab Jdid Marrakech",
+            "telephone": "+212 5 24 38 86 00",
+            "description": "Plus luxueux que jamais, surtout après sa récente rénovation, la Mamounia transpire le glamour dans toute sa splendeur. Considéré comme l'un des symboles de la Ville Rouge, la Mamounia au nom si évocateur, est bien plus qu'un simple palace élégant et feutré, mais un monument historique aux murs chargés d'histoire.",
+            "tarif": "Chambres à partir de 600 € la nuit."
+        }
+            
+        ],
+            "_category": "hotels"
+    }
+}

@@ -1,0 +1,13 @@
+{
+	"ressource": {
+		"category": "transports",
+    "image":"resources/images/transport.jpg",
+		"transports":[
+      {
+        "_id": 1
+      }
+        
+    ],
+		"_category": "transports"
+	}
+}

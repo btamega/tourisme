@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+           
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+       <f:metadata>
+           <f:viewParam name="parameter" value="#{ressourceBean.parameter}" />
+            
+        </f:metadata>
+    <h:head>
+        <meta charset="utf-8" />
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+        <link rel="icon" type="image/x-icon" href="./resources/images/favicon.ico" />
+        <title>ADMIN - CityGuide</title>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="css/menu.css"/>
+    </h:head>
+    <body>
+        <!-- MENU -->
+        <h:form>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                <div class="container">
+                    <a class="navbar-brand" ><img src="./resources/images/logo.png" alt="logo"/></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fas fa-bars ms-1"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                                <li class="nav-item">
+                                    <h:commandLink action="#{ressourceBean.createPage()}" class="nav-link text-warning" value="Ajout"></h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink action="#{ressourceBean.getRessources()}" class="nav-link text-warning" value="Liste des ressources"></h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink action="#{ressourceBean.deletePage()}" class="nav-link text-warning" value="Suppression"></h:commandLink>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </h:form>
+        
+        <section class="page-section bg-light" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase mt-4"></h2>
+                    <h3 class="section-subheading text-muted">
+                        Remplir les informations de la nouvelle ressource dans le formulaire ci dessous, puis cliquer sur ajouter.
+                    </h3>
+                </div>
+                <h:form enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label">Catégorie</label>
+                                <h:inputText label="category" id="category" value="#{ressourceBean.categorie}" required="true" class="form-control"/>
+                                <h:message for="ename" style="color: red"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nom de la ressource</label>
+                            <h:inputText label="category" id="name" value="#{ressourceBean.name}" required="true" class="form-control"/>
+                            <h:message for="ename" style="color: red"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description:</label>
+                            <h:inputText label="category" id="description" value="#{ressourceBean.description}" required="true" class="form-control"/>
+                            <h:message for="ename" style="color: red"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image de couverture</label>
+                            <h:inputFile  value="#{ressourceBean.image}"  required="true" requiredMessage="Please upload a file" alt="upload file" class="form-control"></h:inputFile>
+                        </div>
+                    
+                        <h:commandButton value="Ajouter" action="#{ressourceBean.createRessource()}" class="btn btn-primary">
+                            <f:ajax execute="@form" render="@form" />
+                        </h:commandButton>
+                </h:form>
+            </div>
+            
+        </section>
+        
+        <!-- FOOTER -->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright © IRISI 2022</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        
+        
+        <div class="container">
+            <h2>Liste des ressources disponibles</h2>
+            <h:dataTable value = "#{ressourceBean.categories()}" var = "ressource">
+
+                <h:column>    				
+                   <f:facet name = "header">Ressources</f:facet>    				
+                   #{ressource}
+                </h:column>
+
+                <h:column>
+                   <f:facet name = "header">Actions</f:facet>
+                   <h:form>
+                       <h:commandButton action="#{ressourceBean.delete()}" value="Supprimer">
+                           <f:param name="parameter" value="#{ressource}" />
+                       </h:commandButton>
+                   </h:form>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </body>
+</html>

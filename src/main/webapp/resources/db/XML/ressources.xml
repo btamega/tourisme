@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<continents>
+    <continent name="Afrique">
+        <countries> 
+            <country>
+                <name>Morocco</name>
+                <ressources type="touristique">
+                    <ressource category="attractions">
+                        <site type="jardin">
+                            <name>Jardin Majorelle</name>
+                            <images>
+                                <path>resources/images/attractions/majorel</path>
+                            </images>
+                            <description>Créés par le français Jacques Majorelle dans les années 30 et rachetés par Yves Saint Laurent cinquante ans plus tard, les somptueux Jardins Majorelle était une source d’inspiration pour le couturier. Après une balade dans les jardins, il y a aussi le musée Berbère a parcourir.</description>
+                            <localisation>Rue Yves St Laurent, Marrakech 40090</localisation>
+                            <affluence>
+                                <saison>
+                                    <periode>tous les jours</periode>
+                                    <nombreVisiteur>
+                                        <homme></homme>
+                                        <femme></femme>
+                                    </nombreVisiteur>
+                                </saison>
+                            </affluence>
+                        </site>
+                        <site type="religieux">
+                            <name>Mosquée Hassan II</name>
+                            <images>
+                                <path>resources/images/attractions/tourHassan2</path>
+                            </images>
+                            <description>Avec sa pierre taillée à la main et son beau marbre, la mosquée Hassan II est l’un des sites incontournables de Casablanca. Des visites guidées sont possibles en dehors des heures de prière, et montrent les coins de la mosquée tels que la salle de prière et le hammam.</description>
+                            <localisation>Bd de la Corniche, Casablanca 20000</localisation>
+                            <affluence>
+                                <saison>
+                                    <periode>Ramadan</periode>
+                                    <nombreVisiteur>
+                                        <homme>22000</homme>
+                                        <femme>21000</femme>
+                                    </nombreVisiteur>
+                                </saison>
+                            </affluence>
+                            <hauteur>210 m</hauteur>
+                        </site>
+                        <site type="plages">
+                            <name>Plages d'Agadir</name>
+                            <images>
+                                <path>resources/images/attractions/plageAgadir</path>
+                            </images>
+                            <description>Avec ses sables dorés et petits cafés charmants, la plage d’Agadir attire de nombreux visiteurs. Prenez un thé à la menthe et allongez-vous au soleil, faites une balade à chameau, ou bien, prenez une croisière a bateau tout le long de la côte.</description>
+                            <localisation>Agadir</localisation>
+                            <affluence>
+                                <saison>
+                                    <periode>Eté</periode>
+                                    <nombreVisiteur>
+                                    </nombreVisiteur>
+                                </saison>
+                            </affluence>
+                        </site>
+                        <site type="quartiers">
+                            <name>Médina de Fès</name>
+                            <images>
+                                <path>resources/images/attractions/medinaFes</path>
+                            </images>
+                            <description>La médina la plus grande du monde, ce quartier immense et bien animé mérite au moins une journée pour visiter. Vous y trouverez des mosquées, fontaines, des tanneries et des souks. Réservez un guide pour ne pas vous perdre dans ses petites ruelles qui créent un véritable labyrinthe.</description>
+                            <localisation>Fès</localisation>
+                            <affluence>
+                                <saison>
+                                    <periode>08:00 à 00:00</periode>
+                                </saison>
+                            </affluence>
+                        </site>
+                        <site type="espaceNaturel">
+                            <name>Crocoparc</name>
+                            <images>
+                                <path>resources/images/attractions/crocoParc</path>
+                            </images>
+                            <description>Crocoparc est un parc d’attractions avec plus de 300 crocodiles, ainsi que des lézards, tortues géantes, et autres reptiles. Entrez par la mâchoire énorme d’un crocodile et passez une journée en pleine verdure. Les billets d'avance vous permettra de gagner du temps, tandis que certaines visites guidées incluent le transport.</description>
+                            <localisation> RN 8 PK 16 80046 Drarga - Agadir، Drarga 80046</localisation>
+                            <affluence>
+                                <saison>
+                                    <periode>Eté</periode>
+                                    <horaires>10:00 à 19:00</horaires>
+                                    <nombreVisiteur></nombreVisiteur>
+                                </saison>
+                            </affluence>
+                            <billet>90 Dhs</billet>
+                            <animaux>
+                                <especes>
+                                    <name>crocodiles</name>
+                                    <nombre>325</nombre>
+                                </especes>
+                                <especes>
+                                    <name>serpent</name>
+                                    <name>tortue</name>
+                                </especes>
+                            </animaux>
+                            <superficie>4 hectares</superficie>
+                        </site>
+                    </ressource>
+                    <ressource category="visitesGuidees">
+                        <visites>
+                            <titre></titre>
+                            <guide>
+                                <name></name>
+                                <contact></contact>
+                            </guide>
+                            <images>
+                                <path>resources/images/attractions/visitesGuidees/merzouga</path>
+                            </images>
+                            <description>
+                                The 3 days desert tour from marrakech to merzouga dunes & camel trek, including : Merzouga desert tour departure from Marrakech 3 days will allow you to explore the southern Sahara and its wonderful Kasbahs and to live unforgettable moments with the Berbers, as well as the visit of the old kasbah to Ait ben Haddou and Toudra gorge, sleep in a desert camp under Berber tent. TOUR HIGHLIGHTS : Cross the High Atlas Mountains with its pass of Tizi Ntichka Visit the legendary world heritage site of Kasbah Ait Ben Haddou Visit Todra gorges and Tinghir oasis Ride a camel in Erg Chebbi to watch the colour changing sunset & sunrise Spend the night at a Berbr desert camp sandbordin
+                            </description>
+                            <cost>1000 Dhs</cost>
+                            <duree>3 jours</duree>
+                            <circuit>
+                                <depart>Marrakech </depart>
+                                <arrivee>Merzouga Dunes</arrivee>
+                                <duree></duree>
+                            </circuit>
+                            <avis>
+                                <commentaire>
+                                    <message>Excellente journée, le guide est tres respectueux et a l'ecoute, bus propre et climatisé explication sur les villes tres clair et pousser en francais et en anglais. Experience a refaire !! merci ilyes</message>
+                                    <date>Sep 19 2022</date>
+                                    <user>aouladl</user>
+                                </commentaire>
+                                <commentaire>
+                                    <message>Superbe journée au départ de Marrakech, la compagnie s’arrange pour venir vous chercher au plus près de votre hôtel/Riad Nous avons vu les fameux arganiers et visité une coopérative de fabrication d’huile Argan. La journée a Essouira fut superbe et notre chauffeur Ayoub tout au long du trajet extrêmement gentil !! Je recommande vivement c’était une superbe expérience !</message>
+                                    <date>Sep 13 2022</date>
+                                    <user>Juliette B</user>
+                                </commentaire>
+                                <commentaire>
+                                    <message>Pour commencer très bon rapport qualité-prix il vient de vous récupérer à votre hôtel si vous êtes sur Marrakech tout s'est bien passé la coopérative était nickel et le temps libre sur Essaouira top du top nous avons mangé dans un restaurant en tout cas pour ma part qui s'appelait Maroc salut très bon. Accueil et la prise en charge de Hassan & Salah au top il sont très gentils,souriant il nous explique bien les choses une chose et sur je ferais appel à cette agence pour l'excursion. Inès.</message>
+                                    <date>Sep 11 2022</date>
+                                    <user>inesi975</user>
+                                </commentaire>
+                            </avis>
+                        </visites>
+                        <visites>
+                            <titre>Excursion d'une journée à la découverte du massif de l'Atlas, des trois vallées et des chutes d'eau à dos de chameau au départ de Marrakech</titre>
+                            <guide>
+                                <name>Amzil Marrakech Tickets</name>
+                                <contact></contact>
+                            </guide>
+                            <images>
+                                <path>resources/images/attractions/visitesGuidees/atlas</path>
+                            </images>
+                            <description>
+                                Si vous explorez le massif de l'Atlas marocain sans guide, vous pourriez manquer une occasion de découvrir la culture berbère et des points de vue panoramiques. Cependant, la plupart des excursions en groupe suivent des itinéraires fixes qui ne laissent pas de place à la spontanéité pendant la journée. Cette excursion privée est une véritable affaire : un guide local organise la logistique et l'interaction avec les villageois berbères, et vous avez la possibilité de personnaliser votre itinéraire. Un déjeuner local, une promenade facultative à dos de chameau et une visite chez une famille berbère sont tous inclus.
+                            </description>
+                            <cost>350 Dhs</cost>
+                            <duree>7H</duree>
+                            <circuit>
+                                <depart>Marrakech </depart>
+                                <arrivee>Atlas Mountain Park National De Toubkal</arrivee>
+                                <duree>7H</duree>
+                            </circuit>
+                            <avis>
+                                <commentaire>
+                                    <message>En fait ce n’est pas quatre vallées mais trois, pas très grave. La cascade n’est pas très jolie en elle-même (en tout cas fin septembre, dernière pluie date de mars). Cela permet surtout de s’approcher de la population locale des montagnes (on est env à 1500m), de traverser un petit village, de voir les enfants jouer dans les ruelles, les fillettes assises dans la rue qui font leurs devoirs ou encore de croiser des bergers/bergères d’un autre âge, avec leur troupeau, à ne pas les prendre en photo… La rando (prévoir bonnes baskets) permet aussi de contempler les pommiers aux énormes pommes rouges et les noyers. Sinon visite de la coopérative instructive avec pt dej traditionnel de thé, pain spécial, pâte d’argan et miel. Après la rando déjeuner sympa et copieux pour 60drh (6€) avec petite salade de tomates, tajine poulet légumes et melon jaune, pain local et une btl d’eau. Le guide Aziz vient du village et est très ouvert à la discussion et aux questions. Puis sur le retour balade rigolote en dromadaire en tenue locale, pour de belles photos souvenir…</message>
+                                    <date>Sep 28 2022</date>
+                                    <user>gastronomes06</user>
+                                </commentaire>
+                                <commentaire>
+                                    <message>Balade en dromadaire sympathique (durée environ 25 min) mais dîner de qualité moyenne qui n’est pas « gastronomique » comme cela a pu être précisé. Nous avons eu le droit à une entrée (petite assiette de riz au thon et salade de tomates), une tajine au poulet et une assiette de fruit pour deux (soit une banane chacun et une grappe de raisin)… Au delà du fait que le l’endroit pour dîner n’était pas exceptionnel, le service était inégal et il n’avait aucune musique pendant le repas (si ce n’est une petite ambiance à la fin : serveurs qui jouent de la musique et chantent). Nous avons cependant passés une bonne soirée grâce à la gentillesse du personnel même si nous nous attendions à un peu mieux.</message>
+                                    <date>Sep 17 2022</date>
+                                    <user>Pauline S</user>
+                                </commentaire>
+                            </avis>
+                        </visites>
+                        <visites>
+                                <guide>
+                                    <name></name>
+                                    <contact></contact>
+                                </guide>
+                                <description>
+                                    The 3 days desert tour from marrakech to merzouga dunes & camel trek, including : Merzouga desert tour departure from Marrakech 3 days will allow you to explore the southern Sahara and its wonderful Kasbahs and to live unforgettable moments with the Berbers, as well as the visit of the old kasbah to Ait ben Haddou and Toudra gorge, sleep in a desert camp under Berber tent. TOUR HIGHLIGHTS : Cross the High Atlas Mountains with its pass of Tizi Ntichka Visit the legendary world heritage site of Kasbah Ait Ben Haddou Visit Todra gorges and Tinghir oasis Ride a camel in Erg Chebbi to watch the colour changing sunset & sunrise Spend the night at a Berbr desert camp sandbordin
+                                </description>
+                                <cost>1000 Dhs</cost>
+                                <duree>3 jours</duree>
+                                <circuit>
+                                    <depart>Marrakech </depart>
+                                    <arrivee>Merzouga Dunes</arrivee>
+                                    <horaires>
+                                        <heureDepart></heureDepart>
+                                        <heureArrivee></heureArrivee>
+                                    </horaires>
+                                </circuit>
+                                <avis>
+                                    <commentaire>
+                                        <message>Excellente journée, le guide est tres respectueux et a l'ecoute, bus propre et climatisé explication sur les villes tres clair et pousser en francais et en anglais. Experience a refaire !! merci ilyes</message>
+                                        <date>Sep 19 2022</date>
+                                        <user>aouladl</user>
+                                    </commentaire>
+                                </avis>
+                        </visites>
+                    </ressource>
+                    <ressource category="excursions">
+                        
+                    </ressource>
+                    <ressource category="restauration">
+                        
+                    </ressource>
+                    <ressource category="concerts">
+                        
+                    </ressource>
+                    <ressource category="transport">
+                        
+                    </ressource>
+                    <ressource category="medicales">
+                        <pharmacies>
+                            <pharmacie>
+                                <name>Pharmacie PALACIO</name>
+                                <localisation>Résidence Palacio, 183 rue Med Baqual à 150m du Cinéma Colisée à côté Café Amandine, Restaurant Trattoria et Bab Hôtel</localisation>
+                                <quartier>GRAND GUELIZ</quartier>
+                                <pharmaciens>
+                                    <pharmacien>
+                                        <name>Mr. AKAABOUNE</name>
+                                    </pharmacien>
+                                </pharmaciens>
+                                <telephone>0524-42-24-52</telephone>
+                            </pharmacie>
+                            
+                            <pharmacie>
+                                <name>Pharmacie EL MANSOUR EDDAHBI</name>
+                                <localisation>147, Jnane El Afia Bab H’mer près du Collège El Mansour Eddahbi</localisation>
+                                <quartier>MEDINA</quartier>
+                                <pharmaciens>
+                                    <pharmacien>
+                                        <name>Mme. HANANI</name>
+                                    </pharmacien>
+                                </pharmaciens>
+                                <telephone>0524-38-72-72</telephone>
+                            </pharmacie>
+                            
+                            <pharmacie>
+                                <name>Pharmacie LALLA AOUDA SAADIA</name>
+                                <localisation>58, Sidi Soussane Trik sabtiyne en face du lycée Lalla Ouda Saâdia</localisation>
+                                <quartier>MEDINA</quartier>
+                                <pharmaciens>
+                                    <pharmacien>
+                                        <name>Mme. HAZIM</name>
+                                    </pharmacien>
+                                </pharmaciens>
+                                <telephone>0524-37-86-80</telephone>
+                            </pharmacie>
+                            
+                        </pharmacies>
+                        
+                        <hopitaux>
+                            <hopital>
+                                <name>C.h.u. Mohammed VI (Centre Hospitalier Universitaire Mohammed VI)</name>
+                                <localisation>53, Assif MARRAKECH</localisation>
+                                <telephone>05 24 30 07 00</telephone>
+                            </hopital>
+                            
+                            <hopital>
+                                <name>Hopital El Antaki</name>
+                                <localisation>Rue de Bab El Khémis MARRAKECH</localisation>
+                                <telephone>05 24 38 06 82</telephone>
+                            </hopital>
+                            
+                            <hopital>
+                                <name>Hôpital Ibn Tofail (Centre Hospitalier Universitaire Mohammed VI)</name>
+                                <localisation>rue Mohamed El Beqal MARRAKECH</localisation>
+                                <telephone>05 24 43 93 95</telephone>
+                            </hopital>
+                            
+                        </hopitaux>
+                        
+                    </ressource>
+                    <ressource category="bibliotheques">
+                        <bibliotheque>
+                            <name>Librairie Chatr</name>
+                            <localisation>19-21, Avenue Mohamed V, Guéliz, Marrakech, Maroc</localisation>
+                            <siteweb>https://www.librairiechatr.com/</siteweb>
+                            <telephone>+212 (0) 524 44 79 97</telephone>
+                            <email>librairie@groupechatr.com</email>
+                        </bibliotheque>
+                    </ressource>
+                </ressources>
+            </country> 
+        </countries>
+    <continent/>
+</continents>

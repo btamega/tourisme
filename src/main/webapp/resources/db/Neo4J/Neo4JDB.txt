@@ -1,0 +1,400 @@
+-- requêtes pour la création des noeuds/relation dans Neo4J
+
+// Ajout des catégories
+CREATE (n1:Category {name: 'Hôpitaux', couverture: 'resources/images/hopital.jpg'})
+CREATE (n2:Category {name: 'Hôtels', couverture: 'resources/images/hotel.jpg'})
+CREATE (n3:Category {name: 'Bibliothèque', couverture: 'resources/images/biblio.jpg'})
+CREATE (n4:Category {name: 'Pharmacies', couverture: 'resources/images/pharmacy.jpg'})
+CREATE (n5:Category {name: 'Restaurants', couverture: 'resources/images/restaurant.jpg'})
+CREATE (n6:Category {name: 'Transports', couverture: 'resources/images/transport.jpg'})
+CREATE (n7:Category {name: 'Visites guidées', couverture: 'resources/images/visite.jpg'})
+CREATE (n8:Category {name: 'Attractions', couverture: 'resources/images/attraction.webp'})
+
+// Ajout des hopitaux (ressource avec category=hopital)
+CREATE (n1:Ressource {
+            name: 'C.h.u. Mohammed VI', 
+            localisation: '53, Assif MARRAKECH',
+            siteweb:'https://www.chumarrakech.ma/',
+            telephone:'05 24 30 07 00',
+            type:'Public',
+            image:'resources/images/hopitaux/chu.jpg',
+            category: 'hopital'}
+        )
+CREATE (n2:Ressource {
+            name: 'Hopital El Antaki', 
+            localisation: 'Rue de Bab El Khémis MARRAKECH', 
+            siteweb:'',
+            telephone:'05 24 38 06 82',
+            type:'Public',
+            image:'resources/images/hopitaux/antaki.jpg',
+            category: 'hopital'}
+        )
+CREATE (n3:Ressource {
+            name: 'Hopital Ibn Nafis', 
+            localisation: 'Quartier Aguedal MARRAKECH', 
+            siteweb:'http://www.hin.ma/',
+            telephone:'+212 5 24 29 04 53',
+            type:'Public',
+            image:'resources/images/hopitaux/ibn-nafis.jpg',
+            category: 'hopital'}
+        )
+CREATE (n4:Ressource {
+            name: 'Hôpital Ibn Tofail', 
+            localisation: 'rue Mohamed El Beqal MARRAKECH',
+            siteweb:'',
+            telephone:'05 24 43 93 95',
+            type:'Public',
+            image:'resources/images/hopitaux/ibn-tofail.jpg',
+            category: 'hopital'}
+        )
+CREATE (n5:Ressource {
+            name: 'Clinique Internationale de Marrakech', 
+            localisation: 'Rte de l\'aéroport، Avenue Guemassa, Marrakech 40000, Morocco', 
+            siteweb:'http://www.clinique-internationale-marrakech.com/',
+            telephone:'(+212) 5 24 36 95 95',
+            type:'Privé',
+            image:'resources/images/hopitaux/international.jpg',
+            category: 'hopital'}
+        )
+CREATE (n6:Ressource {
+            name: 'Clinique Du Soleil', 
+            localisation: '38 Lot Albek Rue Erraouda Marrakech, Morocco', 
+            siteweb:'https://www.cliniquesoleilmarrakech.com/',
+            telephone:'+212 524 421 767',
+            type:'Privé',
+            image:'resources/images/hopitaux/soleil.png',
+            category: 'hopital'}
+        )
+CREATE (n7:Ressource {
+            name: 'Clinique Errahma', 
+            localisation: 'EL MASMOUDI LOTISSEMENT ZINEB 2, MARRAKECH 40120', 
+            siteweb:'https://cliniqueerrahma.com/',
+            telephone:'+212 524 343 461',
+            type:'Privé',
+            image:'resources/images/hopitaux/errahma.jpg',
+            category: 'hopital'}
+        )
+
+// relations res-hopital-->cat-hopitaux
+MATCH (c:Category),(r:Ressource) WHERE c.name = "Hôpitaux" AND r.category ="hopital"
+CREATE (r)-[rl:APPARTENIR]->(c) RETURN rl
+
+
+// Ajout des hotels (ressource avec category=hotel)
+CREATE (n1:Ressource {
+            name: 'PALAIS NAMASKAR',
+            image: 'resources/images/hotels/namaskar.jpg', 
+            localisation:'Route de Bab Atlas Marrakech',
+            telephone:'+212 5 24 29 98 00',
+            description:"Inauguré en 2012, c'est un des plus beaux hôtels du Maroc et probablement le plus bel hôtel de Marrakech. Il a reçu de nombreuses récompenses en ce sens et a été désigné « Meilleur Hôtel d'Afrique » par le prix Villégiature en octobre 2014.",
+            tarif:'A partir de 490 € pour deux personnes.',
+            category: 'hotel'
+        })
+CREATE (n2:Ressource {
+            name: 'RIAD LE RIHANI', 
+            image: 'resources/images/hotels/rihani.jpg', 
+            localisation:'52, Derb El Arsa, Quartier Kenaria Marrakech',
+            telephone:'+212 5 24 38 37 66',
+            description:"L'établissement se caractérise par un patio avec un très grand bassin où l'on peut même nager ! Les chambres et suites sont toutes décorées de manière unique. Vous pouvez bénéficier d'un transfert depuis l'aéroport avec un thé de bienvenue, corbeille de fruits et de pâtisseries marocaines dans la chambre, bouquet et pétales de roses, bain parfumé et bougies pour commencer un séjour romantique.",
+            tarif:'A partir de 90 € la nuit',
+            category: 'hotel'
+        })
+CREATE (n3:Ressource {
+            name: 'LES JARDINS DE LA KOUTOUBIA', 
+            image: 'resources/images/hotels/koutoubia.jpg', 
+            localisation:'26, rue de la Koutoubia Marrakech',
+            telephone:'+212 5 24 38 88 00',
+            description:"L'hôtel Les Jardins de la Koutoubia, vous offre ses fastes et ses lumières, aux pieds du célèbre minaret. Les chambres, équipées d'une ligne directe, de la télévision par satellite, entre autres, sont modernes et cossues.",
+            tarif:'Chambre à partir de 185 €, suite à partir de 260 €. ',
+            category: 'hotel'
+        })
+CREATE (n4:Ressource {
+            name: 'LA MAMOUNIA', 
+            image: 'resources/images/hotels/mamounia.jpg', 
+            localisation:'Avenue Bab Jdid Marrakech',
+            telephone:'+212 5 24 38 86 00',
+            description:"Plus luxueux que jamais, surtout après sa récente rénovation, la Mamounia transpire le glamour dans toute sa splendeur. Considéré comme l'un des symboles de la Ville Rouge, la Mamounia au nom si évocateur, est bien plus qu'un simple palace élégant et feutré, mais un monument historique aux murs chargés d'histoire.",
+            tarif:'Chambres à partir de 600 € la nuit.',
+            category: 'hotel'
+        })
+
+// relations res-hotel-->cat-hotels
+MATCH (c:Category),(r:Ressource) WHERE c.name = "Hôtels" AND r.category ="hotel"
+CREATE (r)-[rl:APPARTENIR]->(c) RETURN rl
+
+// Ajout des bibliothequs (ressource avec category=bibliotheque)
+CREATE (n1:Ressource {
+            name: 'Librairie Chatr', 
+            localisation:'19-21, Avenue Mohamed V, Guéliz, Marrakech, Maroc',
+            siteweb: 'https://www.librairiechatr.com/',
+            telephone:'+212 5 24 44 79 97',
+            email: 'librairie@groupechatr.com',
+            ouverture: 'Ouvert du lundi au samedi de 8h30 à 13h et de 15h à 20h.',
+            description:"Ouverte depuis 1965, c'est l'une des plus anciennes librairies de la ville. Si vous avez des envies de lecture, vous y trouverez des livres de poche, des classiques, des polars et les derniers romans ou best-sellers en date. C'est également là que vous pourrez acquérir tout ce que la littérature a sorti de meilleur en matière de romans et autres ouvrages sur le Maroc. Le rayon consacré au pays est très bien pourvu et on a l'embarras du choix. Pourquoi ne pas profiter de l'occasion pour découvrir des auteurs marocains ? Binebine, Laroui, Choukri, ils sont tous là !",
+            category: 'bibliotheque'
+        })
+CREATE (n2:Ressource {
+            name: 'MENZIL EL FAN', 
+            localisation:'Résidence Tayeb (à côté du restaurant El Fassia), 55, boulevard Zerktouni, Guéliz Marrakech',
+            siteweb: '',
+            telephone:'+212 5 24 44 67 92',
+            email: '',
+            ouverture: '',
+            description:"Cette librairie spécialisée dans les livres d'art se fait discrète, au fond de l'allée qui mène au restaurant El Fassia, mais pleine de trésors pour qui aime l'art et la lecture. L'accueil est doux et chaleureux. A Menzil el Fan (littéralement Pour l'art des Hommes) on trouve pléthore de beaux livres, tous dédiés aux arts, comme son nom l'indique. Mais aussi un fonds fourni sur la ville de Marrakech, quelques cartes culturelles de certaines régions marocaines, ainsi que des reproductions de bonne facture d'artistes contemporains marocains.",
+            category: 'bibliotheque'
+        })
+CREATE (n3:Ressource {
+            name: 'BOUQUINISTES DE BAB DOUKKALA', 
+            localisation:'Le long des remparts à Bab Doukkala Marrakech',
+            siteweb: '',
+            telephone:'',
+            email: '',
+            ouverture: '',
+            description:"Comme Paris a ses bouquinistes le long de la Seine, Marrakech a les siens le long des remparts près de la gare routière de Bab Doukkala. Touchés par un incendie en juin 2020, sept kiosques ont pu rouvrir grâce à un formidable élan de solidarité à travers tout le pays. On se plaît à déambuler de l'une à l'autre, en quête d'un ouvrage spécial, celui qu'on cherche depuis longtemps, d'une édition épuisée, qu'il soit neuf ou d'occasion et qu'on s'offrira pour un prix dérisoire.",
+            category: 'bibliotheque'
+        })
+CREATE (n4:Ressource {
+            name: 'MUSÉE BERBÈRE-BOOK STORE', 
+            localisation:'Avenue Yacoub El Mansour Marrakech ',
+            siteweb: '',
+            telephone:'',
+            email: '',
+            ouverture: 'Du 1er octobre au 30 avril : de 8h à 17h30, du 1er mai au 30 septembre : de 8h à 18h. Mois du ramadan : de 9h à 17h. Jardin : 70 DH. Musée : 30 DH.',
+            description:"Les amateurs d'histoire et de culture berbère fileront directement au « book store » où l'on peut trouver de jolis livres, affiches et posters s'inspirant des collages d'Yves Saint Laurent. ",
+            category: 'bibliotheque'
+        })
+CREATE (n5:Ressource {
+            name: 'CAFÉ DU LIVRE', 
+            localisation:'44, rue Tariq Ibn Ziad, Guéliz Marrakech',
+            siteweb: '',
+            telephone:'+212 5 24 44 69 21',
+            email: '',
+            ouverture: 'Ouvert tous les jours de 11h à minuit, fermé le dimanche.',
+            description:"Librairie ou café ? Les deux mon capitaine ! Dès l'entrée, on note de nombreux ouvrages en anglais, en français ou en allemand, sur les étagères ou les tables. Ils sont neufs ou d'occasion, le choix est large et le rayon Maroc (romans, photos, poésie, contes, etc.) s'avère lui assez conséquent. Et comme son nom l'indique, cette enseigne est aussi un café. Vous avez donc la possibilité de vous lover dans un fauteuil avec un chocolat chaud, un jus ou même un cheeseburger sans oublier votre livre… Le lundi soir est consacré à des quizz en anglais, why not ?",
+            category: 'bibliotheque'
+        })
+
+// relations res-bibliotheque-->cat-bibliotheques
+MATCH (c:Category),(r:Ressource) WHERE c.name = "Bibliothèque" AND r.category ="bibliotheque"
+CREATE (r)-[rl:APPARTENIR]->(c) RETURN rl
+
+// Ajout des pharmacies (ressource avec category=pharmacie)
+CREATE (n1:Ressource {
+            name: 'Pharmacie PALACIO', 
+            localisation:"Résidence Palacio, 183 rue Med Baqual à 150m du Cinéma Colisée à côté Café Amandine, Restaurant Trattoria et Bab Hôtel", 
+            quartier: "GRAND GUELIZ", 
+            telephone: "0524-42-24-52",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p1:Pharmacien {
+            name: 'Mr. AKAABOUNE'
+        })
+CREATE (n2:Ressource {
+            name: 'Pharmacie EL MANSOUR EDDAHBI', 
+            localisation:"147, Jnane El Afia Bab H’mer près du Collège El Mansour Eddahbi",
+            quartier: "MEDINA", 
+            telephone: "0524-38-72-72",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p2:Pharmacien {
+            name: 'Mme. HANANI'
+        })
+CREATE (n3:Ressource {
+            name: 'Pharmacie LALLA AOUDA SAADIA', 
+            localisation:"58, Sidi Soussane Trik sabtiyne en face du lycée Lalla Ouda Saâdia",
+            quartier: "MEDINA", 
+            telephone: "0524-37-86-80",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p3:Pharmacien {
+            name: 'Mme. HAZIM'
+        })
+CREATE (n4:Ressource {
+            name: 'Pharmacie AL WED', 
+            localisation:"5, Im. B2 Résidence Assafa, Bd. Al Mouqawama",
+            quartier: "GRAND GUELIZ", 
+            telephone: "0524-43-24-33",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p4:Pharmacien {
+            name: 'Mme. BELCAID'
+        })
+CREATE (n5:Ressource {
+            name: 'Pharmacie KAÂDOUD', 
+            localisation:"53, Av. My Abdellah (Ex Bd. Safi) Im. Ben Raïss, en face résid. F. Zohra sur la rte menant à la Fac de Médecine",
+            quartier: "GRAND GUELIZ", 
+            telephone: "0524-44-85-55",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p5:Pharmacien {
+            name: 'Mme. CHRAIBI'
+        })
+CREATE (n6:Ressource {
+            name: 'Pharmacie MOUKAWAMA', 
+            localisation:"Av. Moukawama nouveaux Imm. des Militaires entre Hôpital militaire Avicenne et Coopérative Laitière",
+            quartier: "GRAND GUELIZ", 
+            telephone: "0524-43-23-18",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p6:Pharmacien {
+            name: 'Mme. NACIRI'
+        })
+CREATE (n7:Ressource {
+            name: 'Pharmacie MANSOURA', 
+            localisation:"25, Av. Khalid Ben Walid Imm. Rachadi 150 m de l’Hôtel le Marrakech, vers les Sapeurs Pompiers",
+            quartier: "GRAND GUELIZ", 
+            telephone: "0524-43-46-46",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p7:Pharmacien {
+            name: 'Mr. EL MANSOURI'
+        })
+CREATE (n8:Ressource {
+            name: 'Pharmacie DAOUDIAT', 
+            localisation:"Av. Allal El Fassi (entre Hôtel Majorelle et Boulangerie Alfa 2000)",
+            quartier: "DAOUDIAT", 
+            telephone: "0524-30-74-35",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p8:Pharmacien {
+            name: 'Mr. BIGHOUMDAN'
+        })
+CREATE (n9:Ressource {
+            name: 'Pharmacie SCIENCES', 
+            localisation:"10/11, Bd. de Safi en face de la Faculté des Sciences",
+            quartier: "DAOUDIAT", 
+            telephone: "0524-30-55-49",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p9:Pharmacien {
+            name: 'Mme. EL GUERMAI'
+        })
+CREATE (n10:Ressource {
+            name: 'Pharmacie UNITE QUATRE', 
+            localisation:"450, au centre de l’Unité Quatre, devant l’école Aicha Oum al Mouminin et à côté de Mosquée l’Unité IV",
+            quartier: "DAOUDIAT", 
+            telephone: "0524-30-20-30",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p10:Pharmacien {
+            name: 'Mr. ZENJARI'
+        })
+CREATE (n11:Ressource {
+            name: 'Pharmacie MOGADOR', 
+            localisation:"Derrière service des mines (Allal El Fassi) en face Ecole Iraki Issil",
+            quartier: "DAOUDIAT", 
+            telephone: "0524-31-17-19",
+            category: 'pharmacie'
+        })-[:PROPRIETAIRE]->
+        (p11:Pharmacien {
+            name: 'Mr. BENYAHIA'
+        })
+
+// relations res-pharmacie-->cat-pharmacies
+MATCH (c:Category),(r:Ressource) WHERE c.name = "Pharmacies" AND r.category ="pharmacie"
+CREATE (r)-[rl:APPARTENIR]->(c) RETURN rl
+
+
+// ajout Users
+CREATE (n1:User {
+            username: 'KANNOUFA', 
+            password: "irisi"
+        })
+CREATE (n2:User {
+            username: 'KANNOUFA', 
+            password: "irisi"
+        })
+CREATE (n3:User {
+            username: 'OUSSAHI', 
+            password: "irisi"
+        })
+CREATE (n4:User {
+            username: 'BENTOUHAMI', 
+            password: "irisi"
+        })
+CREATE (n5:User {
+            username: 'TAMEGA', 
+            password: "irisi"
+        })
+CREATE (n6:User {
+            username: 'Mr. Aabilla', 
+            password: "irisi"
+        })
+CREATE (n7:User {
+            username: 'Ougoud', 
+            password: "irisi"
+        })
+
+
+Create (c1:Comment{
+    id:'1',
+    content: 'la gentillesse du personnel et les petites attentions',
+    date:'27-09-2021 à 10:30'
+})
+Create (c2:Comment{
+    id:'2',
+    content: 'Les personnels sont très gentille, je le recommande vivement',
+    date:'27-10-2022 à 16:30'
+})
+Create (c3:Comment{
+    id:'3',
+    content: 'Accueil chaleureux, service de qualité, chambre adorable, bien placé, parking juste a côté, meilleur place pour passé une belle vacance :)',
+    date:'27-11-2022 à 17:31'
+})
+Create (c4:Comment{
+    id:'4',
+    content: 'la gentillesse du personnel et les petites attentions',
+    date:'27-09-2021 à 10:30'
+})
+Create (c5:Comment{
+    id:'5',
+    content: 'J\'ai bien aimé l\'accueillance chaleureuse des personnels, très belle endroit à visiter',
+    date:'27-10-2022 à 16:30'
+})
+Create (c6:Comment{
+    id:'6',
+    content: 'la gentillesse du personnel et les petites attentions',
+    date:'27-09-2021 à 10:30'
+})
+
+
+
+
+
+
+
+
+//
+MATCH (r1:Ressource) where r1.category='hotel' and r1.name='PALAIS NAMASKAR' return r1
+Create (MATCH (r1:Ressource) where r1.category='hotel' and r1.name='PALAIS NAMASKAR')
+        -[:has_comment]-> (MATCH (c1:Comment) where c1.id='1') 
+        -[:commented_by]-> (MATCH (u1:User) where u1.username='KANNOUFA')
+
+Create (r1)-[:has_comment]-> (c3) -[:commented_by]-> (n3)
+
+MATCH (r2:Ressource) where r2.category='hotel' and r2.name='RIAD LE RIHANI' return r2 
+
+Create (r2)-[:has_comment]-> (c4) -[:commented_by]-> (n5)
+Create (r2)-[:has_comment]-> (c5) -[:commented_by]-> (n7)
+
+MATCH (r3:Ressource) where r3.category='hotel' and r3.name='LA MAMOUNIA' return r3 
+
+Create (r3)-[:has_comment]-> (c6) -[:commented_by]-> (n6)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// delete relation
+MATCH ()-[r:proprietaire]-() DELETE r
