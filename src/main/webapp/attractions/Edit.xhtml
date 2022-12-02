@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAttractionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{attractionsController.selected.id}" title="#{bundle.EditAttractionsTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_ville}" for="ville" />
+                    <h:inputText id="ville" value="#{attractionsController.selected.ville}" title="#{bundle.EditAttractionsTitle_ville}" />
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_adresse}" for="adresse" />
+                    <h:inputText id="adresse" value="#{attractionsController.selected.adresse}" title="#{bundle.EditAttractionsTitle_adresse}" />
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_couverture}" for="couverture" />
+                    <h:inputText id="couverture" value="#{attractionsController.selected.couverture}" title="#{bundle.EditAttractionsTitle_couverture}" />
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_heureOuverture}" for="heureOuverture" />
+                    <h:inputText id="heureOuverture" value="#{attractionsController.selected.heureOuverture}" title="#{bundle.EditAttractionsTitle_heureOuverture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_heureFermeture}" for="heureFermeture" />
+                    <h:inputText id="heureFermeture" value="#{attractionsController.selected.heureFermeture}" title="#{bundle.EditAttractionsTitle_heureFermeture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAttractionsLabel_site}" for="site" />
+                    <h:inputText id="site" value="#{attractionsController.selected.site}" title="#{bundle.EditAttractionsTitle_site}" />
+                </h:panelGrid>
+                <h:commandLink action="#{attractionsController.update}" value="#{bundle.EditAttractionsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAttractionsViewLink}"/>
+                <br />
+                <h:commandLink action="#{attractionsController.prepareList}" value="#{bundle.EditAttractionsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAttractionsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

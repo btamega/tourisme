@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCircuitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_id}"/>
+                    <h:outputText value="#{circuitsController.selected.id}" title="#{bundle.ViewCircuitsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_pointDep}"/>
+                    <h:outputText value="#{circuitsController.selected.pointDep}" title="#{bundle.ViewCircuitsTitle_pointDep}"/>
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_pointArr}"/>
+                    <h:outputText value="#{circuitsController.selected.pointArr}" title="#{bundle.ViewCircuitsTitle_pointArr}"/>
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_duree}"/>
+                    <h:outputText value="#{circuitsController.selected.duree}" title="#{bundle.ViewCircuitsTitle_duree}"/>
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_prix}"/>
+                    <h:outputText value="#{circuitsController.selected.prix}" title="#{bundle.ViewCircuitsTitle_prix}"/>
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_guide}"/>
+                    <h:outputText value="#{circuitsController.selected.guide}" title="#{bundle.ViewCircuitsTitle_guide}"/>
+                    <h:outputText value="#{bundle.ViewCircuitsLabel_visitesGuidees}"/>
+                    <h:outputText value="#{circuitsController.selected.visitesGuidees}" title="#{bundle.ViewCircuitsTitle_visitesGuidees}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{circuitsController.destroyAndView}" value="#{bundle.ViewCircuitsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCircuitsEditLink}"/>
+                <br />
+                <h:commandLink action="#{circuitsController.prepareCreate}" value="#{bundle.ViewCircuitsCreateLink}" />
+                <br />
+                <h:commandLink action="#{circuitsController.prepareList}" value="#{bundle.ViewCircuitsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCircuitsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

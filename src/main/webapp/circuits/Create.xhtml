@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCircuitsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{circuitsController.selected.id}" title="#{bundle.CreateCircuitsTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_pointDep}" for="pointDep" />
+                    <h:inputText id="pointDep" value="#{circuitsController.selected.pointDep}" title="#{bundle.CreateCircuitsTitle_pointDep}" />
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_pointArr}" for="pointArr" />
+                    <h:inputText id="pointArr" value="#{circuitsController.selected.pointArr}" title="#{bundle.CreateCircuitsTitle_pointArr}" />
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_duree}" for="duree" />
+                    <h:inputText id="duree" value="#{circuitsController.selected.duree}" title="#{bundle.CreateCircuitsTitle_duree}" />
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_prix}" for="prix" />
+                    <h:inputText id="prix" value="#{circuitsController.selected.prix}" title="#{bundle.CreateCircuitsTitle_prix}" />
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_guide}" for="guide" />
+                    <h:selectOneMenu id="guide" value="#{circuitsController.selected.guide}" title="#{bundle.CreateCircuitsTitle_guide}" >
+                        <f:selectItems value="#{guideController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCircuitsLabel_visitesGuidees}" for="visitesGuidees" />
+                    <h:selectOneMenu id="visitesGuidees" value="#{circuitsController.selected.visitesGuidees}" title="#{bundle.CreateCircuitsTitle_visitesGuidees}" >
+                        <f:selectItems value="#{visitesGuideesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{circuitsController.create}" value="#{bundle.CreateCircuitsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{circuitsController.prepareList}" value="#{bundle.CreateCircuitsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCircuitsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
