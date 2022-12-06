@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBidEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_bidid}" for="bidid" />
+                    <h:inputText id="bidid" value="#{bidEntityController.selected.bidid}" title="#{bundle.EditBidEntityTitle_bidid}" />
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_bidderId}" for="bidderId" />
+                    <h:inputText id="bidderId" value="#{bidEntityController.selected.bidderId}" title="#{bundle.EditBidEntityTitle_bidderId}" />
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_bidder}" for="bidder" />
+                    <h:selectOneMenu id="bidder" value="#{bidEntityController.selected.bidder}" title="#{bundle.EditBidEntityTitle_bidder}" >
+                        <f:selectItems value="#{userEntityController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_bidTime}" for="bidTime" />
+                    <h:inputText id="bidTime" value="#{bidEntityController.selected.bidTime}" title="#{bundle.EditBidEntityTitle_bidTime}" />
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_amount}" for="amount" />
+                    <h:inputText id="amount" value="#{bidEntityController.selected.amount}" title="#{bundle.EditBidEntityTitle_amount}" />
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_auctionId}" for="auctionId" />
+                    <h:inputText id="auctionId" value="#{bidEntityController.selected.auctionId}" title="#{bundle.EditBidEntityTitle_auctionId}" />
+                    <h:outputLabel value="#{bundle.EditBidEntityLabel_auction}" for="auction" />
+                    <h:selectOneMenu id="auction" value="#{bidEntityController.selected.auction}" title="#{bundle.EditBidEntityTitle_auction}" >
+                        <f:selectItems value="#{auctionEntityController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{bidEntityController.update}" value="#{bundle.EditBidEntitySaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBidEntityViewLink}"/>
+                <br />
+                <h:commandLink action="#{bidEntityController.prepareList}" value="#{bundle.EditBidEntityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBidEntityIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

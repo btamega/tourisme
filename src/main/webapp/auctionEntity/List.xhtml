@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAuctionEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAuctionEntityEmpty}" rendered="#{auctionEntityController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{auctionEntityController.items.rowCount > 0}">
+                    <h:outputText value="#{auctionEntityController.pagination.pageFirstItem + 1}..#{auctionEntityController.pagination.pageLastItem + 1}/#{auctionEntityController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{auctionEntityController.previous}" value="#{bundle.Previous} #{auctionEntityController.pagination.pageSize}" rendered="#{auctionEntityController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{auctionEntityController.next}" value="#{bundle.Next} #{auctionEntityController.pagination.pageSize}" rendered="#{auctionEntityController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{auctionEntityController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_seller}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.seller}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_auctionId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.auctionId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_sellerId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sellerId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_buyerId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.buyerId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_currently}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.currently}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_lowestBid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lowestBid}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_numOfBids}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numOfBids}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_location}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.location}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_country}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.country}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_longitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_latitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_isActive}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.isActive}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_buyPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.buyPrice}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_startingDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.startingDate}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_endingDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.endingDate}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAuctionEntityTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{auctionEntityController.prepareView}" value="#{bundle.ListAuctionEntityViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{auctionEntityController.prepareEdit}" value="#{bundle.ListAuctionEntityEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{auctionEntityController.destroy}" value="#{bundle.ListAuctionEntityDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{auctionEntityController.prepareCreate}" value="#{bundle.ListAuctionEntityCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAuctionEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

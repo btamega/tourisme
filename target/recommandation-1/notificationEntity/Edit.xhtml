@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNotificationEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{notificationEntityController.selected.id}" title="#{bundle.EditNotificationEntityTitle_id}" required="true" requiredMessage="#{bundle.EditNotificationEntityRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{notificationEntityController.selected.type}" title="#{bundle.EditNotificationEntityTitle_type}" required="true" requiredMessage="#{bundle.EditNotificationEntityRequiredMessage_type}"/>
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_auctionId}" for="auctionId" />
+                    <h:inputText id="auctionId" value="#{notificationEntityController.selected.auctionId}" title="#{bundle.EditNotificationEntityTitle_auctionId}" required="true" requiredMessage="#{bundle.EditNotificationEntityRequiredMessage_auctionId}"/>
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_messageId}" for="messageId" />
+                    <h:inputText id="messageId" value="#{notificationEntityController.selected.messageId}" title="#{bundle.EditNotificationEntityTitle_messageId}" />
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_receiverId}" for="receiverId" />
+                    <h:inputText id="receiverId" value="#{notificationEntityController.selected.receiverId}" title="#{bundle.EditNotificationEntityTitle_receiverId}" required="true" requiredMessage="#{bundle.EditNotificationEntityRequiredMessage_receiverId}"/>
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_actorId}" for="actorId" />
+                    <h:inputText id="actorId" value="#{notificationEntityController.selected.actorId}" title="#{bundle.EditNotificationEntityTitle_actorId}" required="true" requiredMessage="#{bundle.EditNotificationEntityRequiredMessage_actorId}"/>
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_isSeen}" for="isSeen" />
+                    <h:inputText id="isSeen" value="#{notificationEntityController.selected.isSeen}" title="#{bundle.EditNotificationEntityTitle_isSeen}" />
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_dateAdded}" for="dateAdded" />
+                    <h:inputText id="dateAdded" value="#{notificationEntityController.selected.dateAdded}" title="#{bundle.EditNotificationEntityTitle_dateAdded}" />
+                    <h:outputLabel value="#{bundle.EditNotificationEntityLabel_actor}" for="actor" />
+                    <h:selectOneMenu id="actor" value="#{notificationEntityController.selected.actor}" title="#{bundle.EditNotificationEntityTitle_actor}" required="true" requiredMessage="#{bundle.EditNotificationEntityRequiredMessage_actor}">
+                        <f:selectItems value="#{userEntityController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{notificationEntityController.update}" value="#{bundle.EditNotificationEntitySaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditNotificationEntityViewLink}"/>
+                <br />
+                <h:commandLink action="#{notificationEntityController.prepareList}" value="#{bundle.EditNotificationEntityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditNotificationEntityIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

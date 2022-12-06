@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNotificationEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_id}"/>
+                    <h:outputText value="#{notificationEntityController.selected.id}" title="#{bundle.ViewNotificationEntityTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_type}"/>
+                    <h:outputText value="#{notificationEntityController.selected.type}" title="#{bundle.ViewNotificationEntityTitle_type}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_auctionId}"/>
+                    <h:outputText value="#{notificationEntityController.selected.auctionId}" title="#{bundle.ViewNotificationEntityTitle_auctionId}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_messageId}"/>
+                    <h:outputText value="#{notificationEntityController.selected.messageId}" title="#{bundle.ViewNotificationEntityTitle_messageId}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_receiverId}"/>
+                    <h:outputText value="#{notificationEntityController.selected.receiverId}" title="#{bundle.ViewNotificationEntityTitle_receiverId}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_actorId}"/>
+                    <h:outputText value="#{notificationEntityController.selected.actorId}" title="#{bundle.ViewNotificationEntityTitle_actorId}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_isSeen}"/>
+                    <h:outputText value="#{notificationEntityController.selected.isSeen}" title="#{bundle.ViewNotificationEntityTitle_isSeen}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_dateAdded}"/>
+                    <h:outputText value="#{notificationEntityController.selected.dateAdded}" title="#{bundle.ViewNotificationEntityTitle_dateAdded}"/>
+                    <h:outputText value="#{bundle.ViewNotificationEntityLabel_actor}"/>
+                    <h:outputText value="#{notificationEntityController.selected.actor}" title="#{bundle.ViewNotificationEntityTitle_actor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{notificationEntityController.destroyAndView}" value="#{bundle.ViewNotificationEntityDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewNotificationEntityEditLink}"/>
+                <br />
+                <h:commandLink action="#{notificationEntityController.prepareCreate}" value="#{bundle.ViewNotificationEntityCreateLink}" />
+                <br />
+                <h:commandLink action="#{notificationEntityController.prepareList}" value="#{bundle.ViewNotificationEntityShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewNotificationEntityIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateNotificationEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{notificationEntityController.selected.id}" title="#{bundle.CreateNotificationEntityTitle_id}" required="true" requiredMessage="#{bundle.CreateNotificationEntityRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{notificationEntityController.selected.type}" title="#{bundle.CreateNotificationEntityTitle_type}" required="true" requiredMessage="#{bundle.CreateNotificationEntityRequiredMessage_type}"/>
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_auctionId}" for="auctionId" />
+                    <h:inputText id="auctionId" value="#{notificationEntityController.selected.auctionId}" title="#{bundle.CreateNotificationEntityTitle_auctionId}" required="true" requiredMessage="#{bundle.CreateNotificationEntityRequiredMessage_auctionId}"/>
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_messageId}" for="messageId" />
+                    <h:inputText id="messageId" value="#{notificationEntityController.selected.messageId}" title="#{bundle.CreateNotificationEntityTitle_messageId}" />
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_receiverId}" for="receiverId" />
+                    <h:inputText id="receiverId" value="#{notificationEntityController.selected.receiverId}" title="#{bundle.CreateNotificationEntityTitle_receiverId}" required="true" requiredMessage="#{bundle.CreateNotificationEntityRequiredMessage_receiverId}"/>
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_actorId}" for="actorId" />
+                    <h:inputText id="actorId" value="#{notificationEntityController.selected.actorId}" title="#{bundle.CreateNotificationEntityTitle_actorId}" required="true" requiredMessage="#{bundle.CreateNotificationEntityRequiredMessage_actorId}"/>
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_isSeen}" for="isSeen" />
+                    <h:inputText id="isSeen" value="#{notificationEntityController.selected.isSeen}" title="#{bundle.CreateNotificationEntityTitle_isSeen}" />
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_dateAdded}" for="dateAdded" />
+                    <h:inputText id="dateAdded" value="#{notificationEntityController.selected.dateAdded}" title="#{bundle.CreateNotificationEntityTitle_dateAdded}" />
+                    <h:outputLabel value="#{bundle.CreateNotificationEntityLabel_actor}" for="actor" />
+                    <h:selectOneMenu id="actor" value="#{notificationEntityController.selected.actor}" title="#{bundle.CreateNotificationEntityTitle_actor}" required="true" requiredMessage="#{bundle.CreateNotificationEntityRequiredMessage_actor}">
+                        <f:selectItems value="#{userEntityController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{notificationEntityController.create}" value="#{bundle.CreateNotificationEntitySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{notificationEntityController.prepareList}" value="#{bundle.CreateNotificationEntityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateNotificationEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

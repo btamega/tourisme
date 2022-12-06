@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUserEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_userId}"/>
+                    <h:outputText value="#{userEntityController.selected.userId}" title="#{bundle.ViewUserEntityTitle_userId}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_username}"/>
+                    <h:outputText value="#{userEntityController.selected.username}" title="#{bundle.ViewUserEntityTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_hashCode}"/>
+                    <h:outputText value="#{userEntityController.selected.hashCode}" title="#{bundle.ViewUserEntityTitle_hashCode}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_salt}"/>
+                    <h:outputText value="#{userEntityController.selected.salt}" title="#{bundle.ViewUserEntityTitle_salt}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_firstname}"/>
+                    <h:outputText value="#{userEntityController.selected.firstname}" title="#{bundle.ViewUserEntityTitle_firstname}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_lastname}"/>
+                    <h:outputText value="#{userEntityController.selected.lastname}" title="#{bundle.ViewUserEntityTitle_lastname}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_email}"/>
+                    <h:outputText value="#{userEntityController.selected.email}" title="#{bundle.ViewUserEntityTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_phoneNumber}"/>
+                    <h:outputText value="#{userEntityController.selected.phoneNumber}" title="#{bundle.ViewUserEntityTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_vat}"/>
+                    <h:outputText value="#{userEntityController.selected.vat}" title="#{bundle.ViewUserEntityTitle_vat}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_homeAddress}"/>
+                    <h:outputText value="#{userEntityController.selected.homeAddress}" title="#{bundle.ViewUserEntityTitle_homeAddress}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_latitude}"/>
+                    <h:outputText value="#{userEntityController.selected.latitude}" title="#{bundle.ViewUserEntityTitle_latitude}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_longitude}"/>
+                    <h:outputText value="#{userEntityController.selected.longitude}" title="#{bundle.ViewUserEntityTitle_longitude}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_city}"/>
+                    <h:outputText value="#{userEntityController.selected.city}" title="#{bundle.ViewUserEntityTitle_city}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_country}"/>
+                    <h:outputText value="#{userEntityController.selected.country}" title="#{bundle.ViewUserEntityTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_signUpDate}"/>
+                    <h:outputText value="#{userEntityController.selected.signUpDate}" title="#{bundle.ViewUserEntityTitle_signUpDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_isAdmin}"/>
+                    <h:outputText value="#{userEntityController.selected.isAdmin}" title="#{bundle.ViewUserEntityTitle_isAdmin}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_isApproved}"/>
+                    <h:outputText value="#{userEntityController.selected.isApproved}" title="#{bundle.ViewUserEntityTitle_isApproved}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_ratingAsSeller}"/>
+                    <h:outputText value="#{userEntityController.selected.ratingAsSeller}" title="#{bundle.ViewUserEntityTitle_ratingAsSeller}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_ratingAsBidder}"/>
+                    <h:outputText value="#{userEntityController.selected.ratingAsBidder}" title="#{bundle.ViewUserEntityTitle_ratingAsBidder}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userEntityController.destroyAndView}" value="#{bundle.ViewUserEntityDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewUserEntityEditLink}"/>
+                <br />
+                <h:commandLink action="#{userEntityController.prepareCreate}" value="#{bundle.ViewUserEntityCreateLink}" />
+                <br />
+                <h:commandLink action="#{userEntityController.prepareList}" value="#{bundle.ViewUserEntityShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewUserEntityIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

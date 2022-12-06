@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRatingEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRatingEntityEmpty}" rendered="#{ratingEntityController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{ratingEntityController.items.rowCount > 0}">
+                    <h:outputText value="#{ratingEntityController.pagination.pageFirstItem + 1}..#{ratingEntityController.pagination.pageLastItem + 1}/#{ratingEntityController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{ratingEntityController.previous}" value="#{bundle.Previous} #{ratingEntityController.pagination.pageSize}" rendered="#{ratingEntityController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{ratingEntityController.next}" value="#{bundle.Next} #{ratingEntityController.pagination.pageSize}" rendered="#{ratingEntityController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{ratingEntityController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRatingEntityTitle_fromId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRatingEntityTitle_toId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRatingEntityTitle_auctionId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.auctionId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRatingEntityTitle_rating}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rating}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRatingEntityTitle_isSeller}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.isSeller}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRatingEntityTitle_receiver}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiver}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{ratingEntityController.prepareView}" value="#{bundle.ListRatingEntityViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ratingEntityController.prepareEdit}" value="#{bundle.ListRatingEntityEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ratingEntityController.destroy}" value="#{bundle.ListRatingEntityDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{ratingEntityController.prepareCreate}" value="#{bundle.ListRatingEntityCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRatingEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

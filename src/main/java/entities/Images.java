@@ -5,13 +5,15 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import lombok.Data;
 
 /**
@@ -20,6 +22,7 @@ import lombok.Data;
  */
 
 @Entity
+@Data
 public class Images implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,51 +31,35 @@ public class Images implements Serializable {
     private Long id;
     @Column(name = "imgPath")
     private String path;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "category")
-    private Categorie category;
+    @Column(name = "AuctionId")
+    private long auctionId;
+//    @ManyToOne
+//    @JoinColumn(name="AuctionID", nullable = false, insertable = false, updatable = false)
+//    @JoinColumns({
+//        @JoinColumn(name="AuctionID", referencedColumnName="AuctionID",nullable = false, insertable = false, updatable = false),
+//        @JoinColumn(name="id", referencedColumnName="id")
+//    })
+//    private AuctionEntity auction;
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (int) (auctionId ^ (auctionId >>> 32));
+        result = 31 * result + (path != null ? path.hashCode() : 0);
+        return result;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public Categorie getCategory() {
-        return category;
-    }
-
-    public void setCategory(Categorie category) {
-        this.category = category;
-    }
-
+   
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Images)) {
-            return false;
-        }
-        Images other = (Images) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public boolean equals(Object o) {
+       if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Images that = (Images) o;
+
+        if (!Objects.equals(id, that.id)) return false;
+        if (auctionId != that.auctionId) return false;
+        return path != null ? path.equals(that.path) : that.path == null;
+
     }
 
     @Override

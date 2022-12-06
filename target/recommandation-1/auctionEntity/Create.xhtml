@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAuctionEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_seller}" for="seller" />
+                    <h:selectOneMenu id="seller" value="#{auctionEntityController.selected.seller}" title="#{bundle.CreateAuctionEntityTitle_seller}" required="true" requiredMessage="#{bundle.CreateAuctionEntityRequiredMessage_seller}">
+                        <f:selectItems value="#{userEntityController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_auctionId}" for="auctionId" />
+                    <h:inputText id="auctionId" value="#{auctionEntityController.selected.auctionId}" title="#{bundle.CreateAuctionEntityTitle_auctionId}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_sellerId}" for="sellerId" />
+                    <h:inputText id="sellerId" value="#{auctionEntityController.selected.sellerId}" title="#{bundle.CreateAuctionEntityTitle_sellerId}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_buyerId}" for="buyerId" />
+                    <h:inputText id="buyerId" value="#{auctionEntityController.selected.buyerId}" title="#{bundle.CreateAuctionEntityTitle_buyerId}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{auctionEntityController.selected.name}" title="#{bundle.CreateAuctionEntityTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_currently}" for="currently" />
+                    <h:inputText id="currently" value="#{auctionEntityController.selected.currently}" title="#{bundle.CreateAuctionEntityTitle_currently}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_lowestBid}" for="lowestBid" />
+                    <h:inputText id="lowestBid" value="#{auctionEntityController.selected.lowestBid}" title="#{bundle.CreateAuctionEntityTitle_lowestBid}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_numOfBids}" for="numOfBids" />
+                    <h:inputText id="numOfBids" value="#{auctionEntityController.selected.numOfBids}" title="#{bundle.CreateAuctionEntityTitle_numOfBids}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_location}" for="location" />
+                    <h:inputText id="location" value="#{auctionEntityController.selected.location}" title="#{bundle.CreateAuctionEntityTitle_location}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{auctionEntityController.selected.country}" title="#{bundle.CreateAuctionEntityTitle_country}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_longitude}" for="longitude" />
+                    <h:inputText id="longitude" value="#{auctionEntityController.selected.longitude}" title="#{bundle.CreateAuctionEntityTitle_longitude}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_latitude}" for="latitude" />
+                    <h:inputText id="latitude" value="#{auctionEntityController.selected.latitude}" title="#{bundle.CreateAuctionEntityTitle_latitude}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_isActive}" for="isActive" />
+                    <h:inputText id="isActive" value="#{auctionEntityController.selected.isActive}" title="#{bundle.CreateAuctionEntityTitle_isActive}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_buyPrice}" for="buyPrice" />
+                    <h:inputText id="buyPrice" value="#{auctionEntityController.selected.buyPrice}" title="#{bundle.CreateAuctionEntityTitle_buyPrice}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_startingDate}" for="startingDate" />
+                    <h:inputText id="startingDate" value="#{auctionEntityController.selected.startingDate}" title="#{bundle.CreateAuctionEntityTitle_startingDate}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_endingDate}" for="endingDate" />
+                    <h:inputText id="endingDate" value="#{auctionEntityController.selected.endingDate}" title="#{bundle.CreateAuctionEntityTitle_endingDate}" />
+                    <h:outputLabel value="#{bundle.CreateAuctionEntityLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{auctionEntityController.selected.description}" title="#{bundle.CreateAuctionEntityTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{auctionEntityController.create}" value="#{bundle.CreateAuctionEntitySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{auctionEntityController.prepareList}" value="#{bundle.CreateAuctionEntityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAuctionEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

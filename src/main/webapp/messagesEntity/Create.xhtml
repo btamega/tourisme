@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMessagesEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{messagesEntityController.selected.id}" title="#{bundle.CreateMessagesEntityTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_senderId}" for="senderId" />
+                    <h:inputText id="senderId" value="#{messagesEntityController.selected.senderId}" title="#{bundle.CreateMessagesEntityTitle_senderId}" />
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_receiverId}" for="receiverId" />
+                    <h:inputText id="receiverId" value="#{messagesEntityController.selected.receiverId}" title="#{bundle.CreateMessagesEntityTitle_receiverId}" />
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_auctionId}" for="auctionId" />
+                    <h:inputText id="auctionId" value="#{messagesEntityController.selected.auctionId}" title="#{bundle.CreateMessagesEntityTitle_auctionId}" />
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_message}" for="message" />
+                    <h:inputText id="message" value="#{messagesEntityController.selected.message}" title="#{bundle.CreateMessagesEntityTitle_message}" />
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_sendDate}" for="sendDate" />
+                    <h:inputText id="sendDate" value="#{messagesEntityController.selected.sendDate}" title="#{bundle.CreateMessagesEntityTitle_sendDate}" />
+                    <h:outputLabel value="#{bundle.CreateMessagesEntityLabel_isRead}" for="isRead" />
+                    <h:inputText id="isRead" value="#{messagesEntityController.selected.isRead}" title="#{bundle.CreateMessagesEntityTitle_isRead}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{messagesEntityController.create}" value="#{bundle.CreateMessagesEntitySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{messagesEntityController.prepareList}" value="#{bundle.CreateMessagesEntityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMessagesEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

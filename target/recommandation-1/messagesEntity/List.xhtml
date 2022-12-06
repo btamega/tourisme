@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMessagesEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMessagesEntityEmpty}" rendered="#{messagesEntityController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{messagesEntityController.items.rowCount > 0}">
+                    <h:outputText value="#{messagesEntityController.pagination.pageFirstItem + 1}..#{messagesEntityController.pagination.pageLastItem + 1}/#{messagesEntityController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{messagesEntityController.previous}" value="#{bundle.Previous} #{messagesEntityController.pagination.pageSize}" rendered="#{messagesEntityController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{messagesEntityController.next}" value="#{bundle.Next} #{messagesEntityController.pagination.pageSize}" rendered="#{messagesEntityController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{messagesEntityController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_senderId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_receiverId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_auctionId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.auctionId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_message}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.message}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_sendDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sendDate}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMessagesEntityTitle_isRead}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.isRead}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{messagesEntityController.prepareView}" value="#{bundle.ListMessagesEntityViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{messagesEntityController.prepareEdit}" value="#{bundle.ListMessagesEntityEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{messagesEntityController.destroy}" value="#{bundle.ListMessagesEntityDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{messagesEntityController.prepareCreate}" value="#{bundle.ListMessagesEntityCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMessagesEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

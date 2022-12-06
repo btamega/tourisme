@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAuctionEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_seller}"/>
+                    <h:outputText value="#{auctionEntityController.selected.seller}" title="#{bundle.ViewAuctionEntityTitle_seller}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_auctionId}"/>
+                    <h:outputText value="#{auctionEntityController.selected.auctionId}" title="#{bundle.ViewAuctionEntityTitle_auctionId}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_sellerId}"/>
+                    <h:outputText value="#{auctionEntityController.selected.sellerId}" title="#{bundle.ViewAuctionEntityTitle_sellerId}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_buyerId}"/>
+                    <h:outputText value="#{auctionEntityController.selected.buyerId}" title="#{bundle.ViewAuctionEntityTitle_buyerId}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_name}"/>
+                    <h:outputText value="#{auctionEntityController.selected.name}" title="#{bundle.ViewAuctionEntityTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_currently}"/>
+                    <h:outputText value="#{auctionEntityController.selected.currently}" title="#{bundle.ViewAuctionEntityTitle_currently}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_lowestBid}"/>
+                    <h:outputText value="#{auctionEntityController.selected.lowestBid}" title="#{bundle.ViewAuctionEntityTitle_lowestBid}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_numOfBids}"/>
+                    <h:outputText value="#{auctionEntityController.selected.numOfBids}" title="#{bundle.ViewAuctionEntityTitle_numOfBids}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_location}"/>
+                    <h:outputText value="#{auctionEntityController.selected.location}" title="#{bundle.ViewAuctionEntityTitle_location}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_country}"/>
+                    <h:outputText value="#{auctionEntityController.selected.country}" title="#{bundle.ViewAuctionEntityTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_longitude}"/>
+                    <h:outputText value="#{auctionEntityController.selected.longitude}" title="#{bundle.ViewAuctionEntityTitle_longitude}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_latitude}"/>
+                    <h:outputText value="#{auctionEntityController.selected.latitude}" title="#{bundle.ViewAuctionEntityTitle_latitude}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_isActive}"/>
+                    <h:outputText value="#{auctionEntityController.selected.isActive}" title="#{bundle.ViewAuctionEntityTitle_isActive}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_buyPrice}"/>
+                    <h:outputText value="#{auctionEntityController.selected.buyPrice}" title="#{bundle.ViewAuctionEntityTitle_buyPrice}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_startingDate}"/>
+                    <h:outputText value="#{auctionEntityController.selected.startingDate}" title="#{bundle.ViewAuctionEntityTitle_startingDate}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_endingDate}"/>
+                    <h:outputText value="#{auctionEntityController.selected.endingDate}" title="#{bundle.ViewAuctionEntityTitle_endingDate}"/>
+                    <h:outputText value="#{bundle.ViewAuctionEntityLabel_description}"/>
+                    <h:outputText value="#{auctionEntityController.selected.description}" title="#{bundle.ViewAuctionEntityTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{auctionEntityController.destroyAndView}" value="#{bundle.ViewAuctionEntityDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAuctionEntityEditLink}"/>
+                <br />
+                <h:commandLink action="#{auctionEntityController.prepareCreate}" value="#{bundle.ViewAuctionEntityCreateLink}" />
+                <br />
+                <h:commandLink action="#{auctionEntityController.prepareList}" value="#{bundle.ViewAuctionEntityShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAuctionEntityIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

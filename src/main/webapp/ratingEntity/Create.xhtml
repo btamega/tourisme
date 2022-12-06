@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRatingEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRatingEntityLabel_fromId}" for="fromId" />
+                    <h:inputText id="fromId" value="#{ratingEntityController.selected.fromId}" title="#{bundle.CreateRatingEntityTitle_fromId}" />
+                    <h:outputLabel value="#{bundle.CreateRatingEntityLabel_toId}" for="toId" />
+                    <h:inputText id="toId" value="#{ratingEntityController.selected.toId}" title="#{bundle.CreateRatingEntityTitle_toId}" />
+                    <h:outputLabel value="#{bundle.CreateRatingEntityLabel_auctionId}" for="auctionId" />
+                    <h:inputText id="auctionId" value="#{ratingEntityController.selected.auctionId}" title="#{bundle.CreateRatingEntityTitle_auctionId}" />
+                    <h:outputLabel value="#{bundle.CreateRatingEntityLabel_rating}" for="rating" />
+                    <h:inputText id="rating" value="#{ratingEntityController.selected.rating}" title="#{bundle.CreateRatingEntityTitle_rating}" />
+                    <h:outputLabel value="#{bundle.CreateRatingEntityLabel_isSeller}" for="isSeller" />
+                    <h:inputText id="isSeller" value="#{ratingEntityController.selected.isSeller}" title="#{bundle.CreateRatingEntityTitle_isSeller}" />
+                    <h:outputLabel value="#{bundle.CreateRatingEntityLabel_receiver}" for="receiver" />
+                    <h:selectOneMenu id="receiver" value="#{ratingEntityController.selected.receiver}" title="#{bundle.CreateRatingEntityTitle_receiver}" >
+                        <f:selectItems value="#{userEntityController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ratingEntityController.create}" value="#{bundle.CreateRatingEntitySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ratingEntityController.prepareList}" value="#{bundle.CreateRatingEntityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRatingEntityIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

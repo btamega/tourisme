@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewBidEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_bidid}"/>
+                    <h:outputText value="#{bidEntityController.selected.bidid}" title="#{bundle.ViewBidEntityTitle_bidid}"/>
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_bidderId}"/>
+                    <h:outputText value="#{bidEntityController.selected.bidderId}" title="#{bundle.ViewBidEntityTitle_bidderId}"/>
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_bidder}"/>
+                    <h:outputText value="#{bidEntityController.selected.bidder}" title="#{bundle.ViewBidEntityTitle_bidder}"/>
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_bidTime}"/>
+                    <h:outputText value="#{bidEntityController.selected.bidTime}" title="#{bundle.ViewBidEntityTitle_bidTime}"/>
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_amount}"/>
+                    <h:outputText value="#{bidEntityController.selected.amount}" title="#{bundle.ViewBidEntityTitle_amount}"/>
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_auctionId}"/>
+                    <h:outputText value="#{bidEntityController.selected.auctionId}" title="#{bundle.ViewBidEntityTitle_auctionId}"/>
+                    <h:outputText value="#{bundle.ViewBidEntityLabel_auction}"/>
+                    <h:outputText value="#{bidEntityController.selected.auction}" title="#{bundle.ViewBidEntityTitle_auction}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{bidEntityController.destroyAndView}" value="#{bundle.ViewBidEntityDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewBidEntityEditLink}"/>
+                <br />
+                <h:commandLink action="#{bidEntityController.prepareCreate}" value="#{bundle.ViewBidEntityCreateLink}" />
+                <br />
+                <h:commandLink action="#{bidEntityController.prepareList}" value="#{bundle.ViewBidEntityShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewBidEntityIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
