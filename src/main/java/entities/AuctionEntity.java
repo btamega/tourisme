@@ -1,54 +1,48 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Iterator;
+import java.util.Date;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Data;
 
 /**
- * Class that describes an auction entity. (An item for sale).
+ *
+ * @author BOUGARYTAMEGA
  */
 @Entity
 @Data
-@Embeddable
+@Table(name="AuctionEntity",schema = "AuctionEntity", catalog="public")
 public class AuctionEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "AuctionId")
-    private long auctionId;
+    private Long id;
     @Column(name = "SellerID")
     private Long sellerId;
     @Column(name = "BuyerID")
     private Long buyerId;
     @Column(name = "Name")
     private String name;
-    @ManyToMany(targetEntity = CategoryEntity.class, fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    @JoinTable(
-//        name="auction_has_category",
-//        joinColumns={
-//            @JoinColumn(name="auction_AuctionID", referencedColumnName="AuctionId"),
-//            @JoinColumn(name="category_CategoryID", referencedColumnName="CategoryID")
-//        },
-//        inverseJoinColumns=
-//            @JoinColumn(name="category_CategoryID", referencedColumnName="CategoryID")
-//    )
-    @JoinColumns({
-        @JoinColumn(name="auction_AuctionID", referencedColumnName="AuctionId"),
-        @JoinColumn(name="category_CategoryID", referencedColumnName="CategoryID")
-    })
+    @ManyToMany
     private Set<CategoryEntity> categories;
-    @Transient
-    private Double currently;
-    @Column(name = "LowestBid")
-    private double lowestBid;
-    @Transient
-    private int numOfBids;
-    @OneToMany(targetEntity = BidEntity.class, mappedBy = "auction", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @OrderBy("amount DESC")
-    private Set<BidEntity> bids;
-//    @OneToMany(targetEntity = Images.class, mappedBy = "auction",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    private Set<Images> images;
     @Column(name = "Location")
     private String location;
     @Column(name = "Country")
@@ -62,68 +56,43 @@ public class AuctionEntity implements Serializable {
     @Column(name = "BuyPrice", nullable = true)
     private Double buyPrice;
     @Column(name = "StartingDate")
-    private Timestamp startingDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date startingDate;
     @Column(name = "EndingDate")
-    private Timestamp endingDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date endingDate;
     @Column(name = "Description", nullable = true)
     private String description;
     @ManyToOne
-//    @JoinColumn(name="SellerID", nullable = false, insertable = false, updatable = false)
-    @JoinColumns({
-        @JoinColumn(name="SellerID", referencedColumnName="userId",nullable = false, insertable = false, updatable = false),
-        @JoinColumn(name="AuctionId", referencedColumnName="AuctionId")
-    })
     private UserEntity seller;
-   
+    @OneToMany(mappedBy = "auction")
+    @OrderBy("amount DESC")
+    private Set<BidEntity> bids;
+    
 
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
 
-    public void setBidStuff(){
-        if ( !bids.isEmpty() ){
-            Iterator iter = bids.iterator();
-            numOfBids = bids.size();
-            BidEntity bid = (BidEntity) iter.next();
-            currently = bid.getAmount();
-            // this will compute the sum for user when is a bidder
-            bid.getBidder().setRatingAs("bidder");
-        } else{
-            numOfBids = 0;
-            currently = lowestBid;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof AuctionEntity)) {
+            return false;
         }
+        AuctionEntity other = (AuctionEntity) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "AuctionEntity{" +
-                "auctionId=" + auctionId +
-                ", sellerId=" + sellerId +
-                ", buyerId=" + buyerId +
-                ", name='" + name + '\'' +
-                ", categories=" + categories +
-                ", lowestBid=" + lowestBid +
-                ", bids=" + bids +
-//                ", images=" + images +
-                ", location='" + location + '\'' +
-                ", country='" + country + '\'' +
-                ", longitude=" + longitude +
-                ", latitude=" + latitude +
-                ", isActive=" + isActive +
-                ", buyPrice=" + buyPrice +
-                ", startingDate=" + startingDate +
-                ", endingDate=" + endingDate +
-                ", description='" + description + '\'' +
-                '}';
+        return "entities.AuctionEntity[ id=" + id + " ]";
     }
-
-    @Transient
-    public Long getIdOfHighestBidder(){
-        Long BidderID = null;
-        Double highestBid = 0.0;
-        for (BidEntity bid : bids ) {
-            if (bid.getAmount() > highestBid){
-                BidderID = bid.getBidderId();
-                highestBid = bid.getAmount();
-            }
-        }
-        return BidderID;
-    }
+    
 }

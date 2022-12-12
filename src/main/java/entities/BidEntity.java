@@ -1,28 +1,39 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.sql.Timestamp;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import lombok.Data;
 
 /**
- * Class that describes a bid entity. (A bid placed on an item for sale).
+ *
+ * @author BOUGARYTAMEGA
  */
 @Entity
 @Data
-public class BidEntity implements Serializable{
+@Table(name="BidEntity",schema = "BidEntity", catalog="public")
+public class BidEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Bid")
-    private long bidid;
+    private Long id;
     @Column(name = "BidderID")
     private long bidderId;
     @OneToOne
-//    @JoinColumn(name="BidderID", referencedColumnName = "userId", insertable = false, updatable = false)
-    @JoinColumns({
-        @JoinColumn(name="BidderID", referencedColumnName="userId",insertable = false, updatable = false),
-        @JoinColumn(name="Bid", referencedColumnName="Bid")
-    })
+    @JoinColumn(name = "fk_bidder")
     private UserEntity bidder;
     @Column(name = "BidTime")
     private Timestamp bidTime;
@@ -31,53 +42,34 @@ public class BidEntity implements Serializable{
     @Column(name = "AuctionID")
     private long auctionId;
     @ManyToOne
-//    @JoinColumn(name="AuctionID", nullable = true, insertable = false, updatable = false)
-    @JoinColumns({
-        @JoinColumn(name="AuctionID", referencedColumnName="AuctionId"),
-        @JoinColumn(name="Bid", referencedColumnName="Bid")
-    })
     private AuctionEntity auction;
+    @ManyToOne
+    private AuctionEntity auctionEntity;
     
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BidEntity bidEntity = (BidEntity) o;
-
-        if (bidid != bidEntity.bidid) return false;
-        if (bidderId != bidEntity.bidderId) return false;
-        if (auctionId != bidEntity.auctionId) return false;
-        if (bidder != null ? !bidder.equals(bidEntity.bidder) : bidEntity.bidder != null) return false;
-        if (bidTime != null ? !bidTime.equals(bidEntity.bidTime) : bidEntity.bidTime != null) return false;
-        if (amount != null ? !amount.equals(bidEntity.amount) : bidEntity.amount != null) return false;
-        return auction != null ? auction.equals(bidEntity.auction) : bidEntity.auction == null;
-
-    }
 
     @Override
     public int hashCode() {
-        int result = (int) (bidid ^ (bidid >>> 32));
-        result = 31 * result + (int) (bidderId ^ (bidderId >>> 32));
-        result = 31 * result + (bidder != null ? bidder.hashCode() : 0);
-        result = 31 * result + (bidTime != null ? bidTime.hashCode() : 0);
-        result = 31 * result + (amount != null ? amount.hashCode() : 0);
-        result = 31 * result + (int) (auctionId ^ (auctionId >>> 32));
-        result = 31 * result + (auction != null ? auction.hashCode() : 0);
-        return result;
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof BidEntity)) {
+            return false;
+        }
+        BidEntity other = (BidEntity) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "BidEntity{" +
-                "bidid=" + bidid +
-                ", bidderId=" + bidderId +
-                ", bidder=" + bidder +
-                ", bidTime=" + bidTime +
-                ", amount=" + amount +
-                ", auctionId=" + auctionId +
-                ", auction=" + auction +
-                '}';
+        return "entities.BidEntity[ id=" + id + " ]";
     }
-
+    
 }

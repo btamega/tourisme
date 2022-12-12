@@ -5,17 +5,15 @@
 package entities;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Objects;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Data;
 
 /**
@@ -44,58 +42,36 @@ public class NotificationEntity implements Serializable {
     @Column(name = "isSeen", nullable = true)
     private Byte isSeen;
     @Column(name = "DateAdded")
-    private Timestamp DateAdded;
-    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name="ActorID", nullable = false, insertable = false, updatable = false)
-    @JoinColumns({
-        @JoinColumn(name="ActorID", referencedColumnName="userId",nullable = false, insertable = false, updatable = false),
-        @JoinColumn(name="NotificationID", referencedColumnName="NotificationID")
-    })
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date DateAdded;
+    @ManyToOne
     private UserEntity actor;
+
+    
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (int) (auctionId ^ (auctionId >>> 32));
-        result = 31 * result + (messageId != null ? messageId.hashCode() : 0);
-        result = 31 * result + (int) (receiverId ^ (receiverId >>> 32));
-        result = 31 * result + (int) (actorId ^ (actorId >>> 32));
-        result = 31 * result + (isSeen != null ? isSeen.hashCode() : 0);
-        result = 31 * result + (DateAdded != null ? DateAdded.hashCode() : 0);
-        result = 31 * result + (actor != null ? actor.hashCode() : 0);
-        return result;
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
     @Override
-    public boolean equals(Object o) {
-       if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NotificationEntity that = (NotificationEntity) o;
-        if (!Objects.equals(id, that.id)) return false;
-        if (auctionId != that.auctionId) return false;
-        if (receiverId != that.receiverId) return false;
-        if (actorId != that.actorId) return false;
-        if (type != null ? !type.equals(that.type) : that.type != null) return false;
-        if (messageId != null ? !messageId.equals(that.messageId) : that.messageId != null) return false;
-        if (isSeen != null ? !isSeen.equals(that.isSeen) : that.isSeen != null) return false;
-        if (DateAdded != null ? !DateAdded.equals(that.DateAdded) : that.DateAdded != null) return false;
-        return actor != null ? actor.equals(that.actor) : that.actor == null;
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof NotificationEntity)) {
+            return false;
+        }
+        NotificationEntity other = (NotificationEntity) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "NotificationEntity{" +
-                "notificationId=" + id +
-                ", type='" + type + '\'' +
-                ", auctionId=" + auctionId +
-                ", messageId=" + messageId +
-                ", receiverId=" + receiverId +
-                ", actorId=" + actorId +
-                ", isSeen=" + isSeen +
-                ", DateAdded=" + DateAdded +
-                ", actor=" + actor +
-                '}';
+        return "entities.NotificationEntity[ id=" + id + " ]";
     }
     
 }

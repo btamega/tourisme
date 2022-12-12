@@ -7,8 +7,7 @@ import beans.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -18,8 +17,7 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
 
-@Named("userEntityController")
-@SessionScoped
+@ManagedBean
 public class UserEntityController implements Serializable {
 
 
@@ -223,7 +221,7 @@ public class UserEntityController implements Serializable {
             }
             if (object instanceof UserEntity) {
                 UserEntity o = (UserEntity) object;
-                return getStringKey(o.getUserId());
+                return getStringKey(o.getId());
             } else {
                 throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+UserEntity.class.getName());
             }

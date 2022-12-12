@@ -5,13 +5,14 @@
 package entities;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Objects;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Data;
 
 /**
@@ -36,49 +37,35 @@ public class MessagesEntity implements Serializable {
     @Column(name = "Message")
     private String message;
     @Column(name = "SendDate")
-    private Timestamp sendDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date sendDate;
     @Column(name = "IsRead")
     private byte isRead;
+    
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (int) (senderId ^ (senderId >>> 32));
-        result = 31 * result + (int) (receiverId ^ (receiverId >>> 32));
-        result = 31 * result + (int) (auctionId ^ (auctionId >>> 32));
-        result = 31 * result + message.hashCode();
-        result = 31 * result + sendDate.hashCode();
-        result = 31 * result + (int) isRead;
-        return result;
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MessagesEntity that = (MessagesEntity) o;
-        if (!Objects.equals(id, that.id)) return false;
-        if (senderId != that.senderId) return false;
-        if (receiverId != that.receiverId) return false;
-        if (auctionId != that.auctionId) return false;
-        if (message != null ? !message.equals(that.message) : that.message != null) return false;
-        if (sendDate != null ? !sendDate.equals(that.sendDate) : that.sendDate != null) return false;
-        if (isRead != that.isRead) return false;
-
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof MessagesEntity)) {
+            return false;
+        }
+        MessagesEntity other = (MessagesEntity) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "MessagesEntity{" +
-                "messageId=" + id +
-                ", senderId=" + senderId +
-                ", receiverId=" + receiverId +
-                ", auctionId=" + auctionId +
-                ", message='" + message + '\'' +
-                ", sendDate=" + sendDate +
-                ", isRead=" + isRead +
-                '}';
+        return "entities.MessagesEntity[ id=" + id + " ]";
     }
     
 }

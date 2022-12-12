@@ -6,15 +6,12 @@ package entities;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import lombok.Data;
 
 /**
@@ -23,8 +20,9 @@ import lombok.Data;
  */
 @Entity
 @Data
+@Table(name="RatingEntity",schema = "RatingEntity", catalog="public")
 public class RatingEntity implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,47 +36,34 @@ public class RatingEntity implements Serializable {
     @Column(name = "Rating")
     private int rating;
     @Column(name = "isSeller")
-    private Byte isSeller; // the toID attribute is the id of seller
+    private Byte isSeller;
     @ManyToOne
-//    @JoinColumn(name="ToID", insertable = false, updatable = false)
-    @JoinColumns({
-        @JoinColumn(name="ToID", referencedColumnName="ToID"),
-        @JoinColumn(name="userId", referencedColumnName="userId")
-    })
     private UserEntity receiver;
     
 
     @Override
     public int hashCode() {
-        int result = (int) (fromId ^ (fromId >>> 32));
-        result = 31 * result + (int) (toId ^ (toId >>> 32));
-        result = 31 * result + (int) (auctionId ^ (auctionId >>> 32));
-        result = 31 * result + rating;
-        return result;
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
     @Override
-    public boolean equals(Object o) {
-         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        RatingEntity that = (RatingEntity) o;
-
-        if (fromId != that.fromId) return false;
-        if (toId != that.toId) return false;
-        if (auctionId != that.auctionId) return false;
-        return rating == that.rating;
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof RatingEntity)) {
+            return false;
+        }
+        RatingEntity other = (RatingEntity) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "RatingEntity{" +
-                "fromId=" + fromId +
-                ", toId=" + toId +
-                ", auctionId=" + auctionId +
-                ", rating=" + rating +
-                ", isSeller=" + isSeller +
-                '}';
+        return "entities.RatingEntity[ id=" + id + " ]";
     }
     
 }

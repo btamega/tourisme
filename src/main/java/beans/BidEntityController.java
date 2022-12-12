@@ -7,8 +7,7 @@ import beans.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -17,8 +16,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("bidEntityController")
-@SessionScoped
+@ManagedBean
 public class BidEntityController implements Serializable {
 
     private BidEntity current;
@@ -223,7 +221,7 @@ public class BidEntityController implements Serializable {
             }
             if (object instanceof BidEntity) {
                 BidEntity o = (BidEntity) object;
-                return getStringKey(o.getBidid());
+                return getStringKey(o.getId());
             } else {
                 throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + BidEntity.class.getName());
             }
