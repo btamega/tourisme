@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Recommandation engine</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet name="css/organism.css"/>
+        <h:outputStylesheet name="css/skeleton.css"/>
+    </h:head>
+    <body>
+        <header class="l-full">
+            <div class="c-header h-cf">
+                <div class="two columns">
+                    <h:link class="c-dropdown__trigger" outcome="/index" value="Home"/>
+                </div>
+                <div class="three columns">
+                    <a href="/" class="icon-home home"></a>
+                    <span class="greetings">
+                        <c:if test="${not empty userEntityController.selected.username}">
+                        Hello ${userEntityController.selected.username},
+                    </c:if>
+                    <c:if test="${empty userEntityController.selected.username}">
+                        <c:if test="${empty userEntityController.selected.isAdmin}">
+                            Hello guest,
+                        </c:if>
+                        <c:if test="${not empty userEntityController.selected.isAdmin}">
+                            Hello admin ${userEntityController.selected.username},
+                        </c:if>
+                    </c:if>
+                    </span>
+                </div>
+                <div class="offset-by-one two columns">
+                <div class="c-dropdown c-notification" unselectable="on">
+                    <span class="c-dropdown__trigger"><span class="c-btn--round c-btn icon-bell"></span>notifications</span>
+                    <div class="c-dropdown__content notifications">
+                        <p class="c-dropdown__title">Latest notifications</p>
+                        <c:if test="${not empty notifLst}">
+                            <c:forEach var="notification" items="${notifLst}">
+                                <c:if test="${notification.isSeen == 1}">
+                                    <p class="c-notification--seen">
+                                        You have a new notification from user 
+                                    </p>
+                                </c:if>
+                                <c:if test="${notification.isSeen == 0}">
+                                    <p class="c-notification--unseen" data-type="${notification.type}">
+                                        You have a new notification
+                                    </p>
+                                </c:if>
+                            </c:forEach>
+                        </c:if>
+                    </div>
+                </div>
+            </div>
+            <div class="two columns">
+                <div class="c-dropdown c-messages" unselectable="on">
+                    <span class="c-dropdown__trigger"><span class="c-btn--round c-btn icon-chat-alt"></span>messages</span>
+                    <div class="c-dropdown__content l-pad1">
+                        <a class="icon-download c-dropdown__item" href="/message.do?action=listInbox">Inbox</a><br />
+                        <a class="icon-upload c-dropdown__item" href="/message.do?action=listSent">Sent</a>
+                    </div>
+                </div>
+            </div>
+            <div class="two columns">
+                <div class="c-dropdown c-ratings" unselectable="on">
+                    <span class="c-dropdown__trigger"><span class="c-btn--round c-btn icon-star-filled"></span>ratings</span>
+                    <div class="c-dropdown__content l-pad1">
+                        <a class="icon-download c-dropdown__item" href="/rate.do?action=listFrom">Received</a><br/>
+                        <a class="icon-upload c-dropdown__item" href="/rate.do?action=listTo">Submitted</a>
+                    </div>
+                </div>
+            </div>
+            <div class="two columns logout">
+                <a href="/logout"><span class="delete icon-power">Logout</span></a>
+            </div>
+        </div>
+        </header>
+    </body>
+</html>

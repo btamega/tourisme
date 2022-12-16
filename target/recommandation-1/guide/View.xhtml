@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewGuideTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewGuideLabel_id}"/>
+                    <h:outputText value="#{guideController.selected.id}" title="#{bundle.ViewGuideTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewGuideLabel_nom}"/>
+                    <h:outputText value="#{guideController.selected.nom}" title="#{bundle.ViewGuideTitle_nom}"/>
+                    <h:outputText value="#{bundle.ViewGuideLabel_prenom}"/>
+                    <h:outputText value="#{guideController.selected.prenom}" title="#{bundle.ViewGuideTitle_prenom}"/>
+                    <h:outputText value="#{bundle.ViewGuideLabel_telephone}"/>
+                    <h:outputText value="#{guideController.selected.telephone}" title="#{bundle.ViewGuideTitle_telephone}"/>
+                    <h:outputText value="#{bundle.ViewGuideLabel_email}"/>
+                    <h:outputText value="#{guideController.selected.email}" title="#{bundle.ViewGuideTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{guideController.destroyAndView}" value="#{bundle.ViewGuideDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewGuideEditLink}"/>
+                <br />
+                <h:commandLink action="#{guideController.prepareCreate}" value="#{bundle.ViewGuideCreateLink}" />
+                <br />
+                <h:commandLink action="#{guideController.prepareList}" value="#{bundle.ViewGuideShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewGuideIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

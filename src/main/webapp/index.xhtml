@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Recommandation engine</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="css/organism.css"/>
+        <h:outputStylesheet name="css/skeleton.css"/>
+        <h:outputScript  name="js/jquery.min.js" />
+        <h:outputScript  name="js/scripts.js" />
+        <style>
+        h4.u-center-text.button {
+            position: relative;
+            top: -10px;
+            background: white;
+            box-shadow: 0 -4px 47px -5px #eee;
+            border: none;
+            border-top: 1px solid #333;
+            border-radius: 0;
+            margin-top:0;
+        }
+
+
+        @-webkit-keyframes moveDown{
+            from{ top: -10px;}
+            to{ top: -2px;}
+        }
+
+
+        h4.u-center-text.button:hover{
+            -webkit-animation: moveDown 500ms;
+            top: -2px;
+        }
+
+    </style>
+    </h:head>
+    <h:body>
+        <ui:include src="./header.xhtml" />
+        <div class="container">
+            <div class="row">
+                <h3><span class="icon-search"></span> Search for a product</h3>
+                <h:form class="row">
+                    <h:inputText class="seven columns" value=""/>
+                    <h:commandLink class="two columns button-primary" action="#{userEntityController.create}" value="Search"></h:commandLink>
+                     <h:link class="two columns advanced" outcome="/public/customSearch" value="Advanced"/>
+                </h:form>
+            </div>
+            <div class="row">
+                <div class="seven columns">
+                    <h3><span class="icon-user"></span>Register at our eshop</h3>
+                    <p class="small-p">
+                        In order to start buying or selling items on auction-website, you have to create an account.<br />
+                        <a class="button button-primary" href="./userEntity/register.xhtml" style="margin-top: 5px;">register</a>
+                    </p>
+                </div>
+                <div class="three columns">
+                    <h3><span class=""></span>Login</h3>
+                    <section class="login u-full-width">
+                        <h:form id="loginForm">
+                            <h:outputLabel> Email </h:outputLabel>
+                            <h:inputText class="u-full-width" p:type="email" id="email" value="#{userEntityController.selected.email}"/>
+                            <h:outputLabel for="password">password</h:outputLabel>
+                            <h:inputText class="u-full-width" p:type="password" id="password" value="#{userEntityController.selected.password}"/>
+                            <h:inputText p:type="hidden" value="user"/>
+                            <h:commandLink class="button-primary u-pull-left" action="#{userEntityController.login}" value="Login" />
+                        </h:form >
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <h:link outcome="/attractions/List" value="Show All Attractions Items"/>
+        <br />
+        <h:link outcome="/circuits/List" value="Show All Circuits Items"/>
+        <br />
+        <h:link outcome="/guide/List" value="Show All Guide Items"/>
+        <br />
+        <h:link outcome="/images/List" value="Show All Images Items"/>
+        <br />
+        <h:link outcome="/userEntity/List" value="Show All UserEntity Items"/>
+        <br />
+        <h:link outcome="/visitesGuidees/List" value="Show All VisitesGuidees Items"/>
+        <br />
+    </h:body>
+    
+</html>
+

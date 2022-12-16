@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Recommandation engine | Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet name="css/organism.css"/>
+        <h:outputStylesheet name="css/skeleton.css"/>
+    </h:head>
+    <h:body>
+        <ui:include src="./../header.xhtml" />
+        <div class="container">
+            <div class="row">
+                    <section class="register u-full-width">
+                        <h1>Register at our recommandation engine</h1>
+                        <c:if test="${not empty errorMsg}">
+                        <p class="status--error">${errorMsg}</p>
+                        </c:if>
+                        <h:form id="registerForm">
+                            <h:inputText p:type="hidden" value="register"/>
+                            <div class="row">
+                                <div class="six columns">
+                                    <h:outputLabel for="username">Username</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="username" required="true" value="#{userEntityController.selected.username}"/>
+                                    <span class="js-input-error"></span>
+                                </div>
+                                <div class="six columns">
+                                    <h:outputLabel for="email">Email:</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="email" id="email" value="#{userEntityController.selected.email}" required="true" />
+                                    <span class="js-input-error"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns">
+                                    <h:outputLabel for="name">Name:</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="name" value="#{userEntityController.selected.firstName}" p:minlength="2" required="true"/>
+                                </div>
+
+                                <div class="six columns">
+                                    <h:outputLabel for="lastname">Lastname:</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="lastname" value="#{userEntityController.selected.lastName}" p:minlength="2" required="true" p:autofocus="true"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns">
+                                    <h:outputLabel for="password">Password:</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="password" id="password" p:name="password" value="#{userEntityController.selected.password}" p:minlength="3" required="true" p:autofocus="true"/>
+                                </div>
+                                <div class="six columns">
+                                    <h:outputLabel for="repeat_password">Verify Password:</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="password" id="repeat_password" p:name="repeat_password" p:equalTo="#regPassword" required="true" p:autofocus="true"/>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="six columns">
+                                    <h:outputLabel for="phone">Phone number:</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="phone" value="#{userEntityController.selected.phoneNumber}" p:name="phone" p:minlength="2" required="true" p:autofocus="true"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns">
+                                    <h:outputLabel for="address">Address</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="address" value="#{userEntityController.selected.adresse}" p:name="address" p:minlength="2" required="true" p:autofocus="true" />
+                                    <h:outputLabel for="city">City</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="city" value="#{userEntityController.selected.city}" p:name="city" p:minlength="2" required="true" p:autofocus="true"/>
+                                    <h:outputLabel for="country">Country</h:outputLabel>
+                                    <h:inputText class="u-full-width" p:type="text" id="country" value="#{userEntityController.selected.country}" p:name="country" p:minlength="2" required="true" p:autofocus="true"/>
+                                </div>
+                                <div class="six columns">
+                                    <div id="map" style="height: 250px;"></div>
+                                </div>
+                            </div>
+                            <h:commandLink class="button-primary" action="#{userEntityController.register}" value="Register" />
+                        </h:form>
+                    </section>
+                </div>
+            </div>
+    </h:body>
+</html>

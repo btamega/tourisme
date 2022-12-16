@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Recommandation engine | Advanced Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet name="css/organism.css"/>
+        <h:outputStylesheet name="css/skeleton.css"/>
+        <h:outputScript  name="js/jquery.min.js" />
+        <h:outputScript  name="js/scripts.js" />
+    </h:head>
+    <h:body>
+        <ui:include src="./../header.xhtml" />
+        <div class="container">
+            <h1>Advanced Search</h1>
+            <h:form id="advanced_search">
+                <div class="row">
+                    <div class="four columns">
+                        <h:outputLabel for="categories">Multi select (use ctrl + click)</h:outputLabel>
+                        <!--<jsp:useBean id="categoriesLst" class="java.util.ArrayList" scope="request" />-->
+                        <h:selectManyListbox class="a-select--multiple" id="categories" p:name="categories" p:multiple="true" size="${categoriesLst.size()}">
+                            <c:forEach var="category" items="${categoriesLst}">
+                                <option value="${category.categoryId}">${category.categoryName}</option>
+                            </c:forEach>
+                        </h:selectManyListbox>
+                    </div>
+                    <div class="eight columns">
+                        <h:outputLabel>Description</h:outputLabel>
+                        <h:inputTextarea  class="u-full-width" p:placeholder="e.g. a high quality sa..." p:name="description"></h:inputTextarea >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="eight columns">
+                        <h:outputLabel>Location</h:outputLabel>
+                        <h:inputText class="u-full-width" p:type="search" p:name="location" p:placeholder="e.g. Athens"/>
+                    </div>
+                    <div class="two columns">
+                        <h:outputLabel>Minimum Price</h:outputLabel>
+                        <h:inputText class="u-full-width" p:type="number" p:min="0" p:name="minPrice" p:placeholder="0"/>
+                    </div>
+                    <div class="two columns">
+                        <h:outputLabel>Maximum Price</h:outputLabel>
+                        <h:inputText class="u-full-width" p:type="number" p:min="1" p:name="maxPrice" p:placeholder="100000"/>
+                    </div>
+                </div>
+                <h:commandLink class="button-primary" action="#{userEntityController.search}" value="Search"></h:commandLink>
+            </h:form>
+        </div>
+    </h:body>
+</html>
