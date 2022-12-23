@@ -16,14 +16,14 @@ import javax.inject.Named;
 import lombok.Data;
 import entities.UserEntity;
 import java.util.Map;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 /**
  *
  * @author BOUGARYTAMEGA
  */
-@Named("loginBean")
-@SessionScoped
+@ManagedBean
 public class loginBean implements Serializable{
 
     // Add business logic below. (Right-click in editor and choose
@@ -32,8 +32,8 @@ public class loginBean implements Serializable{
 //     String txtProperty = request.getParameter("loginForm:username");
 //    private UserEntity current = new UserEntity();
     Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-    private String email = params.get("email");
-    private String password = params.get("password");
+    private final String email = params.get("email");
+    private final String password = params.get("password");
     public void login(){
         System.out.println("Username: "+email+" && password is "+password);
     }

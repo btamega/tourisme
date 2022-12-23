@@ -61,15 +61,14 @@
                     <section class="login u-full-width">
                         <h:form id="loginForm">
                             <label> username </label>
-                            <h:inputText class="u-full-width" p:type="email" id="username" p:required="true" p:name="username" value="#{email}" />
+                            <h:inputText class="u-full-width" p:type="email" id="username" p:required="true" p:name="username" value="#{userEntityController.selected.email}" />
                             <label for="password">password</label>
-                            <h:inputText class="u-full-width" p:type="password" id="password" p:name="password" p:required="true" value="#{password}" />
+                            <h:inputText class="u-full-width" p:type="password" id="password" p:name="password" p:required="true" value="#{userEntityController.selected.password}" />
                             <c:if test="${not empty errorMsg}">
                                 <p class="status--error">${errorMsg}</p>
                             </c:if>
-                            <h:commandButton  class="button-primary u-pull-left"  value="Login" action="#{loginBean.login()}">
+                            <h:commandButton  class="button-primary u-pull-left"  value="Login" action="#{userEntityController.login()}">
                                 <f:param name="email" value="#{email.value}" />
-                                <f:param name="password" value="#{password.value}" />
                             </h:commandButton>
                         </h:form>
                     </section>
