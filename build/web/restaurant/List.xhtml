@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRestaurantTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRestaurantEmpty}" rendered="#{restaurantController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{restaurantController.items.rowCount > 0}">
+                    <h:outputText value="#{restaurantController.pagination.pageFirstItem + 1}..#{restaurantController.pagination.pageLastItem + 1}/#{restaurantController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{restaurantController.previous}" value="#{bundle.Previous} #{restaurantController.pagination.pageSize}" rendered="#{restaurantController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{restaurantController.next}" value="#{bundle.Next} #{restaurantController.pagination.pageSize}" rendered="#{restaurantController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{restaurantController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_ville}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ville}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_menus}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.menus}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_reservation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reservation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_nombreEtoiles}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreEtoiles}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_phoneNumber}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phoneNumber}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_ouverture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ouverture}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_fermeture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fermeture}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_siteweb}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.siteweb}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{restaurantController.prepareView}" value="#{bundle.ListRestaurantViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{restaurantController.prepareEdit}" value="#{bundle.ListRestaurantEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{restaurantController.destroy}" value="#{bundle.ListRestaurantDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{restaurantController.prepareCreate}" value="#{bundle.ListRestaurantCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRestaurantIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

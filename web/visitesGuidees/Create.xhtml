@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateVisitesGuideesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateVisitesGuideesLabel_id_visite_guidee}" for="id_visite_guidee" />
+                    <h:inputText id="id_visite_guidee" value="#{visitesGuideesController.selected.id_visite_guidee}" title="#{bundle.CreateVisitesGuideesTitle_id_visite_guidee}" />
+                    <h:outputLabel value="#{bundle.CreateVisitesGuideesLabel_titre}" for="titre" />
+                    <h:inputText id="titre" value="#{visitesGuideesController.selected.titre}" title="#{bundle.CreateVisitesGuideesTitle_titre}" />
+                    <h:outputLabel value="#{bundle.CreateVisitesGuideesLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{visitesGuideesController.selected.description}" title="#{bundle.CreateVisitesGuideesTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateVisitesGuideesLabel_guide}" for="guide" />
+                    <h:selectOneMenu id="guide" value="#{visitesGuideesController.selected.guide}" title="#{bundle.CreateVisitesGuideesTitle_guide}" >
+                        <f:selectItems value="#{guideController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateVisitesGuideesLabel_cost}" for="cost" />
+                    <h:inputText id="cost" value="#{visitesGuideesController.selected.cost}" title="#{bundle.CreateVisitesGuideesTitle_cost}" />
+                    <h:outputLabel value="#{bundle.CreateVisitesGuideesLabel_duree}" for="duree" />
+                    <h:inputText id="duree" value="#{visitesGuideesController.selected.duree}" title="#{bundle.CreateVisitesGuideesTitle_duree}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{visitesGuideesController.create}" value="#{bundle.CreateVisitesGuideesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{visitesGuideesController.prepareList}" value="#{bundle.CreateVisitesGuideesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateVisitesGuideesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

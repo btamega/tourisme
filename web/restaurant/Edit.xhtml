@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRestaurantTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{restaurantController.selected.id}" title="#{bundle.EditRestaurantTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{restaurantController.selected.name}" title="#{bundle.EditRestaurantTitle_name}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_ville}" for="ville" />
+                    <h:inputText id="ville" value="#{restaurantController.selected.ville}" title="#{bundle.EditRestaurantTitle_ville}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_menus}" for="menus" />
+                    <h:inputText id="menus" value="#{restaurantController.selected.menus}" title="#{bundle.EditRestaurantTitle_menus}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_reservation}" for="reservation" />
+                    <h:selectOneMenu id="reservation" value="#{restaurantController.selected.reservation}" title="#{bundle.EditRestaurantTitle_reservation}" >
+                        <f:selectItems value="#{reservationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_nombreEtoiles}" for="nombreEtoiles" />
+                    <h:inputText id="nombreEtoiles" value="#{restaurantController.selected.nombreEtoiles}" title="#{bundle.EditRestaurantTitle_nombreEtoiles}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{restaurantController.selected.phoneNumber}" title="#{bundle.EditRestaurantTitle_phoneNumber}" required="true" requiredMessage="#{bundle.EditRestaurantRequiredMessage_phoneNumber}"/>
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_ouverture}" for="ouverture" />
+                    <h:inputText id="ouverture" value="#{restaurantController.selected.ouverture}" title="#{bundle.EditRestaurantTitle_ouverture}" >
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_fermeture}" for="fermeture" />
+                    <h:inputText id="fermeture" value="#{restaurantController.selected.fermeture}" title="#{bundle.EditRestaurantTitle_fermeture}" >
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{restaurantController.selected.description}" title="#{bundle.EditRestaurantTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_siteweb}" for="siteweb" />
+                    <h:inputText id="siteweb" value="#{restaurantController.selected.siteweb}" title="#{bundle.EditRestaurantTitle_siteweb}" />
+                    <h:outputLabel value="#{bundle.EditRestaurantLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{restaurantController.selected.email}" title="#{bundle.EditRestaurantTitle_email}" />
+                </h:panelGrid>
+                <h:commandLink action="#{restaurantController.update}" value="#{bundle.EditRestaurantSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditRestaurantViewLink}"/>
+                <br />
+                <h:commandLink action="#{restaurantController.prepareList}" value="#{bundle.EditRestaurantShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditRestaurantIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

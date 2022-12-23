@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewHotelsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewHotelsLabel_id}"/>
+                    <h:outputText value="#{hotelsController.selected.id}" title="#{bundle.ViewHotelsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_name}"/>
+                    <h:outputText value="#{hotelsController.selected.name}" title="#{bundle.ViewHotelsTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_ville}"/>
+                    <h:outputText value="#{hotelsController.selected.ville}" title="#{bundle.ViewHotelsTitle_ville}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_equipements}"/>
+                    <h:outputText value="#{hotelsController.selected.equipements}" title="#{bundle.ViewHotelsTitle_equipements}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_reservation}"/>
+                    <h:outputText value="#{hotelsController.selected.reservation}" title="#{bundle.ViewHotelsTitle_reservation}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_nombreChambre}"/>
+                    <h:outputText value="#{hotelsController.selected.nombreChambre}" title="#{bundle.ViewHotelsTitle_nombreChambre}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_nombreEtoiles}"/>
+                    <h:outputText value="#{hotelsController.selected.nombreEtoiles}" title="#{bundle.ViewHotelsTitle_nombreEtoiles}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_phoneNumber}"/>
+                    <h:outputText value="#{hotelsController.selected.phoneNumber}" title="#{bundle.ViewHotelsTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_adresse}"/>
+                    <h:outputText value="#{hotelsController.selected.adresse}" title="#{bundle.ViewHotelsTitle_adresse}"/>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_ouverture}"/>
+                    <h:outputText value="#{hotelsController.selected.ouverture}" title="#{bundle.ViewHotelsTitle_ouverture}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_fermeture}"/>
+                    <h:outputText value="#{hotelsController.selected.fermeture}" title="#{bundle.ViewHotelsTitle_fermeture}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewHotelsLabel_email}"/>
+                    <h:outputText value="#{hotelsController.selected.email}" title="#{bundle.ViewHotelsTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{hotelsController.destroyAndView}" value="#{bundle.ViewHotelsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewHotelsEditLink}"/>
+                <br />
+                <h:commandLink action="#{hotelsController.prepareCreate}" value="#{bundle.ViewHotelsCreateLink}" />
+                <br />
+                <h:commandLink action="#{hotelsController.prepareList}" value="#{bundle.ViewHotelsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewHotelsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

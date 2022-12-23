@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Recommandation engine</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="css/custom.css"/>
+        <h:outputStylesheet name="css/organism.css"/>
+        <h:outputStylesheet name="css/skeleton.css"/>
+        <style>
+        h4.u-center-text.button {
+            position: relative;
+            top: -10px;
+            background: white;
+            box-shadow: 0 -4px 47px -5px #eee;
+            border: none;
+            border-top: 1px solid #333;
+            border-radius: 0;
+            margin-top:0;
+        }
+
+
+        @-webkit-keyframes moveDown{
+            from{ top: -10px;}
+            to{ top: -2px;}
+        }
+
+
+        h4.u-center-text.button:hover{
+            -webkit-animation: moveDown 500ms;
+            top: -2px;
+        }
+    </style>
+    </h:head>
+    <h:body>
+        <ui:include src="./header.xhtml" />
+        <div class="container">
+            <div class="row">
+                <h3><span class="icon-search"></span> Search for a product</h3>
+                <h:form class="row">
+                    <h:inputText class="seven columns" p:type="text" p:name="name" />
+                    <h:commandButton class="two columns button-primary"  value="Search" action="#{SearchBean.search()}"></h:commandButton>
+                    <a class="two columns advanced" href="/search.do?action=advancedSearch">Advanced</a>
+                </h:form>
+            </div>
+            <div class="row">
+                <div class="seven columns">
+                    <h3><span class="icon-user"></span>Register at our eshop</h3>
+                    <p class="small-p">
+                        In order to start buying or selling items on auction-website, you have to create an account.<br />
+                        <a class="button button-primary" href="/public/register.jsp" style="margin-top: 5px;">register</a>
+                    </p>
+                </div>
+                <div class="three columns">
+                    <h3><span class=""></span>Login</h3>
+                    <section class="login u-full-width">
+                        <h:form id="loginForm">
+                            <label> username </label>
+                            <h:inputText class="u-full-width" p:type="email" id="username" p:required="true" p:name="username" value="#{email}" />
+                            <label for="password">password</label>
+                            <h:inputText class="u-full-width" p:type="password" id="password" p:name="password" p:required="true" value="#{password}" />
+                            <c:if test="${not empty errorMsg}">
+                                <p class="status--error">${errorMsg}</p>
+                            </c:if>
+                            <h:commandButton  class="button-primary u-pull-left"  value="Login" action="#{loginBean.login()}">
+                                <f:param name="email" value="#{email.value}" />
+                                <f:param name="password" value="#{password.value}" />
+                            </h:commandButton>
+                        </h:form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <br />
+        <h:link outcome="/address/List" value="Show All Address Items"/>
+        <br />
+        <h:link outcome="/attractions/List" value="Show All Attractions Items"/>
+        <br />
+        <h:link outcome="/bibliotheque/List" value="Show All Bibliotheque Items"/>
+        <br />
+        <h:link outcome="/circuits/List" value="Show All Circuits Items"/>
+        <br />
+        <h:link outcome="/comment/List" value="Show All Comment Items"/>
+        <br />
+        <h:link outcome="/guide/List" value="Show All Guide Items"/>
+        <br />
+        <h:link outcome="/hotels/List" value="Show All Hotels Items"/>
+        <br />
+        <h:link outcome="/images/List" value="Show All Images Items"/>
+        <br />
+        <h:link outcome="/notificationEntity/List" value="Show All NotificationEntity Items"/>
+        <br />
+        <h:link outcome="/ratingEntity/List" value="Show All RatingEntity Items"/>
+        <br />
+        <h:link outcome="/reservation/List" value="Show All Reservation Items"/>
+        <br />
+        <h:link outcome="/restaurant/List" value="Show All Restaurant Items"/>
+        <br />
+        <h:link outcome="/userEntity/List" value="Show All UserEntity Items"/>
+        <br />
+        <h:link outcome="/visitesGuidees/List" value="Show All VisitesGuidees Items"/>
+    </h:body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+

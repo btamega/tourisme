@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUserEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_id_user}"/>
+                    <h:outputText value="#{userEntityController.selected.id_user}" title="#{bundle.ViewUserEntityTitle_id_user}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_username}"/>
+                    <h:outputText value="#{userEntityController.selected.username}" title="#{bundle.ViewUserEntityTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_email}"/>
+                    <h:outputText value="#{userEntityController.selected.email}" title="#{bundle.ViewUserEntityTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_password}"/>
+                    <h:outputText value="#{userEntityController.selected.password}" title="#{bundle.ViewUserEntityTitle_password}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_firstName}"/>
+                    <h:outputText value="#{userEntityController.selected.firstName}" title="#{bundle.ViewUserEntityTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_lastName}"/>
+                    <h:outputText value="#{userEntityController.selected.lastName}" title="#{bundle.ViewUserEntityTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_phoneNumber}"/>
+                    <h:outputText value="#{userEntityController.selected.phoneNumber}" title="#{bundle.ViewUserEntityTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_homeAddress}"/>
+                    <h:outputText value="#{userEntityController.selected.homeAddress}" title="#{bundle.ViewUserEntityTitle_homeAddress}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_city}"/>
+                    <h:outputText value="#{userEntityController.selected.city}" title="#{bundle.ViewUserEntityTitle_city}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_country}"/>
+                    <h:outputText value="#{userEntityController.selected.country}" title="#{bundle.ViewUserEntityTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewUserEntityLabel_isAdmin}"/>
+                    <h:outputText value="#{userEntityController.selected.isAdmin}" title="#{bundle.ViewUserEntityTitle_isAdmin}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{userEntityController.destroyAndView}" value="#{bundle.ViewUserEntityDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewUserEntityEditLink}"/>
+                <br />
+                <h:commandLink action="#{userEntityController.prepareCreate}" value="#{bundle.ViewUserEntityCreateLink}" />
+                <br />
+                <h:commandLink action="#{userEntityController.prepareList}" value="#{bundle.ViewUserEntityShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewUserEntityIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

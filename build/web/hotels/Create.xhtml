@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateHotelsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{hotelsController.selected.id}" title="#{bundle.CreateHotelsTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{hotelsController.selected.name}" title="#{bundle.CreateHotelsTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_ville}" for="ville" />
+                    <h:inputText id="ville" value="#{hotelsController.selected.ville}" title="#{bundle.CreateHotelsTitle_ville}" />
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_equipements}" for="equipements" />
+                    <h:inputText id="equipements" value="#{hotelsController.selected.equipements}" title="#{bundle.CreateHotelsTitle_equipements}" />
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_reservation}" for="reservation" />
+                    <h:selectOneMenu id="reservation" value="#{hotelsController.selected.reservation}" title="#{bundle.CreateHotelsTitle_reservation}" >
+                        <f:selectItems value="#{reservationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_nombreChambre}" for="nombreChambre" />
+                    <h:inputText id="nombreChambre" value="#{hotelsController.selected.nombreChambre}" title="#{bundle.CreateHotelsTitle_nombreChambre}" />
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_nombreEtoiles}" for="nombreEtoiles" />
+                    <h:inputText id="nombreEtoiles" value="#{hotelsController.selected.nombreEtoiles}" title="#{bundle.CreateHotelsTitle_nombreEtoiles}" />
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{hotelsController.selected.phoneNumber}" title="#{bundle.CreateHotelsTitle_phoneNumber}" required="true" requiredMessage="#{bundle.CreateHotelsRequiredMessage_phoneNumber}"/>
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_adresse}" for="adresse" />
+                    <h:selectOneMenu id="adresse" value="#{hotelsController.selected.adresse}" title="#{bundle.CreateHotelsTitle_adresse}" >
+                        <f:selectItems value="#{addressController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_ouverture}" for="ouverture" />
+                    <h:inputText id="ouverture" value="#{hotelsController.selected.ouverture}" title="#{bundle.CreateHotelsTitle_ouverture}" >
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_fermeture}" for="fermeture" />
+                    <h:inputText id="fermeture" value="#{hotelsController.selected.fermeture}" title="#{bundle.CreateHotelsTitle_fermeture}" >
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateHotelsLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{hotelsController.selected.email}" title="#{bundle.CreateHotelsTitle_email}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{hotelsController.create}" value="#{bundle.CreateHotelsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{hotelsController.prepareList}" value="#{bundle.CreateHotelsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateHotelsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
